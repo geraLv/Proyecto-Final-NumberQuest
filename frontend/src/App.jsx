@@ -1,11 +1,20 @@
 import React from "react";
-import AppRouter from "./routes/AppRouter.jsx"
-import "./index.css" 
+import NavBar from "./components/navbar";
+import "./index.css";
+import { Carousel } from "bootstrap";
+import Layaut from "./components/layaut";
+import Boleques from "./components/bloques.jsx";
 
 function App() {
   return (
-    <AppRouter/>
+    <>
+      <NavBar></NavBar>
+      <Carousel></Carousel>
+      <Layaut>
+        <Bloques></Bloques>
+      </Layaut>
+    </>
   );
 }
 
-export default App;
+export { App };
