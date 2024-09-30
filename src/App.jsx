@@ -1,5 +1,6 @@
 import Bloques from "./components/bloques";
-import Carusel from "./components/carusel";
+import { MenuDefault } from "./components/button";
+import { CarouselDefault } from "./components/carusel";
 import Footer from "./components/footer";
 import Layaut from "./components/layaut";
 import NavBar from "./components/navbar";
@@ -7,9 +8,11 @@ import NavBar from "./components/navbar";
 function App() {
   return (
     <>
-      <NavBar></NavBar>
+      <NavBar>
+        <MenuDefault></MenuDefault>
+      </NavBar>
+      <CarouselDefault></CarouselDefault>
       <Layaut>
-        <Carusel></Carusel>
         <Bloques></Bloques>
       </Layaut>
       <Footer></Footer>

@@ -1,18 +1,18 @@
 import React from "react";
+import { MenuDefault } from "./button";
 
 const NavBar = () => {
   return (
     <div className="flex-row bg-slate-100">
       <section className="px-14 py-5">
-        <header class=" shadow-black shadow-md self-center rounded-xl text-gray-400 bg-slate-600 body-font">
+        <header class="bg-dark shadow-black shadow-md self-center rounded-xl text-gray-400 bg-slate-600 body-font">
           <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
               <a class="mr-5 hover:text-white">
                 <h1>Inicio</h1>
               </a>
-              <a class="mr-5 hover:text-white">
-                <h1>Unidades</h1>
-              </a>
+              <MenuDefault>Unidades</MenuDefault>
+              <a class="mr-5 hover:text-white"></a>
             </nav>
             <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-white lg:items-center lg:justify-center mb-4 md:mb-0">
               <svg
@@ -27,7 +27,7 @@ const NavBar = () => {
               >
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
               </svg>
-              <span class="ml-3 text-xl xl:block lg:hidden">Namber Quest</span>
+              <span class="ml-3 text-xl xl:block lg:hidden">Number Quest</span>
             </a>
             <div class="lg:w-2/5 space-x-4 inline-flex lg:justify-end ml-5 lg:ml-0">
               <a class="mr-5 hover:text-white self-center">Iniciar sesión</a>

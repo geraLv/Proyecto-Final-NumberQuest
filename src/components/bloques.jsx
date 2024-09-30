@@ -7,7 +7,7 @@ const Bloques = () => {
         <div class="container mx-1/2">
           <div class="flex flex-wrap -m-4">
             <div class="xl:w-1/4 md:w-1/2 px-4 py-4">
-              <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg">
+              <div class="bg-brandDark bg-opacity-90 p-6 rounded-lg">
                 <img
                   class="h-40 rounded w-full object-cover object-center mb-6"
                   src="https://dummyimage.com/720x400"
@@ -26,7 +26,7 @@ const Bloques = () => {
               </div>
             </div>
             <div class="xl:w-1/4 md:w-1/2 p-4">
-              <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg">
+              <div class="bg-brandDark bg-opacity-90 p-6 rounded-lg">
                 <img
                   class="h-40 rounded w-full object-cover object-center mb-6"
                   src="https://dummyimage.com/720x400"
@@ -45,7 +45,7 @@ const Bloques = () => {
               </div>
             </div>
             <div class="xl:w-1/4 md:w-1/2 p-4">
-              <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg">
+              <div class="bg-brandDark bg-opacity-90 p-6 rounded-lg">
                 <img
                   class="h-40 rounded w-full object-cover object-center mb-6"
                   src="https://dummyimage.com/720x400"
@@ -64,7 +64,7 @@ const Bloques = () => {
               </div>
             </div>
             <div class="xl:w-1/4 md:w-1/2 p-4">
-              <div class="bg-gray-800 bg-opacity-40 p-6 rounded-lg">
+              <div class="bg-brandDark bg-opacity-90 p-6 rounded-lg">
                 <img
                   class="h-40 rounded w-full object-cover object-center mb-6"
                   src="https://dummyimage.com/720x400"
