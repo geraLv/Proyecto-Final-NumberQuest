@@ -10,11 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD:package.json
     "@material-tailwind/react": "^2.1.10",
-=======
     "bootstrap": "^5.3.3",
->>>>>>> 025e614da9c8f49af148a89843b76d09b7770b0d:frontend/package.json
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
