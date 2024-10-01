@@ -1,9 +1,9 @@
 import React from "react";
 import NavBar from "./components/navbar";
 import "./index.css";
-import { Carousel } from "bootstrap";
+import Carousel from "./components/carusel.jsx";
 import Layaut from "./components/layaut";
-import Boleques from "./components/bloques.jsx";
+import Bloques from "./components/bloques.jsx";
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Carusel = () => {
+const Carousel = () => {
   return (
     <div className="px-3 ">
       <div className="bg-slate-400 rounded-xl shadow-black shadow-md min-w-screen h-96">
@@ -110,4 +110,4 @@ const Carusel = () => {
   );
 };
 
-export default Carusel;
+export default Carousel;
