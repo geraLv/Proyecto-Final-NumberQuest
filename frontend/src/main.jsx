@@ -5,12 +5,14 @@ import App from "./App.jsx";
 // import LoginForm from "./components/loginForm.jsx";
 // import RegisterForm from "./components/registerForm.jsx";
 import "./index.css";
+import { Activities } from "./activities.jsx";
+
 // import ListaTemas from "./lista-temas.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    {/* <App /> */}
     {/* <ListaTemas></ListaTemas> */}
-    <App/>
+    <Activities/>
   </StrictMode>
 );
