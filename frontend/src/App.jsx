@@ -1,18 +1,22 @@
 import React from "react";
 import NavBar from "./components/navbar";
-import "./index.css";
-import Carousel from "./components/carusel.jsx";
+import "./app.css";
+import { CarouselDefault } from "./components/carusel.jsx";
 import Layaut from "./components/layaut";
 import Bloques from "./components/bloques.jsx";
+import Footer from "./components/footer.jsx";
 
 function App() {
   return (
     <>
-      <NavBar></NavBar>
-      <Carousel></Carousel>
+      <NavBar>
+        <Bloques />
+      </NavBar>
+      <CarouselDefault />
       <Layaut>
         <Bloques></Bloques>
       </Layaut>
+      <Footer />
     </>
   );
 }

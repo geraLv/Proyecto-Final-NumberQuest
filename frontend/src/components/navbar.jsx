@@ -8,13 +8,11 @@ const NavBar = () => {
         <header class="bg-dark shadow-black shadow-md self-center rounded-xl text-gray-400 bg-slate-600 body-font">
           <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
-              <a class="mr-5 hover:text-white">
-                <h1>Inicio</h1>
-              </a>
+              <a class="mr-5 hover:text-white">Inicio</a>
               <MenuDefault>Unidades</MenuDefault>
               <a class="mr-5 hover:text-white"></a>
             </nav>
-            <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-white lg:items-center lg:justify-center mb-4 md:mb-0">
+            <a class="flex lg:order-none lg:w-1/5 title-font font-medium items-center text-white lg:items-center lg:justify-center mb-4 md:mb-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
