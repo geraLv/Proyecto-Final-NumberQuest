@@ -10,9 +10,7 @@ import { MenuDefault } from "@material-tailwind/react";
 function Home() {
   return (
     <>
-      <Navbar>
-        <MenuDefault />
-      </Navbar>
+      <Navbar></Navbar>
       <CarouselDefault />
       <Layaut>
         <Bloques />

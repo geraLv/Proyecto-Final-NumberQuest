@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "@material-tailwind/react";
+import Navbar from "./navbar";
+// import { Button } from '@material-tailwind/react';
 
 const RegisterForm = () => {
   const [username, setUsername] = useState("");
@@ -47,36 +48,14 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="flex-row items-center space-y-20 ">
-      <nav className="px-5 space-x-5 flex justify-start w-full h-16 bg-dark">
-        <a class="flex  justify-center lg:order-none title-font h-full font-medium  text-gray-100 lg:items-center  mb-4 md:mb-0">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            class="w-10 h-10 text-white px-2 bg-indigo-500 rounded-full"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
-          <span class="ml-2 text-xl">NumberQuest</span>
-        </a>
-        <Button className="self-center shadow-md shadow-black bg-gray-100 h-11 text-gray-900">
-          Inicio
-        </Button>
-      </nav>
-      <div className=" row justify-content-center p">
-        <div className="bg-dark shadow-2xl shadow-black rounded-xl col-xs-10 col-md-6 col-sm-9 col-lg-5">
-          <div className="bg-dark  opacity-90 card shadow-sm">
+    <div className="container">
+      <div className="row justify-content-center mt-5">
+        <div className="col-xs-10 col-md-6 col-sm-9 col-lg-5">
+          <div className="card shadow-sm">
             <div className="card-body">
-              <h3 className="text-center text-xl text-white mb-4">
-                <h1>Registro</h1>
-              </h3>
+              <h3 className="text-center mb-4">Registro</h3>
               <form onSubmit={handleSubmit}>
-                <div className="form-floating mb-5">
+                <div className="form-floating mb-3">
                   <input
                     type="text"
                     className="form-control"
@@ -88,7 +67,7 @@ const RegisterForm = () => {
                   />
                   <label htmlFor="username">Usuario</label>
                 </div>
-                <div className="form-floating mb-5">
+                <div className="form-floating mb-3">
                   <input
                     type="password"
                     className="form-control"
@@ -100,7 +79,7 @@ const RegisterForm = () => {
                   />
                   <label htmlFor="password">Contraseña</label>
                 </div>
-                <div className="form-floating mb-5">
+                <div className="form-floating mb-3">
                   <input
                     type="password"
                     className="form-control"
@@ -112,10 +91,7 @@ const RegisterForm = () => {
                   />
                   <label htmlFor="confirmPassword">Confirmar Contraseña</label>
                 </div>
-                <button
-                  type="submit"
-                  className="btn bg-blue-gray-600 text-gray-100 w-100"
-                >
+                <button type="submit" className="btn btn-primary w-100">
                   Registrarse
                 </button>
                 <p>
