@@ -38,7 +38,7 @@ const RegisterForm = () => {
             const data = await response.json();
             console.log(data);
             // Redirigir a otra página o mostrar un mensaje de éxito
-            window.location.href = 'login.html';
+            window.location.href = './login';
 
         } catch (error) {
             console.error('Error:', error);
@@ -91,7 +91,7 @@ const RegisterForm = () => {
                                     <label htmlFor="confirmPassword">Confirmar Contraseña</label>
                                 </div>
                                 <button type="submit" className="btn btn-primary w-100">Registrarse</button>
-                                <p>Ya tienes una cuenta? <a href="login.html"><b>Inicia sesión aquí</b></a></p>
+                                <p>Ya tienes una cuenta? <a href="./login"><b>Inicia sesión aquí</b></a></p>
                             </form>
                             {message && <p className="text-danger mt-3">{message}</p>}
                         </div>

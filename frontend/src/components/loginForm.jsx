@@ -33,7 +33,7 @@ const LoginForm = () => {
 
             const data = await response.json();
             console.log(data);
-            window.location.href = 'home.html';
+            window.location.href = '/';
 
         } catch (error) {
             console.error('Error:', error);
@@ -74,7 +74,7 @@ const LoginForm = () => {
                                     <label htmlFor="password">Contraseña</label>
                                 </div>
                                 <button type="submit" className="btn btn-primary w-100">Ingresar</button>
-                                <p>Si no tiene una cuenta <a href="register.html"><b>ingrese aqui</b></a></p>
+                                <p>Si no tiene una cuenta <a href="./register"><b>ingrese aqui</b></a></p>
                             </form>
                             {message && <p className="text-danger mt-3">{message}</p>}
                         </div>

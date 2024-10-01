@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@material-tailwind/react";
 import { MenuDefault } from "./button";
+import { ProfileMenu } from "./button.perfil";
 
 const Navbar = () => {
+  const [usuario, setUsuario] = useState();
+  useEffect(()=>{fetch('http://localhost:4000/session',{
+    credentials:"include"
+  }).then((respuesta)=>respuesta.json()).then((respuesta)=>setUsuario(respuesta))},[])
   return (
     <div>
       <header class="py-5 px-14 text-gray-100 body-font md:w-full">
@@ -33,27 +38,31 @@ const Navbar = () => {
               <span class="ml-2 text-xl">NumberQuest</span>
             </a>
           </>
+          {!usuario ? 
           <>
-            <div class="lg:w-full inline-flex lg:justify-end ml-5 lg:ml-0">
-              <Button className="hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900 ">
-                Sing in
-              </Button>
-              <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base md:mt-0">
-                Register
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  class="w-4 h-4 ml-1"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </button>
-            </div>
-          </>
+          <div class="lg:w-full inline-flex lg:justify-end ml-5 lg:ml-0">
+            <Button className="hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900 ">
+              <a href="./login">Sing in</a>
+            </Button>
+            <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base md:mt-0">
+              <a href="./register">Register</a>
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-1"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </> :<div className="  flex flex-row space-x-8 justify-end w-full ">
+          <Button className="bg-gray-600">{usuario.user.username}</Button>
+          <ProfileMenu className="bg-gray-600"></ProfileMenu>
+          </div>}
         </div>
       </header>
     </div>
