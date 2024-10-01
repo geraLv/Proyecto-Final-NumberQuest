@@ -10,6 +10,10 @@ export const Actividad = () => {
         '-4;4',
         '1/2'
     ];
+    const resoluciones =[
+        "https://th.bing.com/th/id/OIP.OFQpZjI_YOwDZoYnXh1VzwHaD_?rs=1&pid=ImgDetMain",
+        <img src="" alt="" />
+    ]
 
     // Manejo de la primera actividad
     const handleParte1Change = (input) => {
@@ -37,6 +41,7 @@ export const Actividad = () => {
     const textColor = envio === answers[0] ? 'green' : 'red';
     const validar = envio === answers[0] ? 'Correcto' : 'Incorrecto';
     
+
     return (
         <div className="main">
             
@@ -53,40 +58,54 @@ export const Actividad = () => {
             {/* Primera Actividad */}
             <div className='Act1' style={{ margin: '10px 10px 30px 10px' }}>
                 <p style={{
-                    fontSize:  19
+                    fontSize:  20,
+                    marginBottom:   '10px'
+
                 }}>Actividad 1:</p>
-                <img src="../../public/img/funcion1.png" alt="Límite gráfico" />
+                <div style={{
+                    marginBottom:    '10px'
+                }}>A) <img src="../../public/img/funcion1.png" alt="Límite gráfico" /></div>
 
                 {mostrarInputs && (
-                    <p>A) Indica el dominio de la función =
-                    <div className="">
+                    <p style={{ fontSize:17}}>A) Indica el dominio de la función =
+                    <div className="" style={{
+                        marginTop:'10px'
+                    }}>
                         <input
                             type="text"
                             onChange={(e) => handleParte1Change(e.target.value)}
                             placeholder="xx"
-                            maxLength="10"
-                            style={{ width: '80px', padding: '5px' }}
+                            maxLength="4"
+                            style={{width: '70px', padding: '3px', backgroundColor:'#D9DDDE', borderRadius:'5px', border:'solid, black, 2px' }}
                         />
-                        <span>;</span>
+                        <span style={{ fontSize: 20 ,margin: '0px 5px 9px 5px'}}>;</span>
                         <input
                             type="text"
                             onChange={(e) => handleParte2Change(e.target.value)}
                             placeholder="xx"
-                            maxLength="10"
-                            style={{ width: '80px', padding: '5px' }}
+                            maxLength="4"
+                            style={{ width: '70px', padding: '3px', backgroundColor:'#D9DDDE', borderRadius:'5px', border:'solid, black, 2px' }}
                         />
+                                        {mostrarInputs && (
+                    <button onClick={handleSubmit} style={{
+                        backgroundColor: '#AABFC6',
+                        color: '#000',
+                        marginLeft:'10px',
+                        padding: '5px',
+                        border: 'solid, black, 2px',
+                        borderRadius: '5px',
+                    }} >Responder</button>
+                )}
                     </div>
                     </p>
                 )}
                 
-                {mostrarInputs && (
-                    <button onClick={handleSubmit}>Responder</button>
-                )}
+
 
                 {envio && (
                     <div>
-                        <h2>Respuesta Actividad 1:</h2>
-                        <p style={{ color: textColor }}>{envio} es {validar}</p>
+                        <p style={{ color: textColor, fontSize:18 }}>Dominio: {envio} es {validar}</p>
+                        <img src="https://th.bing.com/th/id/OIP.OFQpZjI_YOwDZoYnXh1VzwHaD_?rs=1&pid=ImgDetMain" />
                     </div>
                 )}
             </div>
