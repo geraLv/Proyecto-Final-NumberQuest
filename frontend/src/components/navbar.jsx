@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="bg-dark h-28 mx-auto grid grid-cols-3 px-5 flex-col md:flex-row items-center">
           <nav className="gap-1 flex lg:w-full flex-wrap flex-row items-center text-base md:ml-auto">
             <Button className="hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900">
-              First Link
+              Home
             </Button>
             <MenuDefault>Unidades</MenuDefault>
           </nav>
