@@ -10,7 +10,7 @@ export function MenuDefault() {
   return (
     <Menu>
       <MenuHandler>
-        <Button className="w-25 hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900">
+        <Button class="w-25 hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900">
           Unidades
         </Button>
       </MenuHandler>

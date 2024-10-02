@@ -47,17 +47,17 @@ const RegisterForm = () => {
     };
 
     return (
-        <div className="container">
-            <div className="row justify-content-center mt-5">
-                <div className="col-xs-10 col-md-6 col-sm-9 col-lg-5">
-                    <div className="card shadow-sm">
-                        <div className="card-body">
-                            <h3 className="text-center mb-4">Registro</h3>
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-xs-10 col-md-6 col-sm-9 col-lg-5">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3 class="text-center mb-4">Registro</h3>
                             <form onSubmit={handleSubmit}>
-                                <div className="form-floating mb-3">
+                                <div class="form-floating mb-3">
                                     <input
                                         type="text"
-                                        className="form-control"
+                                        class="form-control"
                                         id="username"
                                         placeholder="Usuario"
                                         value={username}
@@ -66,10 +66,10 @@ const RegisterForm = () => {
                                     />
                                     <label htmlFor="username">Usuario</label>
                                 </div>
-                                <div className="form-floating mb-3">
+                                <div class="form-floating mb-3">
                                     <input
                                         type="password"
-                                        className="form-control"
+                                        class="form-control"
                                         id="password"
                                         placeholder="Contraseña"
                                         value={password}
@@ -78,10 +78,10 @@ const RegisterForm = () => {
                                     />
                                     <label htmlFor="password">Contraseña</label>
                                 </div>
-                                <div className="form-floating mb-3">
+                                <div class="form-floating mb-3">
                                     <input
                                         type="password"
-                                        className="form-control"
+                                        class="form-control"
                                         id="confirmPassword"
                                         placeholder="Confirmar Contraseña"
                                         value={confirmPassword}
@@ -90,10 +90,10 @@ const RegisterForm = () => {
                                     />
                                     <label htmlFor="confirmPassword">Confirmar Contraseña</label>
                                 </div>
-                                <button type="submit" className="btn btn-primary w-100">Registrarse</button>
+                                <button type="submit" class="btn btn-primary w-100">Registrarse</button>
                                 <p>Ya tienes una cuenta? <a href="./login"><b>Inicia sesión aquí</b></a></p>
                             </form>
-                            {message && <p className="text-danger mt-3">{message}</p>}
+                            {message && <p class="text-danger mt-3">{message}</p>}
                         </div>
                     </div>
                 </div>
