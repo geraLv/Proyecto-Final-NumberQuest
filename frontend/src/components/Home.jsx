@@ -9,14 +9,14 @@ import { MenuDefault } from "@material-tailwind/react";
 
 function Home() {
   return (
-    <>
+    <div>
       <Navbar></Navbar>
       <CarouselDefault />
       <Layaut>
         <Bloques />
       </Layaut>
       <Footer />
-    </>
+    </div>
   );
 }
 

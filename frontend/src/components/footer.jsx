@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="px-14 py-5 bg-slate-100">
-      <footer class=" bg-dark rounded-xl shadow-black shadow-md text-gray-900 body-font">
+    <div className="bg-slate-100">
+      <footer class=" bg-dark border-bootom shadow-black shadow-md text-gray-900 body-font">
         <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
             <a class="flex title-font font-medium gap-2.5 items-center md:justify-start justify-center text-gray-900">
@@ -104,7 +104,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div class="rounded-xl bg-blue-gray-800">
+        <div class="bg-blue-gray-800">
           <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
             <p class="text-gray-500 text-sm text-center sm:text-left">
               © 2020 Tailblocks —

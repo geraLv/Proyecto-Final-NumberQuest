@@ -2,9 +2,9 @@ import React from "react";
 
 const Bloques = () => {
   return (
-    <div>
+    <div className="">
       <section class="text-gray-400 body-font flex justify-center">
-        <div class="conteiner mx-1/2">
+        <div class=" mx-1/2">
           <div class="flex flex-wrap -m-4">
             <div class="xl:w-1/4 md:w-1/2 px-4 py-4">
               <div class="bg-brandDark bg-opacity-90 p-6 rounded-lg">

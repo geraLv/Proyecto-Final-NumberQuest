@@ -47,7 +47,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="flex-row items-center space-y-20 ">
+    <div className="flex-row items-center space-y-10 ">
       <nav className="px-5 space-x-5 flex justify-start w-full h-16 bg-dark">
         <a class="flex  justify-center lg:order-none title-font h-full font-medium  text-gray-100 lg:items-center  mb-4 md:mb-0">
           <svg
@@ -68,7 +68,7 @@ const RegisterForm = () => {
           Inicio
         </Button>
       </nav>
-      <div className=" row justify-content-center p">
+      <div className=" w-full row justify-center">
         <div className="bg-dark shadow-2xl shadow-black rounded-xl col-xs-10 col-md-6 col-sm-9 col-lg-5">
           <div className="bg-dark  opacity-90 card shadow-sm">
             <div className="card-body">
@@ -114,18 +114,18 @@ const RegisterForm = () => {
                 </div>
                 <button
                   type="submit"
-                  className="btn bg-blue-gray-600 text-gray-100 w-100"
+                  className="h-10 rounded bg-blue-gray-600 text-gray-100 w-100"
                 >
                   Registrarse
                 </button>
-                <p>
+                <p className="text-white py-3">
                   Ya tienes una cuenta?{" "}
-                  <a href="login.html">
+                  <a href="login">
                     <b>Inicia sesión aquí</b>
                   </a>
                 </p>
               </form>
-              {message && <p className="text-danger mt-3">{message}</p>}
+              {message && <p className="text-danger ">{message}</p>}
             </div>
           </div>
         </div>

@@ -5,8 +5,8 @@ import { MenuDefault } from "./button";
 const Navbar = () => {
   return (
     <div>
-      <header class="py-5 px-14 text-gray-100 body-font md:w-full">
-        <div class="bg-dark rounded-lg  h-28 mx-auto grid grid-cols-3 px-5 flex-col md:flex-row items-center">
+      <header class=" text-gray-100 body-font md:w-full">
+        <div class="bg-dark h-28 mx-auto grid grid-cols-3 px-5 flex-col md:flex-row items-center">
           <>
             <nav className="gap-1 flex lg:w-full flex-wrap flex-row items-center text-base md:ml-auto">
               <Button className="hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900 ">
@@ -17,7 +17,7 @@ const Navbar = () => {
             </nav>
           </>
           <>
-            <a class="flex lg:order-none title-font lg:w-full font-medium items-center text-gray-100 lg:items-center lg:justify-center mb-4 md:mb-0">
+            <a class="flex lg:order-none title-font lg:w-full font-medium items-center text-gray-100 items-center justify-center mb-1 md:mb-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
