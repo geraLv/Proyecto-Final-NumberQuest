@@ -24,7 +24,7 @@ const ListaTemas = () => {
                 </nav>
               </>
               <>
-                <a class="flex lg:order-none title-font lg:w-full font-medium items-center text-gray-100 items-center justify-center mb-1 md:mb-0">
+                <a class="flex lg:order-none title-font lg:w-full font-medium text-gray-100 items-center justify-center mb-1 md:mb-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -76,7 +76,13 @@ const ListaTemas = () => {
         </div>
         <div className="p-2 rounded bg-blue-gray-900 w-auto flex flex-col">
           <h1 className="px-2 text-white text-xl">Funciones</h1>
-          <Dropdown></Dropdown>
+          <div className=" inline-block text-left">
+            <div className="">
+              <a href="./actividad">
+                <Button>Dominio de Funciones</Button>
+              </a>
+            </div>
+          </div>
         </div>
       </Layaut>
       <Footer></Footer>

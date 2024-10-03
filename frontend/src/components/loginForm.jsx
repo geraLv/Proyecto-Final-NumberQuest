@@ -34,7 +34,7 @@ const LoginForm = () => {
 
       const data = await response.json();
       console.log(data);
-      window.location.href = "home.html";
+      window.location.href = "./";
     } catch (error) {
       console.error("Error:", error);
       setMessage("Ocurrió un error, por favor intenta de nuevo.");
@@ -43,8 +43,8 @@ const LoginForm = () => {
 
   return (
     <div className="flex-row items-center space-y-10">
-      <nav className="px-5 space-x-5 flex justify-start w-full h-16 bg-dark">
-        <a class="flex  justify-center lg:order-none title-font h-full font-medium  text-gray-100 lg:items-center  mb-4 md:mb-0">
+      <nav className="px-5 space-x-5 flex justify-start w-full h-32 items-center bg-dark">
+        <a class="flex  justify-center lg:order-none title-font h-full font-medium  text-gray-100 lg:items-center  mb-1 md:mb-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -59,9 +59,12 @@ const LoginForm = () => {
           </svg>
           <span class="ml-2 text-xl">NumberQuest</span>
         </a>
-        <Button className="self-center shadow-md shadow-black bg-gray-100 h-11 text-gray-900">
-          Inicio
-        </Button>
+        <a href="./">
+          {" "}
+          <Button className="self-center shadow-md shadow-black bg-gray-100 h-11 text-gray-900">
+            Inicio
+          </Button>
+        </a>
       </nav>
       <div className="w-full row justify-center">
         <div className="bg-dark shadow-2xl shadow-black rounded-xl col-xs-10 col-md-6 col-sm-9 col-lg-5">
