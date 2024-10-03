@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginForm from "../components/loginForm";
 import RegisterForm from "../components/registerForm";
 // import { Activities } from "../activities";
@@ -8,8 +8,8 @@ import { Activities } from "../components/activities";
 import ListaTemas from "../components/Lista-temas";
 import Home from "../components/Home";
 
-const AppRouter = () =>{
-return(
+const AppRouter = () => {
+  return (
     <BrowserRouter>
     <Routes>
     <Route path="/" element={<Home/>}/>
@@ -19,6 +19,7 @@ return(
     <Route path="/actividad" element={<Activities />}></Route>
     </Routes>
     </BrowserRouter>
-)}
+  );
+};
 
-export default AppRouter
+export default AppRouter;

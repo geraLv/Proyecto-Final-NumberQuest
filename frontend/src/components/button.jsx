@@ -10,7 +10,9 @@ export function MenuDefault() {
   return (
     <Menu>
       <MenuHandler>
-        <Button className="w-20">Menu</Button>
+        <Button class="w-25 hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900">
+          Unidades
+        </Button>
       </MenuHandler>
       <MenuList>
         <MenuItem>Menu Item 1</MenuItem>
