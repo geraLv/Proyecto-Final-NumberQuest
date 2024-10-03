@@ -9,14 +9,9 @@ import "./index.css";
 
 function App() {
   return (
-    <>
-    <NavBar></NavBar>,
-    <Layaut>
-
-    </Layaut>
-    <Footer></Footer>
-    </>
-   
+  <>
+  <AppRouter></AppRouter>
+  </> 
   );
 }
  {/* // <AppRouter/> */}
