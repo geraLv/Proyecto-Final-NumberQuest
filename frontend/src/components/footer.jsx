@@ -2,11 +2,11 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-slate-100">
-      <footer class=" bg-dark border-bootom shadow-black shadow-md text-gray-900 body-font">
+    <div className="px-14 py-5 bg-slate-100">
+      <footer class=" bg-dark rounded-xl shadow-black shadow-md text-gray-900 body-font">
         <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
-            <a class="flex title-font font-medium gap-2.5 items-center md:justify-start justify-center text-gray-900">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -19,7 +19,7 @@ const Footer = () => {
               >
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
               </svg>
-              <span class="text-brown-50 ml-3 text-xl">NumberQuest</span>
+              <span class="ml-3 text-xl">Tailblocks</span>
             </a>
             <p class="mt-2 text-sm text-gray-100">
               Air plant banjo lyft occupy retro adaptogen indego
@@ -104,7 +104,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div class="bg-blue-gray-800">
+        <div class="rounded-xl bg-gray-100">
           <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
             <p class="text-gray-500 text-sm text-center sm:text-left">
               © 2020 Tailblocks —
