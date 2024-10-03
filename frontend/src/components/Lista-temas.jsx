@@ -78,11 +78,7 @@ const ListaTemas = () => {
           <h1 className="px-2 text-white text-xl">Funciones</h1>
           <div className=" inline-block text-left">
       <div className="">
-        <select className="bg-gray-300 py-2 block w-full mt-4 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-500 focus:border-indigo-500">
-          <option value="1"><a href="/actividad">Dominio de Funciones</a></option>
-          <option value="2">Opción 2</option>
-          <option value="3">Opción 3</option>
-        </select>
+          <a href="./actividad"><Button>Dominio de Funciones</Button></a>
       </div>
     </div>
         </div>
