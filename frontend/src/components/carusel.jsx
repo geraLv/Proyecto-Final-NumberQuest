@@ -4,10 +4,10 @@ import Navbar from "./navbar";
 export function CarouselWithContent() {
   return (
     <Carousel
-      // autoplay="False"
+      autoplay="True"
       loop="True"
       transition={{ type: "tween", duration: 1.5 }}
-      // autoplayDelay={"8000"}
+      autoplayDelay={"8000"}
       className=" py-0 h-96"
     >
       <div className="h-96 w-full">

@@ -49,7 +49,7 @@ const RegisterForm = () => {
   return (
     <div className="flex-row items-center space-y-10 ">
       <nav className="px-5 space-x-5 flex items-center justify-start w-full h-32 bg-dark">
-        <a  class="flex  justify-center lg:order-none title-font h-auto font-medium  text-gray-100 items-center  mb-1 md:mb-0">
+        <a className="flex  justify-center lg:order-none title-font h-auto font-medium  text-gray-100 items-center  mb-1 md:mb-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -57,16 +57,17 @@ const RegisterForm = () => {
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            class="w-10 h-10 text-white px-2 bg-indigo-500 rounded-full"
+            className="w-10 h-10 text-white px-2 bg-indigo-500 rounded-full"
             viewBox="0 0 24 24"
           >
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg>
-          <span class="ml-2 text-xl">NumberQuest</span>
+          <span className="ml-2 text-xl">NumberQuest</span>
         </a>
-        <a href="./"><Button className="self-center shadow-md shadow-black bg-gray-100 h-auto text-gray-900">
-          Inicio
-        </Button>
+        <a href="./">
+          <Button className="self-center shadow-md shadow-black bg-gray-100 h-auto text-gray-900">
+            Inicio
+          </Button>
         </a>
       </nav>
       <div className=" w-full row justify-center">

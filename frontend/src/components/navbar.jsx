@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@material-tailwind/react";
 import { MenuDefault } from "./button";
 import LogoutButton from "./loggoutButton"; // Importa el nuevo componente
+import { MenuCustomList } from "./button-unidades";
 
 const Navbar = () => {
   const [usuario, setUsuario] = useState({ loggedIn: false });
@@ -22,11 +23,12 @@ const Navbar = () => {
       <header class=" text-gray-100 body-font md:w-full">
         <div class="bg-dark h-28 mx-auto grid grid-cols-3 px-5 flex-col md:flex-row items-center">
           <nav className="gap-1 flex lg:w-full flex-wrap flex-row items-center text-base md:ml-auto">
-            <Button className="hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900 ">
-              First Link
-            </Button>
-
-            <MenuDefault>Unidades</MenuDefault>
+            <a href="/">
+              <Button className="hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900 ">
+                Inicio
+              </Button>
+            </a>
+            <MenuCustomList />
           </nav>
           <a class="flex lg:order-none title-font lg:w-full font-medium items-center text-gray-100  justify-center mb-1 md:mb-0">
             <svg

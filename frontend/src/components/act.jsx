@@ -124,7 +124,7 @@ export const Actividad = () => {
         {mostrarA && (
           <>
             <div style={{ marginBottom: "10px" }}>
-              A) <img src="../../public/img/funcion1.png" alt="" />
+              A) <img src="./img/funcion1.png" alt="" />
             </div>
             <p style={{ fontSize: 17 }}>
               {" "}
@@ -170,7 +170,8 @@ export const Actividad = () => {
                         padding: "5px",
                         border: "solid, black, 2px",
                         borderRadius: "5px",
-                      }}>
+                      }}
+                    >
                       Responder
                     </button>
                   </>
@@ -186,7 +187,8 @@ export const Actividad = () => {
               style={{
                 color: validar === "Correcto" ? "green" : "red",
                 fontSize: 18,
-              }}>
+              }}
+            >
               Dominio: ( {envio} ) es {validar}
             </p>
             <p>{validar === "Correcto" ? imgRes[1] : imgRes[0]}</p>
@@ -203,7 +205,8 @@ export const Actividad = () => {
               padding: "5px",
               border: "solid, black, 2px",
               borderRadius: "5px",
-            }}>
+            }}
+          >
             Siguiente punto
           </button>
         )}
@@ -255,7 +258,8 @@ export const Actividad = () => {
                         padding: "5px",
                         border: "solid, black, 2px",
                         borderRadius: "5px",
-                      }}>
+                      }}
+                    >
                       Responder
                     </button>
                   </>
@@ -269,7 +273,8 @@ export const Actividad = () => {
                   style={{
                     color: validarB === "Correcto" ? "green" : "red",
                     fontSize: 18,
-                  }}>
+                  }}
+                >
                   Dominio: {envioB} es {validarB}
                 </p>
                 <p>{validarB === "Correcto" ? imgRes[1] : imgRes[0]}</p>
@@ -282,7 +287,8 @@ export const Actividad = () => {
                     border: "solid, black, 2px",
                     borderRadius: "5px",
                     marginTop: "5px",
-                  }}>
+                  }}
+                >
                   {" "}
                   Salir{" "}
                 </button>

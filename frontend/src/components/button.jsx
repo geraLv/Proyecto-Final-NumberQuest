@@ -11,9 +11,9 @@ export function MenuDefault() {
     <Menu>
       <MenuHandler>
         <a href="./unidades">
-        <Button class="w-25 hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900">
-          Unidades
-        </Button>
+          <Button className="w-25 hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900">
+            Unidades
+          </Button>
         </a>
       </MenuHandler>
     </Menu>
