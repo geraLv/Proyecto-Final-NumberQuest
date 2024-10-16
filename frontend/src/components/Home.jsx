@@ -12,9 +12,7 @@ function Home() {
     <div>
       <Navbar></Navbar>
       <CarouselWithContent />
-      <Layaut>
-        <Bloques />
-      </Layaut>
+      <Bloques />
       <Footer />
     </div>
   );

@@ -15,10 +15,10 @@ const Navbar = () => {
   return (
     <div className="grid h-full w-full items-start">
       <header class=" text-gray-100 body-font md:w-full">
-        <div class="bg-dark h-28 mx-auto grid grid-cols-3 px-5 flex-col md:flex-row items-center">
+        <div class="bg-nav h-28 mx-auto grid grid-cols-3 px-5 flex-col md:flex-row items-center">
           <nav className="flex w-full gap-1 flex-wrap items-center text-base md:ml-auto">
             <a href="/">
-              <Button className="hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900 ">
+              <Button className="hover:shadow-gray-600 bg-button mr-7 text-white ">
                 Inicio
               </Button>
             </a>
@@ -26,7 +26,7 @@ const Navbar = () => {
           </nav>
           <a
             href="./"
-            class="flex lg:order-none title-font lg:w-full font-medium items-center text-gray-100  justify-center mb-1 md:mb-0"
+            class="flex lg:order-none title-font lg:w-full font-medium items-center text-white justify-center mb-1 md:mb-0"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ const Navbar = () => {
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              class="w-10 h-10 text-white px-2 bg-indigo-500 rounded-full"
+              class="w-10 h-10 text-white px-2 bg-black   rounded-full"
               viewBox="0 0 24 24"
             >
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
@@ -46,12 +46,12 @@ const Navbar = () => {
           {!usuario.loggedIn ? (
             <div class="lg:w-full inline-flex lg:justify-end ml-5 lg:ml-0">
               <a href="./login">
-                <Button className="hover:shadow-gray-600 bg-gray-400 mr-7 text-gray-900 ">
+                <Button className="hover:shadow-gray-600 bg-button mr-7 text-white ">
                   Sing in
                 </Button>
               </a>
               <a href="./register">
-                <button class="inline-flex items-center bg-gray-800 border-0 py-1 h-12 px-3 focus:outline-none hover:bg-gray-200 rounded text-base md:mt-0">
+                <button class="inline-flex items-center bg-button border-0 py-1 h-12 px-3 focus:outline-none hover:bg-gray-200 rounded  md:mt-0 text-white">
                   Register
                   <svg
                     fill="none"

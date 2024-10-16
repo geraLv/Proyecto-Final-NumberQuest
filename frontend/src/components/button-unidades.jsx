@@ -54,18 +54,18 @@ export function MenuCustomList() {
 
   return (
     <Menu
-      className="w-20 h-full"
+      className="w-auto h-full"
       lockScroll="True"
       open={openMenu}
       handler={setOpenMenu}
       allowHover
     >
-      <MenuHandler>
-        <Button className="h-12  bg-gray-400 flex items-center gap-3 text-base font-normal capitalize tracking-normal text-black">
-          Unidades{" "}
+      <MenuHandler className="w-auto flex gap-2 bg-button text-black h-full">
+        <Button className=" h-12 w-auto flex items-center gap-3 text-base font-normal capitalize tracking-normal text-black">
+          <h1 className="">Unidades</h1>
           <ChevronDownIcon
             strokeWidth={2.5}
-            className={`h-3.5 w-3.5 transition-transform ${
+            className={`h-3.5 w-2.5 transition-transform ${
               openMenu ? "rotate-180" : ""
             }`}
           />
