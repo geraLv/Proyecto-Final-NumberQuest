@@ -13,8 +13,8 @@ export function Activities() {
       <NavBar />
       <Layaut>
         <Actividad />
+        <Teclado></Teclado>
       </Layaut>
-      <Teclado></Teclado>
       <Footer></Footer>
     </>
   );
