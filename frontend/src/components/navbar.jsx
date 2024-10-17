@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@material-tailwind/react";
 import { MenuCustomList } from "./button-unidades";
 import { ProfileMenu } from "./menuUser";
+import { MenuCustomList2 } from "./button_literature";
 
 const Navbar = () => {
   const [usuario, setUsuario] = useState({ loggedIn: false });
@@ -22,10 +23,13 @@ const Navbar = () => {
                 Inicio
               </Button>
             </a>
-            <MenuCustomList></MenuCustomList>
+            <div className="gap-4 flex">
+              <MenuCustomList></MenuCustomList>
+              <MenuCustomList2></MenuCustomList2>
+            </div>
           </nav>
           <a
-            href="./"
+            href="/"
             class="flex lg:order-none title-font lg:w-full font-medium items-center text-white justify-center mb-1 md:mb-0"
           >
             <svg

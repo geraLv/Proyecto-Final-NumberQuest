@@ -14,42 +14,42 @@ import { CursorArrowRaysIcon } from "@heroicons/react/24/solid";
 const menuItems = [
   {
     url: "/temas/1",
-    title: "Unidad N°1: Lógica proposicional",
+    title: "Bibliografía Unidad N°1: Lógica proposicional",
     description: ``,
   },
   {
     url: "./temas/2",
-    title: "Unidad N°2: Teoría de conjuntos",
+    title: "Bibliografía Unidad N°2: Teoría de conjuntos",
     description: "",
   },
   {
     url: "./temas/3",
-    title: "Unidad N°3: Funciones",
+    title: "Bibliografía Unidad N°3: Funciones",
     description: "",
   },
   {
     url: "./temas/3",
-    title: "Unidad N°4: Matrices",
+    title: "Bibliografía Unidad N°4: Matrices",
     description: "",
   },
   {
     url: "./temas/5",
-    title: "Unidad N°5: Limites",
+    title: "Bibliografía Unidad N°5: Limites",
     description: "",
   },
   {
     url: "./temas/3",
-    title: "Unidad N°6: Derivadas",
+    title: "Bibliografía Unidad N°6: Derivadas",
     description: "",
   },
   {
     url: "./temas/3",
-    title: "Unidad N°7: Integrales",
+    title: "Bibliografía Unidad N°7: Integrales",
     description: "",
   },
 ];
 
-export function MenuCustomList() {
+export function MenuCustomList2() {
   const [openMenu, setOpenMenu] = React.useState(false);
 
   return (
@@ -62,7 +62,7 @@ export function MenuCustomList() {
     >
       <MenuHandler className="w-auto flex gap-2 bg-button text-black h-full">
         <Button className=" h-12 w-auto flex items-center gap-3 text-base font-normal capitalize tracking-normal text-black">
-          <h1 className="">Unidades</h1>
+          <h1 className="">Bibliografía</h1>
           <ChevronDownIcon
             strokeWidth={2.5}
             className={`h-3.5 w-2.5 transition-transform ${

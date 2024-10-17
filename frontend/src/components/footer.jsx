@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className=" bg-slate-100">
-      <footer className=" bg-lal shadow-black shadow-md text-gray-900 body-font">
+      <footer className=" bg-footer shadow-black shadow-md text-gray-900 body-font">
         <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
             <a className="flex title-font font-medium gap-2.5 items-center md:justify-start justify-center text-gray-900">
@@ -136,7 +136,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className=" bg-lal4">
+        <div className=" bg-footer1">
           <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
             <p className="text-gray-500 text-sm text-center sm:text-left">
               © 2020 Tailblocks —
