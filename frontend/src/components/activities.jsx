@@ -13,7 +13,7 @@ export function Activities() {
     <>
       <NavBar />
       <Layaut>
-        <Composición1/>
+        {/* <Composición1/> */}
       </Layaut>
       <Teclado></Teclado>
       <Footer></Footer>

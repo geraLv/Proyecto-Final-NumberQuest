@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { MaterialTailwindTheme } from "@material-tailwind/react";
 
 
-export const Composición1  = () => {
+export const Composicion1  = () => {
 //     const [contador, setContador] = useState(0);
 //     const [respuesta, setRespuesta] = useState();
 
