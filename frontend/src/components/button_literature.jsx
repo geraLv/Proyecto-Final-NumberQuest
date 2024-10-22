@@ -60,7 +60,7 @@ export function MenuCustomList2() {
       handler={setOpenMenu}
       allowHover
     >
-      <MenuHandler className="w-auto flex gap-2 bg-button text-black h-full">
+      <MenuHandler className="w-auto flex gap-2 bg-trasparent text-white h-full">
         <Button className=" h-12 w-auto flex items-center gap-3 text-base font-normal capitalize tracking-normal text-black">
           <h1 className="">Bibliografía</h1>
           <ChevronDownIcon

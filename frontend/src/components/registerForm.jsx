@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "@material-tailwind/react";
+import Navbar from "./navbar";
+import Footer from "./footer";
 
 const RegisterForm = () => {
   const [username, setUsername] = useState("");
@@ -47,31 +49,16 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="flex-row items-center space-y-10 ">
-      <nav className="px-5 space-x-5 flex items-center justify-start w-full h-32 bg-dark">
-        <a className="flex  justify-center lg:order-none title-font h-auto font-medium  text-gray-100 items-center  mb-1 md:mb-0">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            className="w-10 h-10 text-white px-2 bg-indigo-500 rounded-full"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
-          <span className="ml-2 text-xl">NumberQuest</span>
-        </a>
-        <a href="./">
-          <Button className="self-center shadow-md shadow-black bg-gray-100 h-auto text-gray-900">
-            Inicio
-          </Button>
-        </a>
-      </nav>
-      <div className=" w-full row justify-center">
-        <div className="bg-dark shadow-2xl shadow-black rounded-xl col-xs-10 col-md-6 col-sm-9 col-lg-5">
+    <div className=" flex-row items-center space-y-10 ">
+      <Navbar></Navbar>
+      <div className="container w-3/5 row justify-center">
+        <div className="bg-blue-gray-500 w-1/2 text-center p-7 rounded-xl rounded-r-none">
+          <h1 className="text-white text-3xl">Bienvenido</h1>
+          <p className="text-white p-8 text-xl">
+            Registrece para axeder a todas las herramientas de la plataforma
+          </p>
+        </div>
+        <div className="bg-dark shadow-2xl w-1/2 shadow-black rounded-xl rounded-l-none col-xs-10 col-md-6 col-sm-9 col-lg-5">
           <div className="bg-dark  opacity-90 card shadow-sm">
             <div className="card-body">
               <h3 className="text-center text-xl text-white mb-4">
@@ -132,6 +119,7 @@ const RegisterForm = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
