@@ -14,8 +14,9 @@ export function Activities() {
       <NavBar />
       <Layaut>
         {/* <Composición1/> */}
+        <Actividad />
+        <Teclado></Teclado>
       </Layaut>
-      <Teclado></Teclado>
       <Footer></Footer>
     </>
   );

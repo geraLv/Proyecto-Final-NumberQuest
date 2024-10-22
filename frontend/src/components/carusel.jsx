@@ -4,7 +4,8 @@ import Navbar from "./navbar";
 export function CarouselWithContent() {
   return (
     <Carousel
-      autoplay="True"
+      navigation={false}
+      autoplay="true"
       loop="True"
       transition={{ type: "tween", duration: 1.5 }}
       autoplayDelay={"8000"}
@@ -17,11 +18,7 @@ export function CarouselWithContent() {
           className="h-full w-full "
         />
         <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
-          <div className="w-full pl-12 md:w-full md:pl-20 lg:pr-20">
-            {/* <div className="flex justify-start">
-              <Button className="bg-transparent">Holas</Button>
-              <Button className="bg-transparent">Holas</Button>
-            </div> */}
+          <div className="container w-full md:w-full md:pl-10 lg:pr-20">
             <Typography
               variant="h1"
               color="white"
@@ -56,7 +53,7 @@ export function CarouselWithContent() {
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
-          <div className="w-full pl-12 md:w-full md:pl-20 lg:pr-20">
+          <div className="container w-full pl-12 md:w-full md:pl-10 lg:pr-20">
             <Typography
               variant="h1"
               color="white"
@@ -91,8 +88,8 @@ export function CarouselWithContent() {
           alt="image 3"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-screem items-end bg-black/75">
-          <div className="w-full pb-1 md:w-full md:pl-20 md:pb-20 lg:pl-32 lg:pb-32">
+        <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
+          <div className="container w-full pl-12 md:w-full md:pl-10 lg:pr-20">
             <Typography
               variant="h1"
               color="white"
