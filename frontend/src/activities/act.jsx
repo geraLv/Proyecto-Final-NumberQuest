@@ -64,7 +64,7 @@ export const Actividad = () => {
   const handleSubmit = () => {
     if (
       parte1 === "" ||
-      parte2 === "" ||
+    parte2 === "" ||
       isNaN(parte1.replace(",", ".")) ||
       isNaN(parte2.replace(",", "."))
     ) {
