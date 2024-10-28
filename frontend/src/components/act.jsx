@@ -1,6 +1,8 @@
+import { Button } from "@material-tailwind/react";
 import React, { useState } from "react";
-
+import Swal from "sweetalert2";
 export const Actividad = () => {
+  const [alerta, setAlerta] = useState(false);
   const [parte1, setParte1] = useState("");
   const [parte2, setParte2] = useState("");
   const [parte1B, setParte1B] = useState("");
@@ -13,6 +15,15 @@ export const Actividad = () => {
   const [mostrarResultadoB, setMostrarResultadoB] = useState(false);
   const [mostrarB, setMostrarB] = useState(false);
   const [mostrarA, setMostrarA] = useState(true);
+
+  const [usuario, setUsuario] = useState({ loggedIn: false });
+  useEffect(() => {
+    fetch("http://localhost:4000/session", {
+      credentials: "include",
+    })
+      .then((respuesta) => respuesta.json())
+      .then((respuesta) => setUsuario(respuesta));
+  }, []);
 
   const answers = ["-4 ; 4", "(-inf,0) U (1/4,+inf)"];
   const imgRes = [
@@ -76,7 +87,13 @@ export const Actividad = () => {
       setMostrarInputsA(false);
     }
   };
-
+  const alertaBoton = () => {
+    Swal.fire({
+      title: "Para acceder deve registrarse o iniciar sesión",
+      icon: "warning",
+      confirmButtonText: "Continuar",
+    });
+  };
   const handleSubmitB = () => {
     if (
       parte1B === "" ||
@@ -118,13 +135,14 @@ export const Actividad = () => {
       <p style={{ color: "#AABFC6", marginTop: "10px" }}>
         *Aclaración: Los números decimales se marcan con punto: Ejemplo:"1.2"*
       </p>
+      <Button onClick={alertaBoton}>hola</Button>
 
       <div className="Act1" style={{ margin: "10px 10px 30px 10px" }}>
         <p style={{ fontSize: 20, marginBottom: "10px" }}>Actividad 1:</p>
         {mostrarA && (
           <>
             <div style={{ marginBottom: "10px" }}>
-              A) <img src="./img/funcion1.png" alt="" />
+              A) <img src="../../img/funcion1.png" alt="" />
             </div>
             <p style={{ fontSize: 17 }}>
               {" "}
@@ -215,7 +233,7 @@ export const Actividad = () => {
         {mostrarB && (
           <div style={{ marginTop: "30px" }}>
             <p style={{ fontSize: 20, marginBottom: "10px" }}>
-              B) <img src="../../public/img/funcion2.png" alt="" />
+              B) <img src="../../img/funcion2.png" alt="" />
               Indica el dominio de la función =
               <div className="" style={{ marginTop: "10px" }}>
                 {mostrarInputsB && (

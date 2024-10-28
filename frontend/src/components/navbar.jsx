@@ -50,12 +50,12 @@ const Navbar = () => {
 
             {!usuario.loggedIn ? (
               <div class="lg:w-full inline-flex lg:justify-end ml-5 lg:ml-0">
-                <a href="./login">
+                <a href="/login">
                   <Button className="hover:shadow-gray-600 bg-transparent mr-7 text-white ">
                     Sing in
                   </Button>
                 </a>
-                <a href="./register">
+                <a href="/register">
                   <button class="inline-flex items-center bg-transparent border-0 py-1 h-12 px-3 focus:outline-none hover:bg-gray-200 rounded  md:mt-0 text-white">
                     Register
                     <svg
@@ -74,9 +74,6 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="flex flex-row space-x-8 justify-end w-full">
-                {/* <Button className="bg-gray-600">
-                  {usuario ? usuario.user.username : "no"}
-                </Button> */}
                 <ProfileMenu></ProfileMenu>
               </div>
             )}

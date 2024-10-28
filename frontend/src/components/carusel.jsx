@@ -1,5 +1,4 @@
 import { Carousel, Typography, Button } from "@material-tailwind/react";
-import Navbar from "./navbar";
 
 export function CarouselWithContent() {
   return (
