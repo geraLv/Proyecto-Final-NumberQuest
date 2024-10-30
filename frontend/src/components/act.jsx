@@ -2,7 +2,6 @@ import { Button } from "@material-tailwind/react";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 export const Actividad = () => {
-  const [alerta, setAlerta] = useState(false);
   const [parte1, setParte1] = useState("");
   const [parte2, setParte2] = useState("");
   const [parte1B, setParte1B] = useState("");
@@ -15,15 +14,6 @@ export const Actividad = () => {
   const [mostrarResultadoB, setMostrarResultadoB] = useState(false);
   const [mostrarB, setMostrarB] = useState(false);
   const [mostrarA, setMostrarA] = useState(true);
-
-  const [usuario, setUsuario] = useState({ loggedIn: false });
-  useEffect(() => {
-    fetch("http://localhost:4000/session", {
-      credentials: "include",
-    })
-      .then((respuesta) => respuesta.json())
-      .then((respuesta) => setUsuario(respuesta));
-  }, []);
 
   const answers = ["-4 ; 4", "(-inf,0) U (1/4,+inf)"];
   const imgRes = [
