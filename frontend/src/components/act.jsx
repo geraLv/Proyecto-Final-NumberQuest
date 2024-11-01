@@ -107,6 +107,7 @@ export const Actividad = () => {
   };
 
   const validar = envio === answers[0] ? "Correcto" : "Incorrecto";
+
   const validarB = envioB === answers[1] ? "Correcto" : "Incorrecto";
 
   const handleNext = () => {

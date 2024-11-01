@@ -5,53 +5,19 @@ import {
   MenuList,
   MenuItem,
   Button,
-  Card,
   Typography,
 } from "@material-tailwind/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { CursorArrowRaysIcon } from "@heroicons/react/24/solid";
-
-const menuItems = [
-  {
-    url: "/temas/1",
-    title: "Unidad N°1: Lógica proposicional",
-    description: ``,
-  },
-  {
-    url: "./temas/2",
-    title: "Unidad N°2: Teoría de conjuntos",
-    description: "",
-  },
-  {
-    url: "./temas/3",
-    title: "Unidad N°3: Funciones",
-    description: "",
-  },
-  {
-    url: "./temas/3",
-    title: "Unidad N°4: Matrices",
-    description: "",
-  },
-  {
-    url: "./temas/5",
-    title: "Unidad N°5: Limites",
-    description: "",
-  },
-  {
-    url: "./temas/3",
-    title: "Unidad N°6: Derivadas",
-    description: "",
-  },
-  {
-    url: "./temas/3",
-    title: "Unidad N°7: Integrales",
-    description: "",
-  },
-];
+import { MenuUnidades } from "../models/Unidadesdb";
 
 export function MenuCustomList() {
   const [openMenu, setOpenMenu] = React.useState(false);
 
+  const menuItems = MenuUnidades.map(({ url, title, description }) => ({
+    url,
+    title,
+    description,
+  }));
   return (
     <Menu
       className="w-auto h-full"
@@ -66,7 +32,7 @@ export function MenuCustomList() {
           <ChevronDownIcon
             strokeWidth={2.5}
             className={`h-3.5 w-2.5 transition-transform ${
-              openMenu ? "rotate-180" : ""
+              openMenu ? "rotate-180 " : "w"
             }`}
           />
         </Button>
