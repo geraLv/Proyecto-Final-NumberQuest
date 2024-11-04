@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const Panqueque  = () => {
+export function Formulario (value, name) {
 
-  const actividad = {Text};
+  const [response,  setResponse] = useState()
 
-  return(
+
+  return (
     <div>
-      <h1></h1>
-    </div>
-  )
-}
+      <form action="">
+    <p>Hola mundo</p>
+    <input type="checkbox" />
 
-export  default Panqueque;
+      </form>
+
+    <button>Hola</button>
+    
+    </div>
+      );
+
+}

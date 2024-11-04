@@ -6,14 +6,15 @@ import Layaut from "./layaut";
 // import Teclado from "./teclado";
 // import { Navbar } from "@material-tailwind/react";
 import Footer from "./footer";
-import Panqueque from "../activities/hook/useChoice";
+import { Actividad3 } from "../activities/act3";
 
 export function Activities() {
+
   return (
     <>
       <NavBar />
       <Layaut>
-        <Panqueque/>
+        <Actividad3/>
         {/* <Actividad /> */}
         {/* <Teclado></Teclado> */}
       </Layaut>
