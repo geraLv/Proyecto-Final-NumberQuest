@@ -2,7 +2,7 @@ export const ArrayTemas = [
   {
     unidad: "1",
     tema: "Relaciones",
-    nroActividades: 5,
+    nroActividades: 3,
   },
   {
     unidad: "5",
@@ -22,7 +22,7 @@ export const ArrayTemas = [
   {
     unidad: "1",
     tema: "Relación inversa",
-    nroActividades: 4,
+    nroActividades: 1,
   },
   {
     unidad: "1",
