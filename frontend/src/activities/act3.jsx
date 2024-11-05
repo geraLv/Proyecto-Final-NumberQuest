@@ -1,13 +1,19 @@
 import { useState } from "react";
-import { Formulario } from "./hook/useChoice";
+import { InputEdit } from "./hook/useChoice";
 
 export function Actividad3() {
-    return(
-        <>
-        <Formulario/>
-        </>
-        
-    )
+  const [checkboxValue, setCheckboxValue] = useState(false);
+
+  const handleCheckboxChange = (event) => {
+    setCheckboxValue(event.target.checked);
+  };
+
+  return (
+    <>
+     <InputEdit/>
+    </>
+  );
+}
     
     // const [response, setResponse] = useState("");
 

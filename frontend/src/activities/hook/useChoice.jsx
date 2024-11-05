@@ -1,21 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
-export function Formulario (value, name) {
-
-  const [response,  setResponse] = useState()
-
-
+export function InputEdit({ value, onChange }) {
   return (
     <div>
-      <form action="">
-    <p>Hola mundo</p>
-    <input type="checkbox" />
-
-      </form>
-
-    <button>Hola</button>
-    
+      <h1>Hola</h1>
+      <input
+        type="checkbox"
+        checked={value}
+        onChange={onChange}
+      />
     </div>
-      );
-
+  );
 }
