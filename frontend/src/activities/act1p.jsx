@@ -1,13 +1,20 @@
 import React from "react";
+import { XD } from "../hooks/allHooks";
 
 
-export const Actividad1p  = ( title, description, aclaration ) => {
+export const Actividad1p  = () => {
+
 
     return(
         <div className="container">
-            <h1>{title}</h1>
-            <h3>{description}</h3>
-            <p></p>
+            <XD
+            title='Dominio de funciones'
+            activitieNumber='Actividad 1)' 
+            guide='puedes escribir números negativos' 
+            description='Observa atentamente y halla el dominio de la funcón'
+            />
+
+            
         </div>
     )
 
