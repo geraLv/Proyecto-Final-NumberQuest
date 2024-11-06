@@ -60,10 +60,19 @@ export function XD ({title, activitieNumber, description, guide}) {
   return(
   <>
     <h1 className="text-3xl" >  <b>{title}</b></h1>
-    <p className="text-blue-gray-500" >  *{guide}*</p>
-    <h2 className="Dra" >    {activitieNumber}</h2>
-    <h3 className="" >    {description}</h3>
+    <p className="text-blue-gray-500 mx-6 mb-2 " >  *{guide}*</p>
+    <h2 className="" >{activitieNumber}</h2>
     {imgAct[0]}
+    <h3 className="" >    {description}</h3>
+  </>
+  )
+}
+
+export function InputResponse ({}){
+
+  return(
+    <>
+    <input onChange={e => setMondongo(e.target.value)} />
   </>
   )
 }
@@ -75,9 +84,13 @@ export function XD ({title, activitieNumber, description, guide}) {
 
 
 
-
-
 export function InputCoso () {
+
+  return(
+    <>
+    
+    </>
+  )
 
 }
 
