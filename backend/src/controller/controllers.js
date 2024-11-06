@@ -36,17 +36,24 @@ export const login = async (req, res) => {
   }
 };
 export const register = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, username } = req.body;
   try {
     const newConnection = await connection();
     const [resultado] = await newConnection.query(
-      "INSERT INTO users(email,password) VALUES(?,?)",
-      [email, password]
+      "INSERT INTO users(username,email,password) VALUES(?,?,?)",
+      [username, email, password]
+    );
+
+    // console.log(resultado.insertId);
+    const [userAct] = await newConnection.query(
+      "INSERT INTO activities_status(id_user) VALUES(?)",
+      [resultado.insertId]
     );
 
     res.json({
       message: "Usuario creado exitosamente",
       id: resultado.insertId,
+      // act: userAct
     });
   } catch (error) {
     console.error("Ocurrio un error al crear un usuario");
@@ -65,6 +72,20 @@ export const session = async (req, res) => {
       .status(401)
       .json({ loggedIn: false, message: "No hay sesión activa" });
   }
+};
+
+//Activities Status
+export const activitiesStatus = async (req, res) => {
+  const { id_user, actState, idAct } = req.body;
+  console.log("hola");
+  console.log(id_user, actState, idAct);
+
+  const newConnection = await connection();
+  const [resultado] = await newConnection.query(
+    `UPDATE activities_status SET ${idAct} = ? WHERE id_user = ${id_user}`,
+    [actState]
+  );
+  res.json({ resultado, message: "Actividad actualizada exitosamente" });
 };
 
 //logout

@@ -1,8 +1,10 @@
 import { Button } from "@material-tailwind/react";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import ActivitiesStatus from "../hooks/ActivitiesStatus";
 export const Actividad = () => {
   const [parte1, setParte1] = useState("");
+  const [validar, setValidar] = useState(false);
   const [parte2, setParte2] = useState("");
   const [parte1B, setParte1B] = useState("");
   const [parte2B, setParte2B] = useState("");
@@ -14,6 +16,8 @@ export const Actividad = () => {
   const [mostrarResultadoB, setMostrarResultadoB] = useState(false);
   const [mostrarB, setMostrarB] = useState(false);
   const [mostrarA, setMostrarA] = useState(true);
+
+  // let actStatus = false;
 
   const answers = ["-4 ; 4", "(-inf,0) U (1/4,+inf)"];
   const imgRes = [
@@ -65,7 +69,7 @@ export const Actividad = () => {
   const handleSubmit = () => {
     if (
       parte1 === "" ||
-    parte2 === "" ||
+      parte2 === "" ||
       isNaN(parte1.replace(",", ".")) ||
       isNaN(parte2.replace(",", "."))
     ) {
@@ -73,6 +77,7 @@ export const Actividad = () => {
     } else {
       const respuesta = `${parte1} ; ${parte2}`;
       setEnvio(respuesta);
+      cerreccion(respuesta);
       setMostrarResultadoA(true);
       setMostrarInputsA(false);
     }
@@ -106,9 +111,13 @@ export const Actividad = () => {
     }
   };
 
-  const validar = envio === answers[0] ? "Correcto" : "Incorrecto";
+  const cerreccion = (respuesta) => {
+    respuesta === answers[0] ? setValidar(true) : setValidar(false);
+  };
+  ActivitiesStatus(validar);
+  // envio === answers[0] ? setValidar(true) : setValidar(false);
 
-  const validarB = envioB === answers[1] ? "Correcto" : "Incorrecto";
+  // const validarB = envioB === answers[1] ? true : false;
 
   const handleNext = () => {
     setMostrarB(true);
@@ -194,13 +203,13 @@ export const Actividad = () => {
           <div>
             <p
               style={{
-                color: validar === "Correcto" ? "green" : "red",
+                color: validar === true ? "green" : "red",
                 fontSize: 18,
               }}
             >
-              Dominio: ( {envio} ) es {validar}
+              Dominio: ( {envio} ) es {validar === true ? "verdadero" : "falso"}
             </p>
-            <p>{validar === "Correcto" ? imgRes[1] : imgRes[0]}</p>
+            <p>{validar === true ? imgRes[1] : imgRes[0]}</p>
           </div>
         )}
 

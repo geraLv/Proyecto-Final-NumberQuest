@@ -1,30 +1,32 @@
-export const ListaActividades = [
+import { Actividad1p } from "../activities/act1p";
+
+export const ActivitiesDB = [
   {
-    url: "/actividad/1",
-    title: "Actividad 1: Lógica proposicional",
+    url: 1,
+    title: <Actividad1p></Actividad1p>,
     description: ``,
     isCompleted: true,
   },
   {
-    url: "/actividad/2",
+    url: 2,
     title: "Actividad 2: Teoría de conjuntos",
     description: "",
     isCompleted: true,
   },
   {
-    url: "/actividad/3",
+    url: 3,
     title: "Actividad 3: Funciones",
     description: "",
     isCompleted: false,
   },
   {
-    url: "/actividad/4",
+    url: 4,
     title: "Actividad 4: Matrices",
     description: "",
     isCompleted: false,
   },
   {
-    url: "/actividad/5",
+    url: 5,
     title: "Actividad 4: Matrices",
     description: "",
     isCompleted: false,

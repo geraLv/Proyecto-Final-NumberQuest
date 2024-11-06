@@ -5,6 +5,7 @@ import Footer from "../components/footer";
 
 const RegisterForm = () => {
   const [email, setemail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -13,7 +14,7 @@ const RegisterForm = () => {
     event.preventDefault();
 
     // Validación básica
-    if (!email || !password || !confirmPassword) {
+    if (!email || !username || !password || !confirmPassword) {
       setMessage("Por favor, completa todos los campos.");
       return;
     }
@@ -29,7 +30,7 @@ const RegisterForm = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, username, password }),
       });
 
       if (!response.ok) {
@@ -51,20 +52,20 @@ const RegisterForm = () => {
     <div className=" flex-row items-center space-y-10 ">
       <Navbar></Navbar>
       <div className="container w-3/5 row justify-center">
-        <div className="bg-blue-gray-500 w-1/2 text-center p-7 rounded-xl rounded-r-none">
+        <div className="bg-blue-gray-500 w-1/2 h-auto text-center p-7 rounded-xl rounded-r-none">
           <h1 className="text-white text-3xl">Bienvenido</h1>
           <p className="text-white p-8 text-xl">
             Registrece para axeder a todas las herramientas de la plataforma
           </p>
         </div>
-        <div className="bg-dark shadow-2xl w-1/2 shadow-black rounded-xl rounded-l-none col-xs-10 col-md-6 col-sm-9 col-lg-5">
-          <div className="bg-dark  opacity-90 card shadow-sm">
+        <div className="bg-dark shadow-2xl w-1/2 h-auto shadow-black rounded-xl rounded-l-none col-xs-10 col-md-6 col-sm-9 col-lg-5">
+          <div className="bg-dark opacity-90 card shadow-sm">
             <div className="card-body">
               <h3 className="text-center text-xl text-white mb-4">
                 <h1>Registro</h1>
               </h3>
               <form onSubmit={handleSubmit}>
-                <div className="form-floating mb-5">
+                <div className="form-floating mb-4">
                   <input
                     type="email"
                     className="form-control"
@@ -76,7 +77,19 @@ const RegisterForm = () => {
                   />
                   <label htmlFor="email">Correo Electronico</label>
                 </div>
-                <div className="form-floating mb-5">
+                <div className="form-floating mb-4">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="username"
+                    placeholder="Usuario"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                  />
+                  <label htmlFor="username">Nombre de usuario</label>
+                </div>
+                <div className="form-floating mb-4">
                   <input
                     type="password"
                     className="form-control"
@@ -88,7 +101,7 @@ const RegisterForm = () => {
                   />
                   <label htmlFor="password">Contraseña</label>
                 </div>
-                <div className="form-floating mb-5">
+                <div className="form-floating mb-4">
                   <input
                     type="password"
                     className="form-control"

@@ -21,7 +21,7 @@ export function MenuCustomList() {
   return (
     <Menu
       className="w-auto h-full"
-      lockScroll="True"
+      lockScroll={true}
       open={openMenu}
       handler={setOpenMenu}
       allowHover

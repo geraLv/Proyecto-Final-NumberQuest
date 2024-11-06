@@ -6,6 +6,7 @@ import {
   session,
   cerrarSesion,
   register,
+  activitiesStatus,
 } from "../controller/controllers.js";
 
 // Middlewares
@@ -20,6 +21,7 @@ import { apiUsers, apiUser } from "../models/api.js";
 export const userRoutes = Router();
 
 userRoutes.get("/session", validarJWT, session);
+userRoutes.put("/actStatus", activitiesStatus);
 userRoutes.get("/api/users", apiUsers);
 userRoutes.get("/api/user/*", apiUser);
 userRoutes.post("/login", login);
