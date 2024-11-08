@@ -1,11 +1,12 @@
 import React from "react";
-import { InputResponse, XD } from "../hooks/allHooks";
+import { InputResponse, Surrender, XD } from "../hooks/allHooks";
 
 
 export const Actividad1p  = () => {
 
 
     return(
+        <>
         <div className="container">
             <XD
             title='Dominio de funciones'
@@ -17,9 +18,11 @@ export const Actividad1p  = () => {
             answer1={-4}
             answer2={4}
             />
+            <Surrender/>
 
             
         </div>
+        </>
     )
 
 }

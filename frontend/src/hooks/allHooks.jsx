@@ -92,12 +92,14 @@ export function InputResponse({answer1, answer2}) {
     if (parseInt(response1Value) === answers[0] && parseInt(response2Value) === answers[1]) {
       setValueActivitie(true);
       alert("Respuesta correcta");
-      console.log(setValueActivitie);
     } else {
       alert("Respuesta incorrecta");
+      return(
+        {Surrender}
+      )
     }
   }
-
+  console.log(valueActivitie);
   return (
     <>
       <div>
@@ -115,7 +117,7 @@ export function InputResponse({answer1, answer2}) {
           maxLength={5}
         />
       </div>
-      <button onClick={validationResponse}>MANGO MANGO MANGO</button>
+      <button onClick={validationResponse}>Responder </button>
       <div>
       </div>
     </>
@@ -144,8 +146,21 @@ export function Surrender () {
 
   const [mondongo, setMondongo] = useState()
 
-  return(
-    <button onClick={meRindo}></button>
+  function ayuda () {
+    URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    window.open(URL, "_blank");
+  }
+
+
+  
+
+  return( <div>    
+    
+    <button onClick={ayuda}>Hola capo</button>
+    <button>Siguiente Actividad</button>
+
+    </div>
+
   )
 
 }

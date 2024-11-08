@@ -9,6 +9,7 @@ import { Activities } from "../components/activities";
 import Home from "../components/Home";
 // import { MenuCustomList } from "../components/button-unidades";
 import ListaTemas from "../components/listaTemas";
+import { Actividad2p } from "../activities/act2p";
 // import ListaTemas from "../components/Lista-temas";
 
 const AppRouter = () => {
@@ -20,6 +21,7 @@ const AppRouter = () => {
         <Route path="/register" element={<RegisterForm />}></Route>
         <Route path="/temas/*" element={<ListaTemas />}></Route>
         <Route path="/actividad" element={<Activities />}></Route>
+        <Route path="/actividad2" element={<Actividad2p />}></Route>
       </Routes>
     </BrowserRouter>
   );
