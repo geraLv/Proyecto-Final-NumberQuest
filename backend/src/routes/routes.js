@@ -7,6 +7,7 @@ import {
   cerrarSesion,
   register,
   activitiesStatus,
+  isCompleted,
 } from "../controller/controllers.js";
 
 // Middlewares
@@ -22,7 +23,7 @@ export const userRoutes = Router();
 
 userRoutes.get("/session", validarJWT, session);
 userRoutes.put("/actStatus", activitiesStatus);
-userRoutes.get("/api/users", apiUsers);
+userRoutes.get("/actChek", isCompleted);
 userRoutes.get("/api/user/*", apiUser);
 userRoutes.post("/login", login);
 userRoutes.post("/logout", cerrarSesion);

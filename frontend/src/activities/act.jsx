@@ -1,4 +1,4 @@
-import { Button } from "@material-tailwind/react";
+import { Button, input } from "@material-tailwind/react";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import ActivitiesStatus from "../hooks/ActivitiesStatus";
@@ -33,15 +33,11 @@ export const Actividad = () => {
   ];
 
   const handleParte1Change = (input) => {
-    if (/^-?\d*[,\.]?\d*$/.test(input)) {
-      setParte1(input);
-    }
+    setParte1(parseInt(input));
   };
 
   const handleParte2Change = (input) => {
-    if (/^-?\d*[,\.]?\d*$/.test(input)) {
-      setParte2(input);
-    }
+    setParte2(parseInt(input));
   };
 
   const handleParte1BChange = (input) => {
@@ -66,20 +62,29 @@ export const Actividad = () => {
     }
   };
 
+  // onClick = {handleSubmit}?():
   const handleSubmit = () => {
+    console.log("parte 1", parte1);
+    console.log("parte 2", parte2);
+    if (/^-?\d*[,\.]?\d*$/.test(parte1)) {
+      // handleSubmit?:();
+    }
+    if (/^-?\d*[,\.]?\d*$/.test(parte2)) {
+    }
     if (
       parte1 === "" ||
-      parte2 === "" ||
-      isNaN(parte1.replace(",", ".")) ||
-      isNaN(parte2.replace(",", "."))
-    ) {
+      parte2 === ""
+      // isNaN(parte1) ||
+      // isNaN(parte2.replace(",", "."))
+    )
       alert("Error: Debe ingresar un número válido");
-    } else {
+    else {
       const respuesta = `${parte1} ; ${parte2}`;
       setEnvio(respuesta);
       cerreccion(respuesta);
       setMostrarResultadoA(true);
       setMostrarInputsA(false);
+      console.log("respuesta", respuesta);
     }
   };
   const alertaBoton = () => {
@@ -114,7 +119,7 @@ export const Actividad = () => {
   const cerreccion = (respuesta) => {
     respuesta === answers[0] ? setValidar(true) : setValidar(false);
   };
-  ActivitiesStatus(validar);
+  validar === true ? ActivitiesStatus(validar) : ActivitiesStatus(false);
   // envio === answers[0] ? setValidar(true) : setValidar(false);
 
   // const validarB = envioB === answers[1] ? true : false;
@@ -144,7 +149,7 @@ export const Actividad = () => {
             <div style={{ marginBottom: "10px" }}>
               A) <img src="../../img/funcion1.png" alt="" />
             </div>
-            <p style={{ fontSize: 17 }}>
+            <div style={{ fontSize: 17 }}>
               {" "}
               Indica el dominio de la función =
               <div className="" style={{ marginTop: "10px" }}>
@@ -180,6 +185,7 @@ export const Actividad = () => {
                       }}
                     />
                     <button
+                      // type="submit"
                       onClick={handleSubmit}
                       style={{
                         backgroundColor: "#AABFC6",
@@ -195,7 +201,7 @@ export const Actividad = () => {
                   </>
                 )}
               </div>
-            </p>
+            </div>
           </>
         )}
 

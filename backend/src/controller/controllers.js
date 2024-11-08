@@ -49,7 +49,6 @@ export const register = async (req, res) => {
       "INSERT INTO activities_status(id_user) VALUES(?)",
       [resultado.insertId]
     );
-
     res.json({
       message: "Usuario creado exitosamente",
       id: resultado.insertId,
@@ -76,16 +75,46 @@ export const session = async (req, res) => {
 
 //Activities Status
 export const activitiesStatus = async (req, res) => {
-  const { id_user, actState, idAct } = req.body;
-  console.log("hola");
-  console.log(id_user, actState, idAct);
+  try {
+    const { id_user, actState, idAct } = req.body;
+    console.log("hola");
+    console.log(id_user, actState, idAct);
 
+    const newConnection = await connection();
+    const [resultado] = await newConnection.query(
+      `UPDATE activities_status SET ${idAct} = ? WHERE id_user = ${id_user}`,
+      [actState]
+    );
+    res.json({ resultado, message: "Actividad actualizada exitosamente" });
+  } catch (error) {
+    console.log("Ocurrio un error al actualizar la actividad");
+  }
+};
+
+//Activities is Completed
+export const isCompleted = async (req, res) => {
+  // try {
   const newConnection = await connection();
   const [resultado] = await newConnection.query(
-    `UPDATE activities_status SET ${idAct} = ? WHERE id_user = ${id_user}`,
-    [actState]
+    `SELECT * FROM activities_status `
   );
-  res.json({ resultado, message: "Actividad actualizada exitosamente" });
+  res.json({
+    resultado: resultado.map(
+      ({ act_1, act_2, act_3, act_4, act_5, act_6, act_7, id_user }) => ({
+        act_1,
+        act_2,
+        act_3,
+        id_user,
+        act_4,
+        act_5,
+        act_6,
+        act_7,
+      })
+    ),
+  });
+  // } catch (error) {
+  //   console.log("Ocurrio un error al llamar las actividades del usuario");
+  // }
 };
 
 //logout
