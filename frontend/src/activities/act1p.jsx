@@ -1,5 +1,5 @@
 import React from "react";
-import { XD } from "../hooks/allHooks";
+import { InputResponse, XD } from "../hooks/allHooks";
 
 
 export const Actividad1p  = () => {
@@ -12,6 +12,10 @@ export const Actividad1p  = () => {
             activitieNumber='Actividad 1)' 
             guide='puedes escribir números negativos' 
             description='Observa atentamente y halla el dominio de la funcón'
+            />
+            <InputResponse
+            answer1={-4}
+            answer2={4}
             />
 
             

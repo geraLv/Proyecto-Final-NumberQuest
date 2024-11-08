@@ -68,13 +68,58 @@ export function XD ({title, activitieNumber, description, guide}) {
   )
 }
 
-export function InputResponse ({}){
 
-  return(
+
+
+
+
+export function InputResponse({answer1, answer2}) {
+
+  const [valueActivitie, setValueActivitie] = useState(false);
+  const [response, setResponse] = useState(""); 
+
+  const answers = [answer1, answer2];
+
+  function validationResponse() {
+    const response1Value = document.getElementById("response1").value;
+    const response2Value = document.getElementById("response2").value;
+
+    console.log(answers[0]);
+    console.log(answers[1]);
+    console.log(response1Value);
+    console.log(response2Value);
+
+    if (parseInt(response1Value) === answers[0] && parseInt(response2Value) === answers[1]) {
+      setValueActivitie(true);
+      alert("Respuesta correcta");
+      console.log(setValueActivitie);
+    } else {
+      alert("Respuesta incorrecta");
+    }
+  }
+
+  return (
     <>
-    <input onChange={e => setMondongo(e.target.value)} />
-  </>
-  )
+      <div>
+        <input
+          type="text"
+          id="response1"
+          placeholder="xx/-xx"
+          maxLength={5}
+        />
+        <span>---</span>
+        <input
+          type="text"
+          id="response2"
+          placeholder="xx/-xx"
+          maxLength={5}
+        />
+      </div>
+      <button onClick={validationResponse}>MANGO MANGO MANGO</button>
+      <div>
+      </div>
+    </>
+  );
 }
 
 
