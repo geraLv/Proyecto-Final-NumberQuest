@@ -134,14 +134,26 @@ export const Actividad = () => {
 
   return (
     <div className="main">
-      <h1 style={{ fontSize: 30 }}>
+      <h1 className="text-3xl">
         <b>Dominio de funciones</b>
       </h1>
+      <div className="w-full h-96">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam fuga
+          tempora corrupti recusandae et minus quidem tempore, minima fugit iure
+          a consequatur! Hic praesentium dolor odit unde modi, rerum culpa?
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste numquam
+          aliquid rem est, libero quam illum alias qui facere iure, impedit
+          accusantium veritatis mollitia consequatur, quisquam fugit dicta
+          recusandae Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Blanditiis corporis ullam aspernatur dicta provident ipsam. Ducimus ad
+          accusamus excepturi consectetur odio deserunt optio modi odit, cum
+          dolor neque incidunt pariatur?
+        </p>
+      </div>
       <p style={{ color: "#AABFC6", marginTop: "10px" }}>
         *Aclaración: Los números decimales se marcan con punto: Ejemplo:"1.2"*
       </p>
-      <Button onClick={alertaBoton}>hola</Button>
-
       <div className="Act1" style={{ margin: "10px 10px 30px 10px" }}>
         <p style={{ fontSize: 20, marginBottom: "10px" }}>Actividad 1:</p>
         {mostrarA && (

@@ -93,28 +93,27 @@ export const activitiesStatus = async (req, res) => {
 
 //Activities is Completed
 export const isCompleted = async (req, res) => {
-  // try {
-  const newConnection = await connection();
-  const [resultado] = await newConnection.query(
-    `SELECT * FROM activities_status `
-  );
-  res.json({
-    resultado: resultado.map(
-      ({ act_1, act_2, act_3, act_4, act_5, act_6, act_7, id_user }) => ({
-        act_1,
-        act_2,
-        act_3,
-        id_user,
-        act_4,
-        act_5,
-        act_6,
-        act_7,
-      })
-    ),
-  });
-  // } catch (error) {
-  //   console.log("Ocurrio un error al llamar las actividades del usuario");
-  // }
+  try {
+    const newConnection = await connection();
+    const [resultado] = await newConnection.query(
+      `SELECT * FROM activities_status `
+    );
+    res.json({
+      resultado: resultado.map(
+        ({ act_1, act_2, act_3, act_4, act_5, act_6, act_7 }) => ({
+          act_1,
+          act_2,
+          act_3,
+          act_4,
+          act_5,
+          act_6,
+          act_7,
+        })
+      ),
+    });
+  } catch (error) {
+    console.log("Ocurrio un error al llamar las actividades del usuario");
+  }
 };
 
 //logout

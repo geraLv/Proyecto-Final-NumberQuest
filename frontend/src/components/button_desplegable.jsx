@@ -2,21 +2,84 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Menu, MenuHandler, Button } from "@material-tailwind/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { ListaActividades } from "../models/ListaActividadesDB.js";
+// import ActComplete from "../models/ListaActividadesDB";
+// import ListaActividades from "../models/ListaActividadesDB";
+import { useState, useEffect } from "react";
+// import { ListaActividades } from "../models/ListaActividadesDB";
 // import { TareaCorrecta } from "./act.jsx";
-export function ButtonDesplegable({ tema, nroActividades }) {
+export function ButtonDesplegable({ tema }) {
+  const [nroActividades, setNroActividades] = useState(0);
   const [openMenu, setOpenMenu] = React.useState(false);
+  const [actUser, setActUser] = useState([]);
+  const [idUser, setIdUser] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [lista, setLista] = useState([]);
 
-  const menuActivities = ListaActividades.map(
-    ({ url, title, description, isCompleted }) => ({
-      url,
-      title,
-      description,
-      isCompleted,
+  useEffect(() => {
+    fetch("http://localhost:4000/session", {
+      credentials: "include",
     })
-  );
+      .then((response) => response.json())
+      .then((response) => setIdUser(parseInt(response.user.id)));
+  }, []);
 
-  // const [isCompleted, setIsCompleted] = useState(false);
+  useEffect(() => {
+    fetch("http://localhost:4000/actChek", {
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((response) => setActUser(response))
+      .then(() => setLoading(true));
+  }, []);
+
+  useEffect(() => {
+    if (loading === true && idUser > 0 && actUser !== undefined) {
+      setLista([
+        {
+          url: "/actividad/1",
+          title: "Actividad 1: Lógica proposicional",
+          description: ``,
+          isCompleted: actUser.resultado[idUser - 1].act_1,
+        },
+        {
+          url: "/actividad/2",
+          title: "Actividad 2: Teoría de conjuntos",
+          description: "",
+          isCompleted: actUser.resultado[idUser - 1].act_2,
+        },
+        {
+          url: "/actividad/3",
+          title: "Actividad 3: Funciones",
+          description: "",
+          isCompleted: actUser.resultado[idUser - 1].act_3,
+        },
+        {
+          url: "/actividad/4",
+          title: "Actividad 4: Matrices",
+          description: "",
+          isCompleted: actUser.resultado[idUser - 1].act_4,
+        },
+        {
+          url: "/actividad/5",
+          title: "Actividad 4: Matrices",
+          description: "",
+          isCompleted: actUser.resultado[idUser - 1].act_5,
+        },
+      ]);
+    }
+  }, [loading, actUser, idUser]);
+
+  useEffect(() => {
+    if (loading === true && idUser > 0 && actUser !== undefined) {
+      setNroActividades(
+        actUser.resultado[idUser - 1].act_1 +
+          actUser.resultado[idUser - 1].act_2 +
+          actUser.resultado[idUser - 1].act_3 +
+          actUser.resultado[idUser - 1].act_4 +
+          actUser.resultado[idUser - 1].act_5
+      );
+    }
+  }, [loading, actUser, idUser]);
 
   return (
     <Menu className="w-auto h-full">
@@ -51,21 +114,31 @@ export function ButtonDesplegable({ tema, nroActividades }) {
             </Button>
           </div>
           {openMenu
-            ? menuActivities.map(({ url, title, description, isCompleted }) => (
+            ? lista.map(({ url, title, description, isCompleted }) => (
                 <Link
                   to={url}
                   className="w-full h-full flex text-black px-2 py-1"
                 >
-                  <Button className="w-full text-start">{title}</Button>
-                  {isCompleted ? (
-                    <Button className="text-black w-1/5 text-start bg-lime-600">
-                      Completada
-                    </Button>
-                  ) : (
-                    <Button className="text-black w-1/5 text-start bg-gray-200">
-                      incompleta
-                    </Button>
-                  )}
+                  <Button className="flex  w-full text-center justify-between items-center">
+                    {title}
+
+                    {isCompleted ? (
+                      <svg
+                        className="w-8 h-8 text-green-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M18.333 6A3.667 3.667 0 0 1 22 9.667v8.666A3.667 3.667 0 0 1 18.333 22H9.667A3.667 3.667 0 0 1 6 18.333V9.667A3.667 3.667 0 0 1 9.667 6zM15 2c1.094 0 1.828.533 2.374 1.514a1 1 0 1 1-1.748.972C15.405 4.088 15.284 4 15 4H5c-.548 0-1 .452-1 1v9.998c0 .32.154.618.407.805l.1.065a1 1 0 1 1-.99 1.738A3 3 0 0 1 2 15V5c0-1.652 1.348-3 3-3zm1.293 9.293L13 14.585l-1.293-1.292a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414"
+                        />
+                      </svg>
+                    ) : (
+                      ""
+                    )}
+                  </Button>
                 </Link>
               ))
             : ""}
