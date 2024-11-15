@@ -11,6 +11,7 @@ import {
 
 export function ProfileMenu() {
   const [usuario, setUsuario] = useState({ loggedIn: false });
+
   useEffect(() => {
     fetch("http://localhost:4000/session", {
       credentials: "include",
@@ -31,7 +32,7 @@ export function ProfileMenu() {
             variant="circular"
             alt="tania andrew"
             className="cursor-pointer hover:shadow-gray-800"
-            src="../../public/img/perfil.png"
+            src="../../img/perfil.png"
           />
         </MenuHandler>
         <MenuList>

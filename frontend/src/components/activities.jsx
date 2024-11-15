@@ -7,7 +7,6 @@ import { Actividad1p } from "../activities/act1p";
 // import { Actividad3 } from "../activities/act3";
 
 export function Activities() {
-
   return (
     <>
       <NavBar />

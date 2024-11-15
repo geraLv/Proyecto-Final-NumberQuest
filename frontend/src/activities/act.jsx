@@ -1,7 +1,10 @@
+import { Button, input } from "@material-tailwind/react";
 import React, { useState } from "react";
-
+import Swal from "sweetalert2";
+import ActivitiesStatus from "../hooks/ActivitiesStatus";
 export const Actividad = () => {
   const [parte1, setParte1] = useState("");
+  const [validar, setValidar] = useState(false);
   const [parte2, setParte2] = useState("");
   const [parte1B, setParte1B] = useState("");
   const [parte2B, setParte2B] = useState("");
@@ -13,6 +16,8 @@ export const Actividad = () => {
   const [mostrarResultadoB, setMostrarResultadoB] = useState(false);
   const [mostrarB, setMostrarB] = useState(false);
   const [mostrarA, setMostrarA] = useState(true);
+
+  // let actStatus = false;
 
   const answers = ["-4 ; 4", "(-inf,0) U (1/4,+inf)"];
   const imgRes = [
@@ -28,15 +33,11 @@ export const Actividad = () => {
   ];
 
   const handleParte1Change = (input) => {
-    if (/^-?\d*[,\.]?\d*$/.test(input)) {
-      setParte1(input);
-    }
+    setParte1(parseInt(input));
   };
 
   const handleParte2Change = (input) => {
-    if (/^-?\d*[,\.]?\d*$/.test(input)) {
-      setParte2(input);
-    }
+    setParte2(parseInt(input));
   };
 
   const handleParte1BChange = (input) => {
@@ -61,22 +62,38 @@ export const Actividad = () => {
     }
   };
 
+  // onClick = {handleSubmit}?():
   const handleSubmit = () => {
+    console.log("parte 1", parte1);
+    console.log("parte 2", parte2);
+    if (/^-?\d*[,\.]?\d*$/.test(parte1)) {
+      // handleSubmit?:();
+    }
+    if (/^-?\d*[,\.]?\d*$/.test(parte2)) {
+    }
     if (
       parte1 === "" ||
-    parte2 === "" ||
-      isNaN(parte1.replace(",", ".")) ||
-      isNaN(parte2.replace(",", "."))
-    ) {
+      parte2 === ""
+      // isNaN(parte1) ||
+      // isNaN(parte2.replace(",", "."))
+    )
       alert("Error: Debe ingresar un número válido");
-    } else {
+    else {
       const respuesta = `${parte1} ; ${parte2}`;
       setEnvio(respuesta);
+      cerreccion(respuesta);
       setMostrarResultadoA(true);
       setMostrarInputsA(false);
+      console.log("respuesta", respuesta);
     }
   };
-
+  const alertaBoton = () => {
+    Swal.fire({
+      title: "Para acceder deve registrarse o iniciar sesión",
+      icon: "warning",
+      confirmButtonText: "Continuar",
+    });
+  };
   const handleSubmitB = () => {
     if (
       parte1B === "" ||
@@ -99,8 +116,13 @@ export const Actividad = () => {
     }
   };
 
-  const validar = envio === answers[0] ? "Correcto" : "Incorrecto";
-  const validarB = envioB === answers[1] ? "Correcto" : "Incorrecto";
+  const cerreccion = (respuesta) => {
+    respuesta === answers[0] ? setValidar(true) : setValidar(false);
+  };
+  validar === true ? ActivitiesStatus(validar) : ActivitiesStatus(false);
+  // envio === answers[0] ? setValidar(true) : setValidar(false);
+
+  // const validarB = envioB === answers[1] ? true : false;
 
   const handleNext = () => {
     setMostrarB(true);
@@ -112,21 +134,34 @@ export const Actividad = () => {
 
   return (
     <div className="main">
-      <h1 style={{ fontSize: 30 }}>
+      <h1 className="text-3xl">
         <b>Dominio de funciones</b>
       </h1>
+      <div className="w-full h-96">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam fuga
+          tempora corrupti recusandae et minus quidem tempore, minima fugit iure
+          a consequatur! Hic praesentium dolor odit unde modi, rerum culpa?
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste numquam
+          aliquid rem est, libero quam illum alias qui facere iure, impedit
+          accusantium veritatis mollitia consequatur, quisquam fugit dicta
+          recusandae Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Blanditiis corporis ullam aspernatur dicta provident ipsam. Ducimus ad
+          accusamus excepturi consectetur odio deserunt optio modi odit, cum
+          dolor neque incidunt pariatur?
+        </p>
+      </div>
       <p style={{ color: "#AABFC6", marginTop: "10px" }}>
         *Aclaración: Los números decimales se marcan con punto: Ejemplo:"1.2"*
       </p>
-
       <div className="Act1" style={{ margin: "10px 10px 30px 10px" }}>
         <p style={{ fontSize: 20, marginBottom: "10px" }}>Actividad 1:</p>
         {mostrarA && (
           <>
             <div style={{ marginBottom: "10px" }}>
-              A) <img src="./img/funcion1.png" alt="" />
+              A) <img src="../../img/funcion1.png" alt="" />
             </div>
-            <p style={{ fontSize: 17 }}>
+            <div style={{ fontSize: 17 }}>
               {" "}
               Indica el dominio de la función =
               <div className="" style={{ marginTop: "10px" }}>
@@ -162,6 +197,7 @@ export const Actividad = () => {
                       }}
                     />
                     <button
+                      // type="submit"
                       onClick={handleSubmit}
                       style={{
                         backgroundColor: "#AABFC6",
@@ -177,7 +213,7 @@ export const Actividad = () => {
                   </>
                 )}
               </div>
-            </p>
+            </div>
           </>
         )}
 
@@ -185,13 +221,13 @@ export const Actividad = () => {
           <div>
             <p
               style={{
-                color: validar === "Correcto" ? "green" : "red",
+                color: validar === true ? "green" : "red",
                 fontSize: 18,
               }}
             >
-              Dominio: ( {envio} ) es {validar}
+              Dominio: ( {envio} ) es {validar === true ? "verdadero" : "falso"}
             </p>
-            <p>{validar === "Correcto" ? imgRes[1] : imgRes[0]}</p>
+            <p>{validar === true ? imgRes[1] : imgRes[0]}</p>
           </div>
         )}
 
@@ -215,7 +251,7 @@ export const Actividad = () => {
         {mostrarB && (
           <div style={{ marginTop: "30px" }}>
             <p style={{ fontSize: 20, marginBottom: "10px" }}>
-              B) <img src="../../public/img/funcion2.png" alt="" />
+              B) <img src="../../img/funcion2.png" alt="" />
               Indica el dominio de la función =
               <div className="" style={{ marginTop: "10px" }}>
                 {mostrarInputsB && (

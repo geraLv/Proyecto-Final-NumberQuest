@@ -1,29 +1,31 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginForm from "../components/loginForm";
-import RegisterForm from "../components/registerForm";
-// import { Activities } from "../activities";
-// import { Actividad } from "../components/act";
-import { Activities } from "../components/activities";
-// import  from "../components/Lista-temas";
-import Home from "../components/Home";
-// import { MenuCustomList } from "../components/button-unidades";
-import ListaTemas from "../components/listaTemas";
-import { Actividad2p } from "../activities/act2p";
-// import ListaTemas from "../components/Lista-temas";
+import LoginForm from "../pages/loginForm";
+import RegisterForm from "../pages/registerForm";
+import Home from "../pages/Home";
+import { Activities } from "../pages/activities";
+import ListaTemas from "../pages/listaTemas";
+// import { PrivateRoutes } from "./PrtivateRoutes";
+import PrtivateRoutes from "../hooks/PrivateRoutes";
+import NotFoundPages from "../pages/NotFound";
+// import App from "../App";
 
 const AppRouter = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LoginForm />}></Route>
-        <Route path="/register" element={<RegisterForm />}></Route>
-        <Route path="/temas/*" element={<ListaTemas />}></Route>
-        <Route path="/actividad" element={<Activities />}></Route>
-        <Route path="/actividad2" element={<Actividad2p />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <Suspense fallback={<h1>Cargando...</h1>}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/*" element={<NotFoundPages />}></Route>
+          <Route path="/login" element={<LoginForm />}></Route>
+          <Route path="/register" element={<RegisterForm />}></Route>
+          <Route element={<PrtivateRoutes />}>
+            <Route path="/temas/*" element={<ListaTemas />}></Route>
+            <Route path="/actividad/*" element={<Activities />}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Suspense>
   );
 };
 

@@ -40,23 +40,25 @@ export function Actividad3() {
     
     // const [response, setResponse] = useState("");
 
-    // const Images = [
-    //     { id: 1, url: "https://picsum.photos/200/300"
-    //         },
-    //         { id: 2, url: "https://picsum.photos/200/301"
-    //             },
-    //             { id: 3, url: "https://picsum.photos/200/302"
-    //                 }
-    // ]
+// const [response, setResponse] = useState("");
 
-    // function handleCheckboxChange(event) {
-    //     const { value, checked } = event.target;
-    //     if (checked) {
-    //         setResponse(value);
-    //     } else {
-    //         setResponse(""); 
-    //     }
-    // }
+// const Images = [
+//     { id: 1, url: "https://picsum.photos/200/300"
+//         },
+//         { id: 2, url: "https://picsum.photos/200/301"
+//             },
+//             { id: 3, url: "https://picsum.photos/200/302"
+//                 }
+// ]
+
+// function handleCheckboxChange(event) {
+//     const { value, checked } = event.target;
+//     if (checked) {
+//         setResponse(value);
+//     } else {
+//         setResponse("");
+//     }
+// }
 
     // function sendResponse() {
     //     if (response === "Todos los reales") {
