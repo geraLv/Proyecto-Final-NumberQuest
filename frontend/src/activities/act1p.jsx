@@ -1,5 +1,5 @@
 import React from "react";
-import { InputResponse, Surrender, XD } from "../hooks/allHooks";
+import { InputResponse, Surrender, ActivitieModel } from "../hooks/allHooks";
 
 
 export const Actividad1p  = () => {
@@ -7,8 +7,10 @@ export const Actividad1p  = () => {
 
     return(
         <>
-        <div className="container">
-            <XD
+        <div
+        className="flex flex-col justify-center items-center w-full h-full"
+        >
+            <ActivitieModel
             title='Dominio de funciones'
             activitieNumber='Actividad 1)' 
             guide='puedes escribir números negativos' 

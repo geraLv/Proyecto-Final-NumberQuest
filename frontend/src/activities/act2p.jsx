@@ -3,7 +3,7 @@ import "../index.css";
 import NavBar from "../components/navbar";
 import Layaut from "../components/layaut";
 import Footer from "../components/footer";
-import { XD } from "../hooks/allHooks";
+import { ActivitieModel } from "../hooks/allHooks";
 
 export function Actividad2p () {
     return (
@@ -11,10 +11,10 @@ export function Actividad2p () {
               <NavBar />
       <Layaut>
         <div>
-            <XD
+            <ActivitieModel
             title='Dominio de funciones'
-            activitieNumber='Actividad 1)' 
-            guide='puedes escribir números negativos' 
+            activitieNumber='Actividad 2)' 
+            guide='"INFINITO" se escribe "INF", se debe agregar el signo "+" o "-" al principio' 
             description='Observa atentamente y halla el dominio de la funcón'
             />
 

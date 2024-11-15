@@ -19,12 +19,12 @@ function Home() {
   //   return setUsuario.window.location.href("http://localhost:5173/login");
   // }
   return (
-    <>
+    <div className="bg-[url('https://wallpaperaccess.com/full/237630.jpg')]">
       <Navbar></Navbar>
       <CarouselWithContent />
       <Bloques />
       <Footer />
-    </>
+    </div>
   );
 }
 

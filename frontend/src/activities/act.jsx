@@ -1,6 +1,6 @@
 import { Button, input } from "@material-tailwind/react";
 import React, { useState } from "react";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import ActivitiesStatus from "../hooks/ActivitiesStatus";
 export const Actividad = () => {
   const [parte1, setParte1] = useState("");
@@ -73,9 +73,9 @@ export const Actividad = () => {
     }
     if (
       parte1 === "" ||
-      parte2 === ""
-      // isNaN(parte1) ||
-      // isNaN(parte2.replace(",", "."))
+      parte2 === "",
+      isNaN(parte1) ||
+      isNaN(parte2.replace(",", "."))
     )
       alert("Error: Debe ingresar un número válido");
     else {
@@ -159,7 +159,7 @@ export const Actividad = () => {
         {mostrarA && (
           <>
             <div style={{ marginBottom: "10px" }}>
-              A) <img src="../../img/funcion1.png" alt="" />
+              A) f(x) = √4+x + √4-x +2√2 <img src="../../img/funcion1.png" alt="" />
             </div>
             <div style={{ fontSize: 17 }}>
               {" "}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, InputEdit } from "../hooks/allHooks";
+import { ActivitieModel, CheckResponse, InputEdit } from "../hooks/allHooks";
 
 
 export function Actividad3() {
@@ -12,11 +12,17 @@ export function Actividad3() {
 
   return (
     <div>
-      <h1>Actividad 2 :D</h1>
+      <ActivitieModel
+      title='Dominio de funciones'
+            activitieNumber='Actividad 3)' 
+            guide='Elije una de las opciones' 
+            description=''
+            nImage={2}
+      />
       <ul>
         <li>
           <InputEdit value="Correcto" selectedValue={selectedValue} onChange={handleCheckboxChange} />
-          Todos los reales :v
+          Todos los Reales
         </li>
         <li>
           <InputEdit value="Incorrecto0" selectedValue={selectedValue} onChange={handleCheckboxChange} />
@@ -31,7 +37,7 @@ export function Actividad3() {
           Relleno
         </li>
       </ul>
-      <Button selectedValue={selectedValue} />
+      <CheckResponse selectedValue={selectedValue} />
     </div>
   );
 }

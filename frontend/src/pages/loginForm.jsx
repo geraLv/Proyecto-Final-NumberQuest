@@ -42,12 +42,12 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex-row items-center space-y-10">
-      <Navbar></Navbar>
-      <div className="container row w-3/5 justify-center">
-        <div className="bg-blue-gray-500 w-1/2 text-center p-7 rounded-xl rounded-r-none"></div>
-        <div className="bg-dark w-1/2 h-auto shadow-2xl shadow-black rounded-xl rounded-l-none col-xs-10 col-md-6 col-sm-9 col-lg-5">
-          <div className="bg-dark  opacity-90 card shadow-sm">
+    
+    <div className="h-full flex-row items-center">
+      <div className="container row w-3/5 static justify-center">
+        <div className=" bg-blue-gray-500  w-1/2 text-center p-7 rounded-xl rounded-r-none"></div>
+        <div className="bg-dark w-1/2 h-auto  shadow-2xl shadow-black rounded-xl rounded-l-none col-xs-10 col-md-6 col-sm-9 col-lg-5">
+          <div className="bg-dark opacity-90 card shadow-sm">
             <div className="card-body">
               <h3 className="text-center text-xl text-white mb-4">
                 Inicio de Sesión
@@ -98,7 +98,8 @@ const LoginForm = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    
   );
 };
 

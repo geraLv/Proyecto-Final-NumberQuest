@@ -4,7 +4,7 @@ const Bloques = () => {
   return (
     <div>
       <section classNameName=" text-gray-400 body-font flex justify-center">
-        <div className=" py-6 bg-home conteiner mx-1/2">
+        <div  className=" py-6 conteiner mx-1/2">
           <div className="flex flex-col -m-4">
             <a href="./temas/2">
               <div className="flex xl:w-full px-4 py-4 w-full">
