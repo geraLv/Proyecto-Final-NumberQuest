@@ -45,7 +45,12 @@ const LoginForm = () => {
     <div className="flex-row items-center space-y-10">
       <Navbar></Navbar>
       <div className="container row w-3/5 justify-center">
-        <div className="bg-blue-gray-500 w-1/2 text-center p-7 rounded-xl rounded-r-none"></div>
+        <div className="bg-blue-gray-500 w-1/2 text-center p-7 rounded-xl rounded-r-none">
+        <h1 className="text-white text-3xl">Bienvenido</h1>
+          <p className="text-white p-8 text-xl">
+            Porfavor complete todos los datos para acceder a su cuenta
+          </p>
+        </div>
         <div className="bg-dark w-1/2 h-auto shadow-2xl shadow-black rounded-xl rounded-l-none col-xs-10 col-md-6 col-sm-9 col-lg-5">
           <div className="bg-dark  opacity-90 card shadow-sm">
             <div className="card-body">
