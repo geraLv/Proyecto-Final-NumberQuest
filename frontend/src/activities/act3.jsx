@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { Button, InputEdit } from "../hooks/allHooks";
+import { ActivitieModel, CheckResponse, InputEdit } from "../hooks/allHooks";
+import img3 from "../public/img/funcion3.png";
 
+import { Navigate, Link } from "react-router-dom";
+import { Surrender } from "../hooks/allHooks";
 export function Actividad3() {
   const [selectedValue, setSelectedValue] = useState(null); // Este estado guarda el valor del checkbox seleccionado
 
@@ -11,7 +14,13 @@ export function Actividad3() {
 
   return (
     <div>
-      <h1>Actividad 2 </h1>
+      <ActivitieModel
+        title="Dominio de funciones"
+        activitieNumber="Actividad 3)"
+        guide="Elije una de las opciones"
+        description=""
+      />
+      <img src={img3} alt="" />
       <ul>
         <li>
           <InputEdit
@@ -19,7 +28,7 @@ export function Actividad3() {
             selectedValue={selectedValue}
             onChange={handleCheckboxChange}
           />
-          Todos los reales
+          Todos los Reales
         </li>
         <li>
           <InputEdit
@@ -46,7 +55,16 @@ export function Actividad3() {
           Relleno
         </li>
       </ul>
-      <Button selectedValue={selectedValue} />
+      <CheckResponse selectedValue={selectedValue} />
+      <div className="flex gap-4 items-end">
+        <Surrender className={"py-2 "} />
+        <button
+          className="h-10 w-40 mb-2   bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
+          onClick={<Navigate to="/actividad/3" />}
+        >
+          <Link to="/actividad/5">Siguiente Actividad</Link>
+        </button>
+      </div>
     </div>
   );
 }
@@ -70,6 +88,17 @@ export function Actividad3() {
 //         setResponse(value);
 //     } else {
 //         setResponse("");
+//     }
+// }
+
+// function sendResponse() {
+//     if (response === "Todos los reales") {
+//         alert("La respuesta es correcta");
+//         return(
+//             <h1></h1>
+//         )
+//     } else {
+//         alert("La respuesta es incorrecta. Intenta de nuevo.");
 //     }
 // }
 

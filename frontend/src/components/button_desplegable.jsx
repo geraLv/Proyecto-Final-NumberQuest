@@ -38,31 +38,43 @@ export function ButtonDesplegable({ tema }) {
       setLista([
         {
           url: "/actividad/1",
-          title: "Actividad 1: Lógica proposicional",
+          title: "Actividad 1: dominio de funciones",
           description: ``,
           isCompleted: actUser.resultado[idUser - 1].act_1,
         },
         {
           url: "/actividad/2",
-          title: "Actividad 2: Teoría de conjuntos",
+          title: "Actividad 2: dominio de funciones",
           description: "",
           isCompleted: actUser.resultado[idUser - 1].act_2,
         },
         {
           url: "/actividad/3",
-          title: "Actividad 3: Funciones",
+          title: "Actividad 3: dominio de funciones",
           description: "",
           isCompleted: actUser.resultado[idUser - 1].act_3,
         },
         {
           url: "/actividad/4",
-          title: "Actividad 4: Matrices",
+          title: "Actividad 4: dominio de funciones",
           description: "",
           isCompleted: actUser.resultado[idUser - 1].act_4,
         },
         {
           url: "/actividad/5",
-          title: "Actividad 4: Matrices",
+          title: "Actividad 5: dominio de funciones",
+          description: "",
+          isCompleted: actUser.resultado[idUser - 1].act_5,
+        },
+        {
+          url: "/actividad/6",
+          title: "Actividad 6: dominio de funciones",
+          description: "",
+          isCompleted: actUser.resultado[idUser - 1].act_5,
+        },
+        {
+          url: "/actividad/7",
+          title: "Actividad 7: dominio de funciones",
           description: "",
           isCompleted: actUser.resultado[idUser - 1].act_5,
         },

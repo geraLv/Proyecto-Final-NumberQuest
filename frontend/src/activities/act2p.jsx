@@ -1,25 +1,34 @@
 import React from "react";
-import "../index.css";
+
 import NavBar from "../components/navbar";
 import Layaut from "../components/layaut";
 import Footer from "../components/footer";
-import { XD } from "../hooks/allHooks";
+import { ActivitieModel, InputResponse, Surrender } from "../hooks/allHooks";
+// import { Surrender } from "../hooks/allHooks";
+
+import { Navigate, Link } from "react-router-dom";
 
 export function Actividad2p() {
-return (
+  return (
     <>
-    <NavBar />
-    <Layaut>
-        <div>
-        <XD
-            title="Dominio de funciones"
-            activitieNumber="Actividad 1)"
-            guide="puedes escribir números negativos"
-            description="Observa atentamente y halla el dominio de la funcón"
+      <div>
+        <ActivitieModel
+          title="Dominio de funciones"
+          activitieNumber="Actividad 2)"
+          guide='"INFINITO" se escribe "INF", se debe agregar el signo "+" o "-" al principio'
+          description="Observa atentamente y halla el dominio de la funcón"
         />
+        <InputResponse answer1={13} answer2={1} />
+        <div className="flex gap-4 items-end">
+          <Surrender />
+          <button
+            className="h-10 px-1  bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
+            onClick={<Navigate to="/actividad/4" />}
+          >
+            <Link to="/actividad/4">Siguiente Actividad</Link>
+          </button>
         </div>
-    </Layaut>
-    <Footer></Footer>
+      </div>
     </>
-);
+  );
 }

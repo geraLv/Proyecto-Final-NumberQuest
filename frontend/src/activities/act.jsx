@@ -1,8 +1,11 @@
 import { Button, input } from "@material-tailwind/react";
 import React, { useState } from "react";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import ActivitiesStatus from "../hooks/ActivitiesStatus";
-import Teclado from "../components/teclado";
+import imgcoso from "../public/img/funcion1.png";
+import { Surrender } from "../hooks/allHooks";
+import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 export const Actividad = () => {
   const [parte1, setParte1] = useState("");
   const [validar, setValidar] = useState(false);
@@ -80,10 +83,8 @@ export const Actividad = () => {
     if (/^-?\d*[,\.]?\d*$/.test(parte2)) {
     }
     if (
-      parte1 === "" ||
-      parte2 === ""
-      // isNaN(parte1) ||
-      // isNaN(parte2.replace(",", "."))
+      (parte1 === "" || parte2 === "",
+      isNaN(parte1) || isNaN(parte2.replace(",", ".")))
     )
       alert("Error: Debe ingresar un número válido");
     else {
@@ -145,20 +146,7 @@ export const Actividad = () => {
       <h1 className="text-3xl">
         <b>Dominio de funciones</b>
       </h1>
-      <div className="w-full h-96">
-        {/* <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam fuga
-          tempora corrupti recusandae et minus quidem tempore, minima fugit iure
-          a consequatur! Hic praesentium dolor odit unde modi, rerum culpa?
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste numquam
-          aliquid rem est, libero quam illum alias qui facere iure, impedit
-          accusantium veritatis mollitia consequatur, quisquam fugit dicta
-          recusandae Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Blanditiis corporis ullam aspernatur dicta provident ipsam. Ducimus ad
-          accusamus excepturi consectetur odio deserunt optio modi odit, cum
-          dolor neque incidunt pariatur?
-        </p> */}
-      </div>
+
       <p style={{ color: "#AABFC6", marginTop: "10px" }}>
         *Aclaración: Los números decimales se marcan con punto: Ejemplo:"1.2"*
       </p>
@@ -166,8 +154,9 @@ export const Actividad = () => {
         <p style={{ fontSize: 20, marginBottom: "10px" }}>Actividad 1:</p>
         {mostrarA && (
           <>
-            <div style={{ marginBottom: "10px" }}>
-              A) <img src="../../img/funcion1.png" alt="" />
+            <div className="py-2" style={{ marginBottom: "10px" }}>
+              A)
+              <img className="h-8" src={imgcoso} alt="" />
             </div>
             <div style={{ fontSize: 17 }}>
               {" "}
@@ -342,22 +331,14 @@ export const Actividad = () => {
           </div>
         )}
       </div>
-      <div className="bg-gray-50 flex h-1/2 justify-start w-full">
-        Teclado
-        <div className="grid grid-cols-4 grid-rows-4 h-full m-10 gap-1">
-          {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", "/", 0, ".", "="].map(
-            (item) => (
-              <button
-                key={item}
-                onClick={() => write(item)}
-                className="flex shadow-lg justify-center text-3xl items-center bg-white hover:scale-105 duration-100 ease-in"
-              >
-                {item}
-              </button>
-            )
-          )}
-        </div>
-      </div>
+      <button onClick={<Navigate to="/actividad/2" />}>
+        <Link
+          to="/actividad/2"
+          className="px-6 py-2 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
+        >
+          Siguiente Actividad
+        </Link>
+      </button>
     </div>
   );
 };
