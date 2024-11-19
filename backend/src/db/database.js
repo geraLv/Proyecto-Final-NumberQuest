@@ -1,7 +1,7 @@
 import { createConnection } from 'mysql2/promise'
 import { DB_HOST, DB_NAME, DB_USER } from '../config/env.js';
 
-export const connection = async () =>{
+export const connection = async () => {
     try {
         const dataBaseConnection = await createConnection({
             host:DB_HOST,

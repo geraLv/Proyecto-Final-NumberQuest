@@ -2,8 +2,8 @@ import { connection } from "../db/database.js";
 import generarJwt from "../helpers/generar-jwt.js";
 
 // Controladores
-
 // Login
+
 export const login = async (req, res) => {
   console.log("hola");
   const { email, password } = req.body;
