@@ -1,19 +1,57 @@
 import { useState } from "react";
-import { InputEdit } from "./hook/useChoice";
+import { Button, InputEdit } from "../hooks/allHooks";
 
 export function Actividad3() {
-  const [checkboxValue, setCheckboxValue] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(null); // Este estado guarda el valor del checkbox seleccionado
 
-  const handleCheckboxChange = (event) => {
-    setCheckboxValue(event.target.checked);
+  // Actualiza el valor seleccionado o lo desmarca si ya está marcado
+  const handleCheckboxChange = (value) => {
+    setSelectedValue(value === selectedValue ? null : value); // Si ya está seleccionado, lo desmarca
   };
 
   return (
-    <>
-      <InputEdit />
-    </>
+    <div>
+      <h1>Actividad 2 </h1>
+      <ul>
+        <li>
+          <InputEdit
+            value="Correcto"
+            selectedValue={selectedValue}
+            onChange={handleCheckboxChange}
+          />
+          Todos los reales
+        </li>
+        <li>
+          <InputEdit
+            value="Incorrecto0"
+            selectedValue={selectedValue}
+            onChange={handleCheckboxChange}
+          />
+          Relleno
+        </li>
+        <li>
+          <InputEdit
+            value="Incorrecto1"
+            selectedValue={selectedValue}
+            onChange={handleCheckboxChange}
+          />
+          Relleno
+        </li>
+        <li>
+          <InputEdit
+            value="Incorrecto2"
+            selectedValue={selectedValue}
+            onChange={handleCheckboxChange}
+          />
+          Relleno
+        </li>
+      </ul>
+      <Button selectedValue={selectedValue} />
+    </div>
   );
 }
+
+// const [response, setResponse] = useState("");
 
 // const [response, setResponse] = useState("");
 
@@ -32,17 +70,6 @@ export function Actividad3() {
 //         setResponse(value);
 //     } else {
 //         setResponse("");
-//     }
-// }
-
-// function sendResponse() {
-//     if (response === "Todos los reales") {
-//         alert("La respuesta es correcta");
-//         return(
-//             <h1></h1>
-//         )
-//     } else {
-//         alert("La respuesta es incorrecta. Intenta de nuevo.");
 //     }
 // }
 
@@ -85,3 +112,4 @@ export function Actividad3() {
 //         <button onClick={sendResponse}>Responder</button>
 //     </div>
 // );
+// }

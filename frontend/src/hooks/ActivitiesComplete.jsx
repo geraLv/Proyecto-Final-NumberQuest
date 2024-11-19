@@ -22,4 +22,4 @@ const ActComplete = () => {
   return actUser, idUser;
 };
 
-export default ActComplete;
+// export default ActComplete;

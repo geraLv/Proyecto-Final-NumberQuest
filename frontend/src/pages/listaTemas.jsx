@@ -10,11 +10,11 @@ import Temas from "../components/temas";
 
 const ListaTemas = () => {
   return (
-    <div>
+    <div className=" bg-home">
       <Navbar></Navbar>
-      <Layaut>
-        <Temas></Temas>
-      </Layaut>
+
+      <Temas></Temas>
+
       <Footer></Footer>
     </div>
   );

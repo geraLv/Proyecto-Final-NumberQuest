@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import LoginForm from "../pages/loginForm";
 import RegisterForm from "../pages/registerForm";
 import Home from "../pages/Home";

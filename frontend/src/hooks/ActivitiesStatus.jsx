@@ -17,8 +17,6 @@ const ActivitiesStatus = async (respuesta) => {
         ? console.log("no se encontro la id")
         : setIdAct(`act_${idEncontrada}`);
       // setIdAct(idEncontrada);
-      // event.preventDefault();
-      // setActState(!actState);
       fetch("http://localhost:4000/session", {
         credentials: "include",
       })

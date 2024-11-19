@@ -2,6 +2,7 @@ import { Button, input } from "@material-tailwind/react";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import ActivitiesStatus from "../hooks/ActivitiesStatus";
+import Teclado from "../components/teclado";
 export const Actividad = () => {
   const [parte1, setParte1] = useState("");
   const [validar, setValidar] = useState(false);
@@ -18,6 +19,13 @@ export const Actividad = () => {
   const [mostrarA, setMostrarA] = useState(true);
 
   // let actStatus = false;
+
+  const [valorTeclado, setValorTeclado] = useState("");
+
+  const write = (value) => {
+    setValorTeclado((prev) => prev + value);
+  };
+  console.log(valorTeclado);
 
   const answers = ["-4 ; 4", "(-inf,0) U (1/4,+inf)"];
   const imgRes = [
@@ -138,7 +146,7 @@ export const Actividad = () => {
         <b>Dominio de funciones</b>
       </h1>
       <div className="w-full h-96">
-        <p>
+        {/* <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam fuga
           tempora corrupti recusandae et minus quidem tempore, minima fugit iure
           a consequatur! Hic praesentium dolor odit unde modi, rerum culpa?
@@ -149,7 +157,7 @@ export const Actividad = () => {
           Blanditiis corporis ullam aspernatur dicta provident ipsam. Ducimus ad
           accusamus excepturi consectetur odio deserunt optio modi odit, cum
           dolor neque incidunt pariatur?
-        </p>
+        </p> */}
       </div>
       <p style={{ color: "#AABFC6", marginTop: "10px" }}>
         *Aclaración: Los números decimales se marcan con punto: Ejemplo:"1.2"*
@@ -168,6 +176,7 @@ export const Actividad = () => {
                 {mostrarInputsA && (
                   <>
                     <input
+                      value={valorTeclado} // Utiliza el estado local para el valor del teclado
                       type="text"
                       onChange={(e) => handleParte1Change(e.target.value)}
                       placeholder="(-x.x)"
@@ -332,6 +341,22 @@ export const Actividad = () => {
             )}
           </div>
         )}
+      </div>
+      <div className="bg-gray-50 flex h-1/2 justify-start w-full">
+        Teclado
+        <div className="grid grid-cols-4 grid-rows-4 h-full m-10 gap-1">
+          {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", "/", 0, ".", "="].map(
+            (item) => (
+              <button
+                key={item}
+                onClick={() => write(item)}
+                className="flex shadow-lg justify-center text-3xl items-center bg-white hover:scale-105 duration-100 ease-in"
+              >
+                {item}
+              </button>
+            )
+          )}
+        </div>
       </div>
     </div>
   );

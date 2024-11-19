@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Menu, MenuHandler, Button } from "@material-tailwind/react";
+import functionImage from "../public/img/function.gif";
+import { Menu, MenuHandler, Button, Card } from "@material-tailwind/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 // import ActComplete from "../models/ListaActividadesDB";
 // import ListaActividades from "../models/ListaActividadesDB";
@@ -82,66 +83,72 @@ export function ButtonDesplegable({ tema }) {
   }, [loading, actUser, idUser]);
 
   return (
-    <Menu className="w-auto h-full">
+    <Menu className="w-auto h-auto">
       <MenuHandler className="w-auto flex flex-col gap-2 bg-gray-600 rounded-xl text-white h-full">
-        <div className="h-auto flex flex-col w-full gap-2 ">
-          <div className="flex flex-row gap-2">
+        <div className="h-full flex flex-row w-full gap-2 ">
+          <div className="flex  w-full flex-row gap-2">
             <Button
               onClick={() => setOpenMenu(!openMenu)}
-              className="h-12 w-full flex justify-between items-center gap-2 font-normal bg-gray-200 text-black "
+              className=" h-auto w-full flex flex-row justify-between items-center gap-2 font-normal bg-gray-200 text-black "
             >
-              <div className="flex">
-                <h1 className="">{tema}</h1>
+              <div className="w-full ">
+                <h1 className="text-base text-left">{tema}</h1>
+              </div>
+              <div className=" w-full flex justify-end">
+                {!openMenu ? (
+                  <div className="w-2/5 flex items-center gap-2">
+                    <div className="space-x-2 rounded-lg border-3  border-black w-4/5 h-4">
+                      <div
+                        className={`bg-lime-600 rounded-lg rounded-r-none  h-full w-${nroActividades}/5`}
+                      ></div>
+                    </div>
+                    <h1 className="text-xl">{(nroActividades * 100) / 5}%</h1>
+                  </div>
+                ) : (
+                  ""
+                )}
                 <ChevronDownIcon
                   strokeWidth={2.5}
-                  className={`h-4.5 w-3.5 transition-transform ${
+                  className={`h-5 w-6 transition-transform ${
                     openMenu ? "rotate-180" : ""
                   }`}
                 />
               </div>
-              {!openMenu ? (
-                <div className="w-2/5 flex items-center gap-2">
-                  <div className="space-x-2 rounded-lg border-1  border-black w-4/5 h-2">
-                    <div
-                      className={`bg-lime-600   h-full w-${nroActividades}/5`}
-                    ></div>
-                  </div>
-                  <h1>{(nroActividades * 100) / 5}%</h1>
-                </div>
-              ) : (
-                ""
-              )}
             </Button>
           </div>
-          {openMenu
-            ? lista.map(({ url, title, description, isCompleted }) => (
-                <Link
-                  to={url}
-                  className="w-full h-full flex text-black px-2 py-1"
-                >
-                  <Button className="flex  w-full text-center justify-between items-center">
-                    {title}
+          <div className="flex w-full">
+            <div className="felx-col w-full h-auto px-2 ">
+              {openMenu
+                ? lista.map(({ url, title, description, isCompleted }) => (
+                    <Link
+                      to={url}
+                      className="w-full h-full text-black px-2 py-1"
+                    >
+                      <Button className="flex w-full text-center justify-between items-center">
+                        {title}
 
-                    {isCompleted ? (
-                      <svg
-                        className="w-8 h-8 text-green-500"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="1em"
-                        height="1em"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M18.333 6A3.667 3.667 0 0 1 22 9.667v8.666A3.667 3.667 0 0 1 18.333 22H9.667A3.667 3.667 0 0 1 6 18.333V9.667A3.667 3.667 0 0 1 9.667 6zM15 2c1.094 0 1.828.533 2.374 1.514a1 1 0 1 1-1.748.972C15.405 4.088 15.284 4 15 4H5c-.548 0-1 .452-1 1v9.998c0 .32.154.618.407.805l.1.065a1 1 0 1 1-.99 1.738A3 3 0 0 1 2 15V5c0-1.652 1.348-3 3-3zm1.293 9.293L13 14.585l-1.293-1.292a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414"
-                        />
-                      </svg>
-                    ) : (
-                      ""
-                    )}
-                  </Button>
-                </Link>
-              ))
-            : ""}
+                        {isCompleted ? (
+                          <svg
+                            className="w-8 h-8 text-green-500"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="1em"
+                            height="1em"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              fill="currentColor"
+                              d="M18.333 6A3.667 3.667 0 0 1 22 9.667v8.666A3.667 3.667 0 0 1 18.333 22H9.667A3.667 3.667 0 0 1 6 18.333V9.667A3.667 3.667 0 0 1 9.667 6zM15 2c1.094 0 1.828.533 2.374 1.514a1 1 0 1 1-1.748.972C15.405 4.088 15.284 4 15 4H5c-.548 0-1 .452-1 1v9.998c0 .32.154.618.407.805l.1.065a1 1 0 1 1-.99 1.738A3 3 0 0 1 2 15V5c0-1.652 1.348-3 3-3zm1.293 9.293L13 14.585l-1.293-1.292a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414"
+                            />
+                          </svg>
+                        ) : (
+                          ""
+                        )}
+                      </Button>
+                    </Link>
+                  ))
+                : ""}
+            </div>
+          </div>
         </div>
       </MenuHandler>{" "}
     </Menu>

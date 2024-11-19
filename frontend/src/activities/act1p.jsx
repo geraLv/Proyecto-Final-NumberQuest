@@ -1,14 +1,17 @@
 import React from "react";
+import { InputResponse, Surrender, XD } from "../hooks/allHooks";
 
-
-export const Actividad1p  = ( title, description, aclaration ) => {
-
-    return(
-        <div className="container">
-            <h1>{title}</h1>
-            <h3>{description}</h3>
-            <p></p>
-        </div>
-    )
-
-}
+export const Actividad1p = () => {
+  return (
+    <div className="container">
+      <XD
+        title="Dominio de funciones"
+        activitieNumber="Actividad 1)"
+        guide="puedes escribir números negativos"
+        description="Observa atentamente y halla el dominio de la funcón"
+      />
+      <InputResponse answer1={-4} answer2={4} />
+      <Surrender />
+    </div>
+  );
+};

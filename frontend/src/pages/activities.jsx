@@ -38,6 +38,7 @@ export function Activities() {
           ) : null}
         </div>
       </Layaut>
+
       <Footer></Footer>
     </>
   );
