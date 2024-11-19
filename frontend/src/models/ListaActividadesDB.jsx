@@ -29,33 +29,33 @@ const ActComplete = () => {
       setLista([
         {
           url: "/actividad/1",
-          title: "Actividad 1: Lógica proposicional",
+          title: "Actividad 1: Dominio de funciones",
           description: ``,
-          isCompleted: actUser.resultado[idUser - 3].act_1,
+          isCompleted: actUser.resultado[idUser - 1].act_1,
         },
         {
           url: "/actividad/2",
-          title: "Actividad 2: Teoría de conjuntos",
+          title: "Actividad 2: Dominio de funciones",
           description: "",
-          isCompleted: actUser.resultado[idUser - 3].act_2,
+          isCompleted: actUser.resultado[idUser - 1].act_2,
         },
         {
           url: "/actividad/3",
-          title: "Actividad 3: Funciones",
+          title: "Actividad 3: Dominio de funciones",
           description: "",
-          isCompleted: actUser.resultado[idUser - 3].act_3,
+          isCompleted: actUser.resultado[idUser - 1].act_3,
         },
         {
           url: "/actividad/4",
-          title: "Actividad 4: Matrices",
+          title: "Actividad 4: Dominio de funciones",
           description: "",
-          isCompleted: actUser.resultado[idUser - 3].act_4,
+          isCompleted: actUser.resultado[idUser - 1].act_4,
         },
         {
           url: "/actividad/5",
-          title: "Actividad 4: Matrices",
+          title: "Actividad 4: dominio de funciones",
           description: "",
-          isCompleted: actUser.resultado[idUser - 3].act_5,
+          isCompleted: actUser.resultado[idUser - 1].act_5,
         },
       ]);
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import { InputResponse, Surrender, ActivitieModel } from "../hooks/allHooks";
 
-export const Actividad3p = () => {
+export const Actividad6p = () => {
 
     return (
         <>
@@ -10,7 +10,7 @@ export const Actividad3p = () => {
             >
                 <ActivitieModel
                     title='Multiplicación de decimales'
-                    activitieNumber='Actividad 3)' 
+                    activitieNumber='Actividad 6)' 
                     guide='Recuerda multiplicar los números decimales como si fueran enteros y luego colocar la coma decimal en el lugar correcto.'
                     description='Resuelve la siguiente multiplicación de decimales: 2.5 × 1.4'
                     nImage={6}

@@ -1,7 +1,7 @@
 import React from "react";
 import { InputResponse, Surrender, ActivitieModel } from "../hooks/allHooks";
 
-export const Actividad2p = () => {
+export const Actividad5p = () => {
 
     return (
         <>
