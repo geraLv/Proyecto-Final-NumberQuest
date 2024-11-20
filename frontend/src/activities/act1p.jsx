@@ -18,6 +18,8 @@ export const Actividad1p  = () => {
             />
         
             <InputResponse
+            typeAnswer={false}
+            separar="---"
             answer1={-4}
             answer2={4}
             />

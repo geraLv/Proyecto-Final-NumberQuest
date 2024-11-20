@@ -13,6 +13,7 @@ export function Actividad4p() {
             description='Observa atentamente y halla el dominio de la funcón'
             />
             <InputResponse
+            Separar= "---"
             answer1={-4}
             answer2={4}
             />

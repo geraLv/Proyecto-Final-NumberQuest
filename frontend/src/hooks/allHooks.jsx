@@ -83,21 +83,29 @@ export function ActivitieModel({ title, activitieNumber, description, guide, nIm
 
 
 
-export function InputResponse({ answer1, answer2, className }) {
+export function InputResponse({ answer1, answer2, className, separar, typeAnswer }) {
   const [valueActivitie, setValueActivitie] = useState(false);
 
   const answers = [answer1, answer2];
 
   function validationResponse() {
-      const response1Value = document.getElementById("response1").value;
-      const response2Value = document.getElementById("response2").value;
+      const response1Value = document.getElementById("response1").value.trim();  // Eliminar espacios
+      const response2Value = document.getElementById("response2").value.trim();  // Eliminar espacios
 
-      if (parseInt(response1Value) === answers[0] && parseInt(response2Value) === answers[1]) {
+      if (typeAnswer === true) { // Comparación si las respuestas son cadenas de texto
+        if (response1Value === answers[0] && response2Value === answers[1]) {
           setValueActivitie(true);
           alert("Respuesta correcta");
-
-      } else {
+        } else {
           alert("Respuesta incorrecta");
+        }
+      } else { // Comparación si las respuestas son números
+        if (parseInt(response1Value) === answers[0] && parseInt(response2Value) === answers[1]) {
+          setValueActivitie(true);
+          alert("Respuesta correcta");
+        } else {
+          alert("Respuesta incorrecta");
+        }
       }
   }
 
@@ -108,15 +116,15 @@ export function InputResponse({ answer1, answer2, className }) {
                   type="text"
                   id="response1"
                   placeholder="xx/-xx"
-                  maxLength={5}
+                  maxLength={10}
                   className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
-              <span className="text-xl">---</span>
+              <span className="text-xl">{separar}</span>
               <input
                   type="text"
                   id="response2"
                   placeholder="xx/-xx"
-                  maxLength={5}
+                  maxLength={10}
                   className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
           </div>
@@ -132,6 +140,8 @@ export function InputResponse({ answer1, answer2, className }) {
       </div>
   );
 }
+
+
 
 
 

@@ -11,13 +11,14 @@ export const Actividad5p = () => {
                 <ActivitieModel
                     title='Dominio de Funciones'
                     activitieNumber='Actividad 5)' 
-                    guide='Recuerda que debes tener el mismo denominador para sumar fracciones'
+                    guide='Recuerde que para escribir la respuesta no es necesario escribir parentesus () o corchetes []'
                     description='Teniendo en cuenta esta función, hallar el dominio de la función'
-                    nImage={2}
+                    nImage={1}
                 />
                 <InputResponse
-                    answer1={1}  
-                    answer2={4} 
+                separar="U"
+                    answer1={"-inf;5"}  
+                    answer2={"1;inf"} 
                 />
                 
                 <Surrender/>
