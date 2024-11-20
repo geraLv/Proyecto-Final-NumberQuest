@@ -9,11 +9,11 @@ export const Actividad5p = () => {
                 className="flex flex-col justify-center items-center w-full h-full"
             >
                 <ActivitieModel
-                    title='Suma de fracciones'
+                    title='Dominio de Funciones'
                     activitieNumber='Actividad 5)' 
                     guide='Recuerda que debes tener el mismo denominador para sumar fracciones'
-                    description='Resuelve la siguiente suma de fracciones: 1/4 + 3/4'
-                    nImage={5}
+                    description='Teniendo en cuenta esta función, hallar el dominio de la función'
+                    nImage={2}
                 />
                 <InputResponse
                     answer1={1}  

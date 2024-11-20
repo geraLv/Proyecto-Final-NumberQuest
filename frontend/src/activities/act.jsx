@@ -73,9 +73,9 @@ export const Actividad = () => {
     }
     if (
       parte1 === "" ||
-      parte2 === "",
-      isNaN(parte1) ||
-      isNaN(parte2.replace(",", "."))
+      parte2 === ""
+      // isNaN(parte1) ||
+      // isNaN(parte2.replace(",", "."))
     )
       alert("Error: Debe ingresar un número válido");
     else {
@@ -197,7 +197,7 @@ export const Actividad = () => {
                       }}
                     />
                     <button
-                      // type="submit"
+                      type="submit"
                       onClick={handleSubmit}
                       style={{
                         backgroundColor: "#AABFC6",

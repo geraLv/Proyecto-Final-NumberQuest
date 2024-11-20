@@ -1,8 +1,8 @@
 import React from "react";
 import { InputResponse, Surrender, ActivitieModel } from "../hooks/allHooks";
 
-
 export const Actividad1p  = () => {
+
 
 
     return(

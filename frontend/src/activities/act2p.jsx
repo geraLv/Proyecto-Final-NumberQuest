@@ -1,8 +1,4 @@
 import React from "react";
-
-import NavBar from "../components/navbar";
-import Layaut from "../components/layaut";
-import Footer from "../components/footer";
 import { ActivitieModel, InputResponse } from "../hooks/allHooks";
 
 export function Actividad2p () {

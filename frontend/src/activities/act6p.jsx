@@ -1,8 +1,12 @@
-import React from "react";
-import { InputResponse, Surrender, ActivitieModel } from "../hooks/allHooks";
+import React, { useState } from "react";
+import { Surrender, ActivitieModel, InputEdit, CheckResponse } from "../hooks/allHooks";
 
 export const Actividad6p = () => {
 
+    const [selectedValue, setSelectedValue] = useState(null); 
+    const handleCheckboxChange = (value) => {
+      setSelectedValue(value === selectedValue ? null : value);  
+    };
     return (
         <>
             <div
@@ -11,13 +15,46 @@ export const Actividad6p = () => {
                 <ActivitieModel
                     title='Multiplicación de decimales'
                     activitieNumber='Actividad 6)' 
-                    guide='Recuerda multiplicar los números decimales como si fueran enteros y luego colocar la coma decimal en el lugar correcto.'
+                    guide='Elija una de las opciones'
                     description='Resuelve la siguiente multiplicación de decimales: 2.5 × 1.4'
-                    nImage={6}
+                    nImage={5}
                 />
-                <InputResponse
-                    answer1={3.5}  
-                />
+                <ul>
+                    <li>
+                    <InputEdit 
+                    value="Correcto" 
+                    selectedValue={selectedValue} 
+                    onChange={handleCheckboxChange}
+                    responseExpose={"(-infinito ; +infinito)"}
+                    />
+                    </li>
+                    <li>
+                    <InputEdit 
+                    value="Incorrecto0" 
+                    selectedValue={selectedValue} 
+                    onChange={handleCheckboxChange}
+                    responseExpose={"( 0 ; +infinito)"}
+                    />
+                    </li>
+                    <li>
+                    <InputEdit 
+                    value="Incorrecto1" 
+                    selectedValue={selectedValue} 
+                    onChange={handleCheckboxChange}
+                    responseExpose={"(-infinito ; 2)"}
+                    />
+                    </li>
+                    <li>
+                    <InputEdit 
+                    value="Incorrecto2" 
+                    selectedValue={selectedValue} 
+                    onChange={handleCheckboxChange}
+                    responseExpose={"(-2 ; +infinito)"}
+                    />
+                    </li>
+
+                        <CheckResponse selectedValue={selectedValue}/>
+                </ul>
                 <Surrender/>
             </div>
         </>

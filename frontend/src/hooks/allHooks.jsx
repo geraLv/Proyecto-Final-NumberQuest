@@ -3,20 +3,22 @@ import React, { useState } from "react";
 
 
 
-
-export function InputEdit({ value, onChange, selectedValue }) {
-  
+export function InputEdit({ value, onChange, selectedValue, className, responseExpose }) {
   function handleCheckboxChange() {
-    onChange(value); 
+    onChange(value);
   }
 
   return (
-    <input
-      type="checkbox"
-      value={value}
-      checked={selectedValue === value}  
-      onChange={handleCheckboxChange}
-    />
+    <div className={`${className} flex items-center`}>
+      <input
+        type="checkbox"
+        value={value}
+        checked={selectedValue === value}
+        onChange={handleCheckboxChange}
+        className="mr-2 p-2 rounded-md border-2 border-blue-300 focus:ring-2 focus:ring-blue-500"
+      />
+      <span className="text-lg">{responseExpose}</span>
+    </div>
   );
 }
 
@@ -28,41 +30,26 @@ export function InputEdit({ value, onChange, selectedValue }) {
 
 export function CheckResponse({ selectedValue }) {
 
-  let imgRes = [
-    <img
-    style={{ width: 560, height: 292 }}
-    src="https://th.bing.com/th/id/OIP.k6H2Q8P1DKlgmf4tMLFwvgHaHa?pid=ImgDet&w=184&h=184&c=7&dpr=1,3"
-    alt=""
-  />,
-  <img
-    src="https://media.licdn.com/dms/image/C5112AQEYARonHijMaQ/article-cover_image-shrink_600_2000/0/1549770046623?e=2147483647&v=beta&t=9B-KDNvL_mfs2VrOXKrsHf8T5NMG2MXAKCi5i89cXeE"
-    alt=""
-  />
-  ]
-
-
   function sendResponse() {
-
     if (selectedValue === "Correcto") {
-      return(
-        <div>
-        <p className="text-green-600">Correcto</p>
-        {imgRes[0]}
-        </div>
-      )
+      alert('La respuesta es correcta');
     } else {
-      alert("Hola capo");
+      alert("Mala respuesta, intenta otra vez");
     }
   }
 
   return (
-    <button onClick={sendResponse}>
-      Responder
-    </button>
-    
-
+    <div className="flex justify-center mt-4">
+      <button
+        onClick={sendResponse}
+        className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
+      >
+        Responder
+      </button>
+    </div>
   );
 }
+
 
 
 
@@ -76,6 +63,9 @@ export function ActivitieModel({ title, activitieNumber, description, guide, nIm
       <img src="../public/img/funcion1.png" alt="Imagen 1" />,
       <img src="../public/img/funcion2.png" alt="Imagen 2" />,
       <img src="../public/img/funcion3.png" alt="Imagen 3" />,
+      <img src="../public/img/funcion4.png" alt="Imagen 4" />,
+      <img src="../public/img/funcion5.png" alt="Imagen 5" />,
+      <img src="../public/img/funcion6.png" alt="Imagen 6" />,
   ];
 
   return (
@@ -83,13 +73,11 @@ export function ActivitieModel({ title, activitieNumber, description, guide, nIm
           <h1 className="text-3xl font-bold text-blue-700">{title}</h1>
           <p className="text-blue-gray-500 mx-6 mb-2 italic">{guide}</p>
           <h2 className="text-xl font-semibold">{activitieNumber}</h2>
-          {imgAct[nImage]}
           <h3 className="text-lg">{description}</h3>
+          {imgAct[nImage]}
       </>
   );
 }
-
-
 
 
 
@@ -107,6 +95,7 @@ export function InputResponse({ answer1, answer2, className }) {
       if (parseInt(response1Value) === answers[0] && parseInt(response2Value) === answers[1]) {
           setValueActivitie(true);
           alert("Respuesta correcta");
+
       } else {
           alert("Respuesta incorrecta");
       }
@@ -114,7 +103,6 @@ export function InputResponse({ answer1, answer2, className }) {
 
   return (
       <div className={`${className} space-y-4`}>
-          {/* Input de respuesta 1 */}
           <div className="flex space-x-2 justify-center items-center">
               <input
                   type="text"
@@ -149,33 +137,14 @@ export function InputResponse({ answer1, answer2, className }) {
 
 
 
+export function Surrender() {
+  
 
-
-
-
-export function InputCoso () {
-
-  return(
-    <>
-    
-    </>
-  )
-
-}
-
-
-export function Surrender({ className }) {
-  function ayuda() {
-      let supelhelper = 0;
-      let helper = 0;
-      supelhelper = helper + 1;
-      console.log(supelhelper);
-  }
+  
 
   return (
-      <div className={`${className} flex justify-between mt-6 max-w-sm mx-auto`}>
+      <div className=" flex justify-between mt-6 max-w-sm mx-auto">
           <button
-              onClick={ayuda}
               className="px-4 py-2 bg-yellow-400 text-white font-semibold rounded-md hover:bg-yellow-500 transition duration-200"
           >
               Ayuda
@@ -188,3 +157,9 @@ export function Surrender({ className }) {
       </div>
   );
 }
+
+
+
+
+
+
