@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 
-
-
 export function InputEdit({ value, onChange, selectedValue, className, responseExpose }) {
   function handleCheckboxChange() {
     onChange(value);
@@ -60,7 +58,7 @@ export function CheckResponse({ selectedValue }) {
 
 export function ActivitieModel({ title, activitieNumber, description, guide, nImage }) {
   const imgAct = [
-      <img src="../public/img/funcion1.png" alt="Imagen 1" />,
+      <img src="../public/img/funcion1p.png" alt="Imagen 1" />,
       <img src="../public/img/funcion2.png" alt="Imagen 2" />,
       <img src="../public/img/funcion3.png" alt="Imagen 3" />,
       <img src="../public/img/funcion4.png" alt="Imagen 4" />,
@@ -89,17 +87,22 @@ export function InputResponse({ answer1, answer2, className, separar, typeAnswer
   const answers = [answer1, answer2];
 
   function validationResponse() {
-      const response1Value = document.getElementById("response1").value.trim();  // Eliminar espacios
-      const response2Value = document.getElementById("response2").value.trim();  // Eliminar espacios
-
-      if (typeAnswer === true) { // Comparación si las respuestas son cadenas de texto
+    
+    if (typeAnswer === true) {
+      
+      const response1Value = document.getElementById("response1").value.trim();
+      const response2Value = document.getElementById("response2").value.trim();  
         if (response1Value === answers[0] && response2Value === answers[1]) {
           setValueActivitie(true);
           alert("Respuesta correcta");
         } else {
           alert("Respuesta incorrecta");
         }
-      } else { // Comparación si las respuestas son números
+      } else { 
+
+        const response1Value = document.getElementById("response1").value;
+        const response2Value = document.getElementById("response2").value;  
+
         if (parseInt(response1Value) === answers[0] && parseInt(response2Value) === answers[1]) {
           setValueActivitie(true);
           alert("Respuesta correcta");
@@ -115,7 +118,7 @@ export function InputResponse({ answer1, answer2, className, separar, typeAnswer
               <input
                   type="text"
                   id="response1"
-                  placeholder="xx/-xx"
+                  placeholder="-xx ; xx"
                   maxLength={10}
                   className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
@@ -123,7 +126,7 @@ export function InputResponse({ answer1, answer2, className, separar, typeAnswer
               <input
                   type="text"
                   id="response2"
-                  placeholder="xx/-xx"
+                  placeholder="-xx ; xx"
                   maxLength={10}
                   className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />

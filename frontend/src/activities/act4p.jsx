@@ -16,6 +16,7 @@ export function Actividad4p() {
             Separar= "---"
             answer1={-4}
             answer2={4}
+            tyeAnswer={false}
             />
             <Surrender/>
         </div>

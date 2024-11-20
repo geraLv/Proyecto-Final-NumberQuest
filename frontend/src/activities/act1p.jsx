@@ -15,6 +15,7 @@ export const Actividad1p  = () => {
             activitieNumber='Actividad 1)' 
             guide='puedes escribir números negativos' 
             description='Observa atentamente y halla el dominio de la funcón'
+            nImage={0}
             />
         
             <InputResponse

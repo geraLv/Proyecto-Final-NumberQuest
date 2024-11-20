@@ -11,10 +11,13 @@ export function Actividad2p () {
             activitieNumber='Actividad 2)' 
             guide='"INFINITO" se escribe "INF", se debe agregar el signo "+" o "-" al principio' 
             description='Observa atentamente y halla el dominio de la funcón'
+            nImage={2}
             />
             <InputResponse
             answer1={13}
             answer2={1}
+            separar={"---"}
+            typeAnswer={false}
             />
             <Surrender/>
             </div>
