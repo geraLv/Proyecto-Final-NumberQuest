@@ -21,28 +21,39 @@ export function InputEdit({ value, onChange, selectedValue, className, responseE
   );
 }
 
+
 export function CheckResponse({ selectedValue }) {
+  // Estados para almacenar el mensaje y el color
+  const [responseMessage, setResponseMessage] = useState('');
+  const [messageColor, setMessageColor] = useState('text-gray-500'); // Gris por defecto
 
   function sendResponse() {
     if (selectedValue === "Correcto") {
-      alert('La respuesta es correcta');
+      setResponseMessage('¡Respuesta correcta!');
+      setMessageColor('text-green-500');  // Color verde para correcto
     } else {
-      alert("Mala respuesta, intenta otra vez");
+      setResponseMessage('Mala respuesta, intenta otra vez');
+      setMessageColor('text-red-500');  // Color rojo para incorrecto
     }
   }
 
   return (
-    <div className="flex justify-center mt-4">
+    <div className="flex justify-center mt-4 flex-col items-center">
+      {/* Mostrar el mensaje de respuesta arriba del botón */}
+      <div className={`mt-2 ${messageColor} text-lg font-semibold`}>
+        {responseMessage}
+      </div>
+
+      {/* Botón para enviar la respuesta */}
       <button
         onClick={sendResponse}
-        className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
+        className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200 mt-4"
       >
         Responder
       </button>
     </div>
   );
 }
-
 
 
 
@@ -59,12 +70,12 @@ export function ActivitieModel({
   nImage,
 }) {
   const imgAct = [
-      <img src="../public/img/funcion1p.png" alt="Imagen 1" />,
+      <img src=".public/img/funcion1p.png" alt="Imagen 1" />,
       <img src="../public/img/funcion2.png" alt="Imagen 2" />,
       <img src="../public/img/funcion3.png" alt="Imagen 3" />,
       <img src="../public/img/funcion4.png" alt="Imagen 4" />,
       <img src="../public/img/funcion5.png" alt="Imagen 5" />,
-      <img src="../public/img/funcion6.png" alt="Imagen 6" />,
+      <img src="../img/funcion6.png" alt="Imagen 6" />,
   ];
 
   return (
@@ -81,59 +92,69 @@ export function ActivitieModel({
 
 
 
-
 export function InputResponse({ answer1, answer2, className, separar, typeAnswer }) {
   const [valueActivitie, setValueActivitie] = useState(false);
+  const [responseMessage, setResponseMessage] = useState('');
+  const [messageColor, setMessageColor] = useState('text-gray-500'); 
 
   const answers = [answer1, answer2];
 
   function validationResponse() {
-    
+    let response1Value = document.getElementById("response1").value.trim();
+    let response2Value = document.getElementById("response2").value.trim();
+
     if (typeAnswer === true) {
-      
-      const response1Value = document.getElementById("response1").value.trim();
-      const response2Value = document.getElementById("response2").value.trim();  
-        if (response1Value === answers[0] && response2Value === answers[1]) {
-          setValueActivitie(true);
-          alert("Respuesta correcta");
-        } else {
-          alert("Respuesta incorrecta");
-        }
-      } else { 
-
-        const response1Value = document.getElementById("response1").value;
-        const response2Value = document.getElementById("response2").value;  
-
-        if (parseInt(response1Value) === answers[0] && parseInt(response2Value) === answers[1]) {
-          setValueActivitie(true);
-          alert("Respuesta correcta");
-        } else {
-          alert("Respuesta incorrecta");
-        }
+      // Verifica si las respuestas son correctas
+      if (response1Value === answers[0] && response2Value === answers[1]) {
+        setValueActivitie(true);
+        setResponseMessage('¡Respuesta correcta!');
+        setMessageColor('text-green-500');  
+      } else {
+        setResponseMessage('Respuesta incorrecta');
+        setMessageColor('text-red-500');  
       }
+    } else {
+      // Si el tipo de respuesta es numérico
+      response1Value = parseInt(response1Value);
+      response2Value = parseInt(response2Value);
+
+      if (response1Value === answers[0] && response2Value === answers[1]) {
+        setValueActivitie(true);
+        setResponseMessage('¡Respuesta correcta!');
+        setMessageColor('text-green-500'); 
+      } else {
+        setResponseMessage('Respuesta incorrecta');
+        setMessageColor('text-red-500'); 
+      }
+    }
   }
 
   return (
-      <div className={`${className} space-y-4`}>
-          <div className="flex space-x-2 justify-center items-center">
-              <input
-                  type="text"
-                  id="response1"
-                  placeholder="-xx ; xx"
-                  maxLength={10}
-                  className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-              <span className="text-xl">{separar}</span>
-              <input
-                  type="text"
-                  id="response2"
-                  placeholder="-xx ; xx"
-                  maxLength={10}
-                  className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-          </div>
+    <div className={`${className} space-y-4`}>
+      <div className="flex space-x-2 justify-center items-center">
+        <input
+          type="text"
+          id="response1"
+          placeholder="-xx ; xx"
+          maxLength={10}
+          className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+        <span className="text-xl">{separar}</span>
+        <input
+          type="text"
+          id="response2"
+          placeholder="-xx ; xx"
+          maxLength={10}
+          className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+      </div>
 
-      <div className="flex justify-stard mt-4">
+   
+      <div className={`mt-2 ${messageColor} text-lg font-semibold`}>
+        {responseMessage}
+      </div>
+
+      <div className="flex justify-start mt-4">
         <button
           onClick={validationResponse}
           className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
@@ -151,7 +172,8 @@ export function InputResponse({ answer1, answer2, className, separar, typeAnswer
 
 
 
-export function Surrender() {
+
+export function Surrender(nextOption) {
   
 
   
@@ -166,7 +188,7 @@ export function Surrender() {
           <button
               className="px-6 py-2 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
           >
-              Siguiente Actividad
+            Siguiente
           </button>
       </div>
   );

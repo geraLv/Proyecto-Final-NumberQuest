@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Surrender, ActivitieModel, InputEdit, CheckResponse } from "../hooks/allHooks";
-
+import img7 from "../public/img/funcion6.png";
 import { Navigate, Link } from "react-router-dom";
 export const Actividad6p = () => {
 
@@ -15,11 +15,13 @@ export const Actividad6p = () => {
             >
                 <ActivitieModel
                     title='Multiplicación de decimales'
-                    activitieNumber='Actividad 6)' 
+                    activitieNumber='Actividad 7)' 
                     guide='Elija una de las opciones'
                     description='Resuelve la siguiente multiplicación de decimales: 2.5 × 1.4'
-                    nImage={5}
                 />
+                <div className="py-5">
+          <img src={img7} className=" " alt="" />
+        </div>
                 <ul>
                     <li>
                     <InputEdit 
@@ -56,7 +58,14 @@ export const Actividad6p = () => {
 
                         <CheckResponse selectedValue={selectedValue}/>
                 </ul>
-                <Surrender/>
+                <div className="flex gap-4 items-end">
+          <button
+            className="h-10 w-40 mb-2   bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
+            onClick={<Navigate to="/temas/2" />}
+          >
+            <Link to="/temas/2">Siguiente Actividad</Link>
+          </button>
+        </div>
             </div>
         </>
     );

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { ActivitieModel, CheckResponse, InputEdit } from "../hooks/allHooks";
-import img3 from "../public/img/funcion3.png";
+import img4 from "../public/img/funcion4.png";
 
 import { Navigate, Link } from "react-router-dom";
-import { Surrender } from "../hooks/allHooks";
 export function Actividad3() {
   const [selectedValue, setSelectedValue] = useState(null); // Este estado guarda el valor del checkbox seleccionado
 
@@ -16,48 +15,50 @@ export function Actividad3() {
     <div>
       <ActivitieModel
         title="Dominio de funciones"
-        activitieNumber="Actividad 3)"
+        activitieNumber="Actividad 4)"
         guide="Elije una de las opciones"
         description=""
       />
-      <img src={img3} alt="" />
-      <ul>
-        <li>
-          <InputEdit
-            value="Correcto"
-            selectedValue={selectedValue}
-            onChange={handleCheckboxChange}
-          />
-          Todos los Reales
-        </li>
-        <li>
-          <InputEdit
-            value="Incorrecto0"
-            selectedValue={selectedValue}
-            onChange={handleCheckboxChange}
-          />
-          Relleno
-        </li>
-        <li>
-          <InputEdit
-            value="Incorrecto1"
-            selectedValue={selectedValue}
-            onChange={handleCheckboxChange}
-          />
-          Relleno
-        </li>
-        <li>
-          <InputEdit
-            value="Incorrecto2"
-            selectedValue={selectedValue}
-            onChange={handleCheckboxChange}
-          />
-          Relleno
-        </li>
-      </ul>
-      <CheckResponse selectedValue={selectedValue} />
+    <div className="py-5">
+          <img src={img4} className="h-8" alt="" />
+        </div>
+        <ul>
+                    <li>
+                    <InputEdit 
+                    value="Correcto" 
+                    selectedValue={selectedValue} 
+                    onChange={handleCheckboxChange}
+                    responseExpose={" x ∈ (-infinito ; +infinito)"}
+                    />
+                    </li>
+                    <li>
+                    <InputEdit 
+                    value="Incorrecto0" 
+                    selectedValue={selectedValue} 
+                    onChange={handleCheckboxChange}
+                    responseExpose={" x ∈ ( 0 ; +infinito)"}
+                    />
+                    </li>
+                    <li>
+                    <InputEdit 
+                    value="Incorrecto1" 
+                    selectedValue={selectedValue} 
+                    onChange={handleCheckboxChange}
+                    responseExpose={"(-infinito ; 1)"}
+                    />
+                    </li>
+                    <li>
+                    <InputEdit 
+                    value="Incorrecto2" 
+                    selectedValue={selectedValue} 
+                    onChange={handleCheckboxChange}
+                    responseExpose={" x ∈ (1 ; +infinito)"}
+                    />
+                    </li>
+
+                        <CheckResponse selectedValue={selectedValue}/>
+                </ul>
       <div className="flex gap-4 items-end">
-        <Surrender className={"py-2 "} />
         <button
           className="h-10 w-40 mb-2   bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
           onClick={<Navigate to="/actividad/3" />}
