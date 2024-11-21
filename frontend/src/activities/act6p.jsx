@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Surrender, ActivitieModel, InputEdit, CheckResponse } from "../hooks/allHooks";
+import { ActivitieModel, InputEdit, CheckResponse } from "../hooks/allHooks";
 import img7 from "../public/img/funcion6.png";
 import { Navigate, Link } from "react-router-dom";
 export const Actividad6p = () => {
@@ -58,7 +58,7 @@ export const Actividad6p = () => {
 
                         <CheckResponse selectedValue={selectedValue}/>
                 </ul>
-                <div className="flex gap-4 items-end">
+                <div className="flex gap-4 justifiy-center">
           <button
             className="h-10 w-40 mb-2   bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
             onClick={<Navigate to="/temas/2" />}

@@ -22,38 +22,40 @@ export function InputEdit({ value, onChange, selectedValue, className, responseE
 }
 
 
+
 export function CheckResponse({ selectedValue }) {
-  // Estados para almacenar el mensaje y el color
+
   const [responseMessage, setResponseMessage] = useState('');
   const [messageColor, setMessageColor] = useState('text-gray-500'); // Gris por defecto
 
   function sendResponse() {
     if (selectedValue === "Correcto") {
       setResponseMessage('¡Respuesta correcta!');
-      setMessageColor('text-green-500');  // Color verde para correcto
+      setMessageColor('text-green-500');  
     } else {
       setResponseMessage('Mala respuesta, intenta otra vez');
-      setMessageColor('text-red-500');  // Color rojo para incorrecto
+      setMessageColor('text-red-500');  
     }
   }
 
   return (
-    <div className="flex justify-center mt-4 flex-col items-center">
-      {/* Mostrar el mensaje de respuesta arriba del botón */}
+    <div className="flex justify-center mt-4">
+
       <div className={`mt-2 ${messageColor} text-lg font-semibold`}>
         {responseMessage}
       </div>
 
-      {/* Botón para enviar la respuesta */}
       <button
         onClick={sendResponse}
-        className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200 mt-4"
+        className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
       >
         Responder
       </button>
     </div>
   );
 }
+
+
 
 
 

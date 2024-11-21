@@ -25,7 +25,7 @@ export function Actividad4p() {
         <div className="flex gap-4 items-end">
           <button
             className="h-10 w-40 mb-2   bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
-            onClick={<Navigate to="/actividad/3" />}
+            onClick={<Navigate to="/actividad/6" />}
           >
             <Link to="/actividad/6">Siguiente Actividad</Link>
           </button>

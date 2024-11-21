@@ -16,7 +16,15 @@ export function Actividad2p() {
                                     <div className="py-5">
           <img src={img3} className=" " alt="" />
         </div>
+        <div className="flex flex-col">
         <InputResponse answer1={13} answer2={1} separar={"---"} typeAnswer={false} />
+        <button
+            className=" h-10 w-40 mb-2 bg-yellow-600 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
+            onClick={() => setOpenHelp(!openHelp)}
+          >
+            Ayuda
+          </button>
+        </div>
         <div className="flex gap-4 items-end">
           <button
             className="h-10 px-1  bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
@@ -26,6 +34,6 @@ export function Actividad2p() {
           </button>
         </div>
       </div>
-    </div>
+      </div>
   );
 }
