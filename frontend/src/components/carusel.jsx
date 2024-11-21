@@ -12,7 +12,7 @@ export function CarouselWithContent() {
     >
       <div className="h-96 w-full">
         <img
-          src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
+          src="./src/public/img/variedadUnidades.jpg"
           alt="image 1"
           className="h-full w-full "
         />
@@ -23,22 +23,19 @@ export function CarouselWithContent() {
               color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              Más de 10 unidades temáticas
+              Unidades tematicas
             </Typography>
             <Typography
               variant="lead"
               color="white"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
+              Contamos con todos los temas que se requieren durante la cursada de "Matematica aplicada" de la carrera de Desarrollo de Software Multiplataforma
             </Typography>
             <div className="flex gap-2">
               <a href="./unidades">
                 <Button size="lg" color="white">
-                  Explore
+                  Explorar
                 </Button>
               </a>
             </div>
@@ -47,7 +44,7 @@ export function CarouselWithContent() {
       </div>
       <div className="relative h-full w-full">
         <img
-          src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          src="./src/public/img/act-mate.jpg"
           alt="image 2"
           className="h-full w-full object-cover"
         />
@@ -65,17 +62,11 @@ export function CarouselWithContent() {
               color="white"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
+              Cada tema proporcionado cuenta con sus respectivas actividades para que los estudiantes puedan practicar de forma conforme
             </Typography>
             <div className="flex gap-2">
               <Button size="lg" color="white">
-                Explore
-              </Button>
-              <Button size="lg" color="white" variant="text">
-                Gallery
+                Explorar
               </Button>
             </div>
           </div>
@@ -83,7 +74,7 @@ export function CarouselWithContent() {
       </div>
       <div className="relative h-full w-full">
         <img
-          src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+          src="./src/public/img/bibliografia.jpg"
           alt="image 3"
           className="h-full w-full object-cover"
         />
@@ -101,17 +92,11 @@ export function CarouselWithContent() {
               color="white"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
+              Contamos con bibliografia brindada por profesionales para cada uno de los temas disponibles
             </Typography>
             <div className="flex gap-2">
               <Button size="lg" color="white">
-                Explore
-              </Button>
-              <Button size="lg" color="white" variant="text">
-                Gallery
+                Explorar
               </Button>
             </div>
           </div>

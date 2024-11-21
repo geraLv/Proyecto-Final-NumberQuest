@@ -10,6 +10,8 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
+import logoUser from "../public/img/perfil.png";
+
 export function ProfileMenu() {
   const [usuario, setUsuario] = useState({ loggedIn: false });
 
@@ -33,7 +35,7 @@ export function ProfileMenu() {
             variant="circular"
             alt="tania andrew"
             className="cursor-pointer hover:shadow-gray-800"
-            src={perfilImg}
+            src={logoUser}
           />
         </MenuHandler>
         <MenuList>

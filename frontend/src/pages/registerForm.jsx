@@ -55,7 +55,7 @@ const RegisterForm = () => {
         <div className="bg-blue-gray-500 w-1/2 h-auto text-center p-7 rounded-xl rounded-r-none">
           <h1 className="text-white text-3xl">Bienvenido</h1>
           <p className="text-white p-8 text-xl">
-            Registrese para acceder a todas las herramientas de la plataforma
+            Regístrese para acceder a todas las herramientas de la plataforma
           </p>
         </div>
         <div className="bg-dark shadow-2xl w-1/2 h-auto shadow-black rounded-xl rounded-l-none col-xs-10 col-md-6 col-sm-9 col-lg-5">

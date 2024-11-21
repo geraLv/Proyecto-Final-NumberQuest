@@ -110,9 +110,13 @@ export function ButtonDesplegable({ tema }) {
                 {!openMenu ? (
                   <div className="w-2/5 flex items-center gap-2">
                     <div className="space-x-2 rounded-lg border-3  border-black w-4/5 h-4">
-                      <div
-                        className={`bg-lime-600 rounded-lg rounded-r-none  h-full w-${nroActividades}/5`}
-                      ></div>
+                      {nroActividades > 0 ? (
+                        <div
+                          className={`bg-lime-600 rounded-lg rounded-r-none  h-full w-${nroActividades}/5`}
+                        ></div>
+                      ) : (
+                        ""
+                      )}
                     </div>
                     <h1 className="text-xl">{(nroActividades * 100) / 5}%</h1>
                   </div>

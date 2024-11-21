@@ -21,7 +21,7 @@ const PrtivateRoutes = () => {
       <Navigate to={"/login"}></Navigate>
     )
   ) : (
-    <h1>No funca </h1>
+    <h1>Cargando...</h1>
   );
 };
 

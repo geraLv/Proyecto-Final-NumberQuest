@@ -80,10 +80,7 @@ export function InputResponse({ answer1, answer2, className }) {
     const response1Value = document.getElementById("response1").value;
     const response2Value = document.getElementById("response2").value;
 
-    if (
-      parseInt(response1Value) === answers[0] &&
-      parseInt(response2Value) === answers[1]
-    ) {
+    if (response1Value === answers[0] && response2Value === answers[1]) {
       setValueActivitie(true);
       alert("Respuesta correcta");
     } else {
@@ -99,7 +96,7 @@ export function InputResponse({ answer1, answer2, className }) {
           type="text"
           id="response1"
           placeholder="xx/-xx"
-          maxLength={5}
+          maxLength={20}
           className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
         <span className="text-xl">---</span>
@@ -107,7 +104,7 @@ export function InputResponse({ answer1, answer2, className }) {
           type="text"
           id="response2"
           placeholder="xx/-xx"
-          maxLength={5}
+          maxLength={20}
           className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
       </div>
