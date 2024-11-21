@@ -1,50 +1,67 @@
-import React, { useEffect, useReducer, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import React, { useState } from "react";
 import ActivitiesStatus from "./ActivitiesStatus";
 
-export function InputEdit({ value, onChange, selectedValue }) {
+export function InputEdit({
+  value,
+  onChange,
+  selectedValue,
+  className,
+  responseExpose,
+}) {
   function handleCheckboxChange() {
+    onChange(value);
     onChange(value);
   }
 
   return (
-    <input
-      type="checkbox"
-      value={value}
-      checked={selectedValue === value}
-      onChange={handleCheckboxChange}
-    />
+    <div className={`${className} flex items-center`}>
+      <input
+        type="checkbox"
+        value={value}
+        checked={selectedValue === value}
+        onChange={handleCheckboxChange}
+        className="mr-2 p-2 rounded-md border-2 border-blue-300 focus:ring-2 focus:ring-blue-500"
+      />
+      <span className="text-lg">{responseExpose}</span>
+    </div>
   );
 }
 
 export function CheckResponse({ selectedValue }) {
-  let imgRes = [
-    <img
-      style={{ width: 560, height: 292 }}
-      src="https://th.bing.com/th/id/OIP.k6H2Q8P1DKlgmf4tMLFwvgHaHa?pid=ImgDet&w=184&h=184&c=7&dpr=1,3"
-      alt=""
-    />,
-    <img
-      src="https://media.licdn.com/dms/image/C5112AQEYARonHijMaQ/article-cover_image-shrink_600_2000/0/1549770046623?e=2147483647&v=beta&t=9B-KDNvL_mfs2VrOXKrsHf8T5NMG2MXAKCi5i89cXeE"
-      alt=""
-    />,
-  ];
-
+  const [responseMessage, setResponseMessage] = useState("");
+  const [messageColor, setMessageColor] = useState("text-gray-500"); // Gris por defecto
+  const [validar, setValidar] = useState(false);
   function sendResponse() {
     if (selectedValue === "Correcto") {
-      return (
-        <div>
-          <p className="text-green-600">Correcto</p>
-          {imgRes[0]}
-        </div>
-      );
+      setResponseMessage("¡Respuesta correcta!");
+      setMessageColor("text-green-500");
     } else {
-      alert("Hola capo");
+      setResponseMessage("Mala respuesta, intenta otra vez");
+      setMessageColor("text-red-500");
     }
   }
 
-  return <button onClick={sendResponse}>Responder</button>;
+  const correccion = () => {
+    selectedValue === "Correcto"
+      ? (setValidar(true), sendResponse("¡Respuesta correcta!"))
+      : setValidar(false);
+  };
+  validar === true ? ActivitiesStatus(validar) : ActivitiesStatus(false);
+
+  return (
+    <div className="flex justify-center mt-4">
+      <div className={`mt-2 ${messageColor} text-lg font-semibold`}>
+        {responseMessage}
+      </div>
+
+      <button
+        onClick={(sendResponse, correccion)}
+        className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
+      >
+        Responder
+      </button>
+    </div>
+  );
 }
 
 export function ActivitieModel({
@@ -55,9 +72,12 @@ export function ActivitieModel({
   nImage,
 }) {
   const imgAct = [
-    <img src="../public/img/funcion1.png" alt="Imagen 1" />,
+    <img src=".public/img/funcion1p.png" alt="Imagen 1" />,
     <img src="../public/img/funcion2.png" alt="Imagen 2" />,
     <img src="../public/img/funcion3.png" alt="Imagen 3" />,
+    <img src="../public/img/funcion4.png" alt="Imagen 4" />,
+    <img src="../public/img/funcion5.png" alt="Imagen 5" />,
+    <img src="../img/funcion6.png" alt="Imagen 6" />,
   ];
 
   return (
@@ -65,104 +85,86 @@ export function ActivitieModel({
       <h1 className="text-3xl font-bold text-blue-700">{title}</h1>
       <p className="text-blue-gray-500 mx-6 mb-2 italic">{guide}</p>
       <h2 className="text-xl font-semibold">{activitieNumber}</h2>
-      {imgAct[nImage]}
       <h3 className="text-lg">{description}</h3>
+      {imgAct[nImage]}
     </>
   );
 }
 
-const Teclado = ({ InputF, ValorT, ValorT2 }) => {
-  const [valorTeclado, setValorTeclado] = useState(ValorT || "");
-  const [valorTeclado2, setValorTeclado2] = useState(ValorT2 || "");
-  const [inputFocus, setInputFocus] = useState(false || InputF);
-
-  const write = (value) => {
-    setValorTeclado((prev) => prev + value);
-  };
-
-  const write2 = (value) => {
-    setValorTeclado2((prev) => prev + value);
-  };
-
-  useEffect(() => {
-    InputResponse(valorTeclado, valorTeclado2);
-  }, [valorTeclado, valorTeclado2]);
-
-  return (
-    <div className="bg-gray-50 flex flex-col h-1/2 justify-start w-full">
-      <div className="justify-self-end">
-        Teclado
-        <div className="grid grid-cols-4 grid-rows-4 h-full m-10 gap-1">
-          {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", "/", 0, ".", "="].map(
-            (item) => (
-              <button
-                key={item}
-                onClick={inputFocus ? () => write2(item) : () => write(item)}
-                className="flex shadow-lg justify-center text-3xl items-center bg-white hover:scale-105 duration-100 ease-in"
-              >
-                {item}
-              </button>
-            )
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Teclado;
-
-export const InputResponse = ({
+export function InputResponse({
   answer1,
   answer2,
-  valorTeclado,
-  valorTeclado2,
-}) => {
-  const answers = [answer1, answer2];
-  let ImputF = false;
+  className,
+  separar,
+  typeAnswer,
+}) {
+  const [valueActivitie, setValueActivitie] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
+  const [messageColor, setMessageColor] = useState("text-gray-500");
+  // const answers = [answer1, answer2];
+  // const [validar, setValidar] = useState(false);
+  // let response1Value = document.getElementById("response1").value;
+  // let response2Value = document.getElementById("response2").value;
+  function validationResponse() {
+    let response1Value = document.getElementById("response1").value;
+    let response2Value = document.getElementById("response2").value;
 
-  const validationResponse = (valorTeclado, valorTeclado2) => {
-    const response1Value = document.getElementById("response1").value;
-    const response2Value = document.getElementById("response2").value;
-
-    let falseValue = false;
-
-    if (response1Value === answers[0] && response2Value === answers[1]) {
-      alert("Respuesta correcta");
+    if (typeAnswer === true) {
+      // Verifica si las respuestas son correctas
+      if (response1Value === answer1 && response2Value === answer2) {
+        setValueActivitie(true);
+        setResponseMessage("¡Respuesta correcta!");
+        setMessageColor("text-green-500");
+        // setValidar(true);}
+      } else {
+        setResponseMessage("Respuesta incorrecta");
+        setMessageColor("text-red-500");
+      }
     } else {
-      alert("Respuesta incorrecta");
-    }
-  };
+      // Si el tipo de respuesta es numérico
+      response1Value = parseInt(response1Value);
+      response2Value = parseInt(response2Value);
 
+      if (response1Value === answer1 && response2Value === answer2) {
+        setValueActivitie(true);
+        // setValidar(true);
+        setResponseMessage("¡Respuesta correcta!");
+        setMessageColor("text-green-500");
+      } else {
+        setResponseMessage("Respuesta incorrecta");
+        setMessageColor("text-red-500");
+        // setValidar(false);
+      }
+    }
+    // return validar;
+  }
+  // validar === true ? ActivitiesStatus(validar) : ActivitiesStatus(false);
   return (
-    <div className={` space-y-4`}>
-      {/* Input de respuesta 1 */}
-      <div className="flex space-x-2 justify-stard items-center">
+    <div className={`flex flex-col  ${className} `}>
+      <div className={` ${messageColor} my-2 text-lg font-semibold`}>
+        {responseMessage}
+      </div>
+      <div className="flex space-x-2  items-center">
         <input
           type="text"
-          value={valorTeclado}
-          placeholder="xx/-xx"
-          maxLength={20}
-          onChange={(e) => Teclado((ValorT = e.target.value))}
-          onFocus={(e) => e.target.select(Teclado((ImputF = true)))}
+          id="response1"
+          placeholder="-xx ; xx"
+          maxLength={10}
           className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
-        <span className="text-xl">---</span>
+        <span className="text-xl">{separar}</span>
         <input
           type="text"
-          value={valorTeclado2}
           id="response2"
-          onFocus={(e) => e.target.select(Teclado(true))}
-          placeholder="xx/-xx"
-          onChange={(e) => Teclado(e.target.value)}
-          maxLength={20}
+          placeholder="-xx ; xx"
+          maxLength={10}
           className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
       </div>
 
-      <div className="flex justify-stard mt-4">
+      <div className="flex justify-start mt-4">
         <button
-          onClick={() => validationResponse(valorTeclado, valorTeclado2)}
+          onClick={validationResponse} //como lo marco correcto
           className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
         >
           Responder
@@ -170,28 +172,16 @@ export const InputResponse = ({
       </div>
     </div>
   );
-};
-export function InputCoso() {
-  return <></>;
 }
 
-export function Surrender({ className }) {
-  function ayuda() {
-    let supelhelper = 0;
-    let helper = 0;
-    supelhelper = helper + 1;
-    console.log(supelhelper);
-  }
-
+export function Surrender(nextOption) {
   return (
-    <div
-      className={`${className} flex-col items-start mt-6 max-w-sm space-x-2`}
-    >
-      <button
-        onClick={ayuda}
-        className="px-4 py-2 bg-yellow-400 text-white font-semibold rounded-md hover:bg-yellow-500 transition duration-200"
-      >
+    <div className=" flex justify-between mt-6 max-w-sm mx-auto">
+      <button className="px-4 py-2 bg-yellow-400 text-white font-semibold rounded-md hover:bg-yellow-500 transition duration-200">
         Ayuda
+      </button>
+      <button className="px-6 py-2 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200">
+        Siguiente
       </button>
     </div>
   );

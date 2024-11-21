@@ -4,12 +4,12 @@ import React, { useState, useEffect } from "react";
 import ActivitiesStatus from "../hooks/ActivitiesStatus";
 import imgcoso from "../public/img/funcion1.png";
 import guia1 from "../public/img/guia1.png";
-import { Surrender } from "../hooks/allHooks";
+// import { Surrender } from "../hooks/allHooks";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 // import Teclado from "../hooks/teclado";
-import { MathJax } from "better-react-mathjax";
+// import { MathJax } from "better-react-mathjax";
 export const Actividad = () => {
   const [parte1, setParte1] = useState("");
   const [validar, setValidar] = useState(false);
@@ -305,7 +305,7 @@ export const Actividad = () => {
                       }}
                     />
                     <button
-                      // type="submit"
+                      type="submit"
                       onClick={handleSubmit}
                       style={{
                         backgroundColor: "#AABFC6",

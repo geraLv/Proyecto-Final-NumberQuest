@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { InputResponse, Surrender, ActivitieModel } from "../hooks/allHooks";
-import img2 from "../public/img/funcion2.png";
+import { InputResponse, ActivitieModel } from "../hooks/allHooks";
+import img2 from "../public/img/funcion1p.png";
 import { Navigate, Link } from "react-router-dom";
-import Teclado from "../hooks/allHooks";
+// import Teclado from "../hooks/allHooks";
 
 export const Actividad1p = () => {
   const [openHelp, setOpenHelp] = useState(false);
@@ -14,12 +14,12 @@ export const Actividad1p = () => {
       <div className="container flex flex-col w-full h-full">
         <ActivitieModel
           title={"Dominio de funciones "}
-          activitieNumber="Actividad 1)"
-          guide="puedes escribir números negativos"
+          activitieNumber="Actividad 2)"
+          guide="Reacuerda que debes poner los parentesis '()' o corechetes '[]' según corresponda"
           description="Siguiendo el ejemplo de la anterior actividad, observa atentamente y halla el dominio de la funcón:"
         />
         <div className="py-5">
-          <img src={img2} className="h-8 " alt="" />
+          <img src={img2} className="" alt="" />
         </div>
         {openHelp ? (
           <div>
@@ -58,6 +58,8 @@ export const Actividad1p = () => {
 
         <div className="flex flex-col">
           <InputResponse
+            typeAnswer={true}
+            separar="U"
             className={"py-2 itmes-start"}
             answer1={"(-inf,0]"}
             answer2={"[1/4,inf)"}
@@ -76,7 +78,7 @@ export const Actividad1p = () => {
           >
             <Link to="/actividad/3">Siguiente Actividad</Link>
           </button>
-          <Teclado></Teclado>
+
           {/* </div>
         <div className="my-4 flex bg-blue-gray-100 rounded-xl flex-row w-full">
           <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
@@ -122,6 +124,50 @@ export const Actividad1p = () => {
           </div>
         </div>
       </div> */}
+        </div>
+
+        <div className="my-4 flex bg-blue-gray-100 rounded-xl flex-row w-full">
+          <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
+            {[
+              "x",
+              "y",
+              "z",
+              "π",
+              "^2",
+              "^n",
+              "√",
+              "e",
+              "<",
+              ">",
+              "a/b",
+              "(",
+              ")",
+              "|.|",
+              ",",
+              "=",
+            ].map((item) => (
+              <button
+                key={item}
+                // onClick={inputFocus ? () => write2(item) : () => write(item)}
+                className="flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center bg-white hover:scale-105 duration-100 ease-in"
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+          <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
+            {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", "/", 0, ".", "="].map(
+              (item) => (
+                <button
+                  key={item}
+                  // onClick={inputFocus ? () => write2(item) : () => write(item)}
+                  className="flex shadow-lg justify-center m-1 p-1 rounded text-xl items-center bg-white hover:scale-105 duration-100 ease-in"
+                >
+                  {item}
+                </button>
+              )
+            )}
+          </div>
         </div>
       </div>
     </div>

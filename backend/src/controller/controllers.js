@@ -36,7 +36,7 @@ export const login = async (req, res) => {
   }
 };
 export const register = async (req, res) => {
-  const { username , email, password } = req.body;
+  const { username, email, password } = req.body;
   try {
     const newConnection = await connection();
     const [resultado] = await newConnection.query(
