@@ -4,6 +4,7 @@ import React, { useState } from "react";
 export function InputEdit({ value, onChange, selectedValue, className, responseExpose }) {
   function handleCheckboxChange() {
     onChange(value);
+    onChange(value);
   }
 
   return (
@@ -19,12 +20,6 @@ export function InputEdit({ value, onChange, selectedValue, className, responseE
     </div>
   );
 }
-
-
-
-
-
-
 
 export function CheckResponse({ selectedValue }) {
 
@@ -56,7 +51,13 @@ export function CheckResponse({ selectedValue }) {
 
 
 
-export function ActivitieModel({ title, activitieNumber, description, guide, nImage }) {
+export function ActivitieModel({
+  title,
+  activitieNumber,
+  description,
+  guide,
+  nImage,
+}) {
   const imgAct = [
       <img src="../public/img/funcion1p.png" alt="Imagen 1" />,
       <img src="../public/img/funcion2.png" alt="Imagen 2" />,
@@ -132,15 +133,15 @@ export function InputResponse({ answer1, answer2, className, separar, typeAnswer
               />
           </div>
 
-          <div className="flex justify-center mt-4">
-              <button
-                  onClick={validationResponse}
-                  className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
-              >
-                  Responder
-              </button>
-          </div>
+      <div className="flex justify-stard mt-4">
+        <button
+          onClick={validationResponse}
+          className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
+        >
+          Responder
+        </button>
       </div>
+    </div>
   );
 }
 

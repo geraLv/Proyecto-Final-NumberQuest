@@ -1,15 +1,18 @@
-// import { Button } from "@material-tailwind/react";
-// import React, { useState, useEffect } from "react";
 import { ArrayTemas } from "../models/Temasdb";
 import { ButtonDesplegable } from "./button_desplegable";
-// import { H1Icon } from "@heroicons/react/24/outline";
-// import { ActivitiesComplete } from "../hooks/ActivitiesComplete";
+import { MenuUnidades } from "../models/Unidadesdb";
 
+import functionImage from "../public/img/function.gif";
+import { Card } from "@material-tailwind/react";
 const Temas = () => {
   const currentPath = window.location.pathname;
   const idFromPath = currentPath.split("/").pop();
   const idEncontrada = parseInt(idFromPath);
-  // () => console.log(actividades);
+
+  const tituloUnidad = MenuUnidades.filter(
+    (title) => parseInt(title.id) === idEncontrada
+  );
+
   const filteredItems = ArrayTemas.filter(
     (tema) => parseInt(tema.unidad) === idEncontrada
   );
@@ -23,14 +26,24 @@ const Temas = () => {
   }
 
   return (
-    <div className="h-auto rounded-xl">
-      <ul className="col-span-4 space-y-2 flex w-full flex-col gap-1">
-        {filteredItems.map(({ unidad, tema }, index) => (
-          <div>
-            <ButtonDesplegable tema={tema}></ButtonDesplegable>
-          </div>
-        ))}
-      </ul>
+    <div className="container bg-gray-400 mt-5 mb-5  p-6 h-auto rounded-xl gap-5 flex flex-col ">
+      <h1 className="text-3xl">{tituloUnidad[0].title}</h1>
+      <div className="flex gap-2 justify-between bg-gray-800 rounded-xl p-4">
+        {/* <Card
+          color="black"
+          shadow={false}
+          className="col-span-3 flex h-auto w-1/5 items-center justify-center rounded-2xl"
+        >
+          <img className="bg-white rounded-md" src={functionImage} alt="" />
+        </Card> */}
+        <ul className="col-span-4 space-y-2 flex justify-start w-full flex-col gap-1">
+          {filteredItems.map(({ tema }, index) => (
+            <div>
+              <ButtonDesplegable tema={tema}></ButtonDesplegable>
+            </div>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

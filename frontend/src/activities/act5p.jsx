@@ -1,6 +1,7 @@
 import React from "react";
 import { InputResponse, Surrender, ActivitieModel } from "../hooks/allHooks";
 
+import { Navigate, Link } from "react-router-dom";
 export const Actividad5p = () => {
     return (
         <div className="flex flex-col justify-center items-center w-full h-full">

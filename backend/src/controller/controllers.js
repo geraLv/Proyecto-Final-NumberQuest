@@ -85,6 +85,7 @@ export const activitiesStatus = async (req, res) => {
       `UPDATE activities_status SET ${idAct} = ? WHERE id_user = ${id_user}`,
       [actState]
     );
+    console.log(resultado);
     res.json({ resultado, message: "Actividad actualizada exitosamente" });
   } catch (error) {
     console.log("Ocurrio un error al actualizar la actividad");

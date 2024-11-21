@@ -1,7 +1,6 @@
 import React from "react";
-import { ActivitieModel } from "../hooks/allHooks";
-
-
+import { ActivitieModel, Surrender, InputResponse } from "../hooks/allHooks";
+import { Navigate, Link } from "react-router-dom";
 export function Actividad4p() {
 
     return (

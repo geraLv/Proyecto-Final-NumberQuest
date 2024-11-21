@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Surrender, ActivitieModel, InputEdit, CheckResponse } from "../hooks/allHooks";
 
+import { Navigate, Link } from "react-router-dom";
 export const Actividad6p = () => {
 
     const [selectedValue, setSelectedValue] = useState(null); 

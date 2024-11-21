@@ -4,11 +4,11 @@ const Bloques = () => {
   return (
     <div>
       <section classNameName=" text-gray-400 body-font flex justify-center">
-        <div  className=" py-6 conteiner mx-1/2">
-          <div className="flex flex-col -m-4">
+        <div className=" py-6 bg-home conteiner mx-1/2">
+          <div className="flex flex-col">
             <a href="./temas/2">
-              <div className="flex xl:w-full px-4 py-4 w-full">
-                <div className="container bg-caja flex flex-row justify-around gap-4  bg-opacity-90 p-6 rounded-lg">
+              <div className="container flex  py-4 w-auto">
+                <div className="container w-auto bg-caja flex flex-row justify-around gap-4  bg-opacity-90 p-6 rounded-lg">
                   <img
                     className="h-full rounded w-1/3 object-cover object-center mb-6"
                     src="https://dummyimage.com/720x400"
