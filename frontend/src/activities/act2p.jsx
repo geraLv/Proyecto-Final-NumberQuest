@@ -7,6 +7,7 @@ import { ActivitieModel, InputResponse, Surrender } from "../hooks/allHooks";
 // import { Surrender } from "../hooks/allHooks";
 
 import { Navigate, Link } from "react-router-dom";
+import Teclado from "../hooks/teclado";
 
 export function Actividad2p() {
   return (
@@ -28,6 +29,7 @@ export function Actividad2p() {
             <Link to="/actividad/4">Siguiente Actividad</Link>
           </button>
         </div>
+        <Teclado></Teclado>
       </div>
     </>
   );

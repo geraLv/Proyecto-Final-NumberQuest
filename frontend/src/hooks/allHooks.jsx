@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import ActivitiesStatus from "./ActivitiesStatus";
@@ -71,39 +71,90 @@ export function ActivitieModel({
   );
 }
 
-export function InputResponse({ answer1, answer2, className }) {
-  const [valueActivitie, setValueActivitie] = useState(false);
+const Teclado = ({ InputF, ValorT, ValorT2 }) => {
+  const [valorTeclado, setValorTeclado] = useState(ValorT || "");
+  const [valorTeclado2, setValorTeclado2] = useState(ValorT2 || "");
+  const [inputFocus, setInputFocus] = useState(false || InputF);
 
+  const write = (value) => {
+    setValorTeclado((prev) => prev + value);
+  };
+
+  const write2 = (value) => {
+    setValorTeclado2((prev) => prev + value);
+  };
+
+  useEffect(() => {
+    InputResponse(valorTeclado, valorTeclado2);
+  }, [valorTeclado, valorTeclado2]);
+
+  return (
+    <div className="bg-gray-50 flex flex-col h-1/2 justify-start w-full">
+      <div className="justify-self-end">
+        Teclado
+        <div className="grid grid-cols-4 grid-rows-4 h-full m-10 gap-1">
+          {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", "/", 0, ".", "="].map(
+            (item) => (
+              <button
+                key={item}
+                onClick={inputFocus ? () => write2(item) : () => write(item)}
+                className="flex shadow-lg justify-center text-3xl items-center bg-white hover:scale-105 duration-100 ease-in"
+              >
+                {item}
+              </button>
+            )
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Teclado;
+
+export const InputResponse = ({
+  answer1,
+  answer2,
+  valorTeclado,
+  valorTeclado2,
+}) => {
   const answers = [answer1, answer2];
+  let ImputF = false;
 
-  function validationResponse() {
+  const validationResponse = (valorTeclado, valorTeclado2) => {
     const response1Value = document.getElementById("response1").value;
     const response2Value = document.getElementById("response2").value;
 
+    let falseValue = false;
+
     if (response1Value === answers[0] && response2Value === answers[1]) {
-      setValueActivitie(true);
       alert("Respuesta correcta");
     } else {
       alert("Respuesta incorrecta");
     }
-  }
+  };
 
   return (
-    <div className={`${className} space-y-4`}>
+    <div className={` space-y-4`}>
       {/* Input de respuesta 1 */}
       <div className="flex space-x-2 justify-stard items-center">
         <input
           type="text"
-          id="response1"
+          value={valorTeclado}
           placeholder="xx/-xx"
           maxLength={20}
+          onChange={(e) => Teclado((ValorT = e.target.value))}
+          onFocus={(e) => e.target.select(Teclado((ImputF = true)))}
           className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
         <span className="text-xl">---</span>
         <input
           type="text"
+          value={valorTeclado2}
           id="response2"
+          onFocus={(e) => e.target.select(Teclado(true))}
           placeholder="xx/-xx"
+          onChange={(e) => Teclado(e.target.value)}
           maxLength={20}
           className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
@@ -111,7 +162,7 @@ export function InputResponse({ answer1, answer2, className }) {
 
       <div className="flex justify-stard mt-4">
         <button
-          onClick={validationResponse}
+          onClick={() => validationResponse(valorTeclado, valorTeclado2)}
           className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
         >
           Responder
@@ -119,8 +170,7 @@ export function InputResponse({ answer1, answer2, className }) {
       </div>
     </div>
   );
-}
-
+};
 export function InputCoso() {
   return <></>;
 }

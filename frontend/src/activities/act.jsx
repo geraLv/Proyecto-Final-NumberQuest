@@ -1,5 +1,5 @@
 import { Button, input } from "@material-tailwind/react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import Swal from "sweetalert2";
 import ActivitiesStatus from "../hooks/ActivitiesStatus";
 import imgcoso from "../public/img/funcion1.png";
@@ -8,7 +8,8 @@ import { Surrender } from "../hooks/allHooks";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import Teclado from "../components/teclado";
+// import Teclado from "../hooks/teclado";
+import { MathJax } from "better-react-mathjax";
 export const Actividad = () => {
   const [parte1, setParte1] = useState("");
   const [validar, setValidar] = useState(false);
@@ -24,20 +25,25 @@ export const Actividad = () => {
   const [mostrarB, setMostrarB] = useState(false);
   const [mostrarA, setMostrarA] = useState(true);
   const [openHelp, setOpenHelp] = useState(false);
+  const [tecladoOk, setTecladoOk] = useState(false);
+  const [tecladoOk2, setTecladoOk2] = useState(false);
 
-  // let actStatus = false;
-
-  const [valorTeclado, setValorTeclado] = React.useState("");
-  const [valorTeclado2, setValorTeclado2] = React.useState("");
-
-  const handleWrite = (value) => {
+  const [valorTeclado, setValorTeclado] = useState("");
+  const [valorTeclado2, setValorTeclado2] = useState("");
+  const [inputFocus, setInputFocus] = useState(false);
+  const write = (value) => {
     setValorTeclado((prev) => prev + value);
   };
-  console.log(valorTeclado);
-  const handleWrite2 = (value) => {
+
+  const write2 = (value) => {
     setValorTeclado2((prev) => prev + value);
   };
-  console.log(valorTeclado2);
+
+  // useEffect(() => {
+  //   return () => {
+  //     second;
+  //   };
+  // }, [third]);
 
   const answers = ["-4 ; 4", "(-inf,0) U (1/4,+inf)"];
   const imgRes = [
@@ -53,13 +59,14 @@ export const Actividad = () => {
     <img src={guia1} className="w-2/4 h-1/5"></img>,
   ];
 
-  const handleParte1Change = (input) => {
-    setParte1(parseInt(input));
-  };
+  useEffect(() => {
+    valorTeclado === "" ? setTecladoOk(false) : setTecladoOk(true);
+    valorTeclado2 === "" ? setTecladoOk2(false) : setTecladoOk2(true);
 
-  const handleParte2Change = (input) => {
-    setParte2(parseInt(input));
-  };
+    tecladoOk ? setParte1(parseInt(valorTeclado)) : null;
+
+    tecladoOk2 ? setParte2(parseInt(valorTeclado2)) : null;
+  }, [tecladoOk, tecladoOk2, valorTeclado, valorTeclado2]);
 
   const handleParte1BChange = (input) => {
     // Regex para validar -inf, +inf, números, fracciones y listas sin necesidad de paréntesis
@@ -171,7 +178,7 @@ export const Actividad = () => {
         <br />
         <div className="flex">
           <h1 className="text-black text-2xl">5 + 𝑦 ≥ 0 </h1>
-          <h1 className="text-light-blue-900 text-2xl">=></h1>{" "}
+          <h1 className="text-light-blue-900 text-2xl">{"=>"}</h1>{" "}
           <h1 className="text-black text-2xl">𝑦 ≥ − 5</h1>
         </div>
         <br /> Para la raíz √(7 − 𝑦) ​ , la expresión dentro de la raíz es √(7 −
@@ -180,7 +187,7 @@ export const Actividad = () => {
         <br />
         <div className="flex">
           <h1 className="text-black text-2xl">7 − 𝑦 ≥ 0</h1>
-          <h1 className="text-light-blue-900 text-2xl">=></h1>{" "}
+          <h1 className="text-light-blue-900 text-2xl">{"=>"}</h1>{" "}
           <h1 className="text-black text-2xl">𝑦 ≤ 7</h1>
         </div>
         <br />
@@ -234,13 +241,17 @@ export const Actividad = () => {
                     <br />
                     <div className="flex">
                       <h1 className="text-black text-2xl">4 + x ≥ 0 </h1>
-                      <h1 className="text-light-blue-900 text-2xl">=></h1>{" "}
+                      <h1 className="text-light-blue-900 text-2xl">
+                        {"=>"}
+                      </h1>{" "}
                       <h1 className="text-black text-2xl">x ≥ -4</h1>
                     </div>
                     <br />
                     <div className="flex">
                       <h1 className="text-black text-2xl">4 - x ≥ 0</h1>
-                      <h1 className="text-light-blue-900 text-2xl">=></h1>{" "}
+                      <h1 className="text-light-blue-900 text-2xl">
+                        {"=>"}
+                      </h1>{" "}
                       <h1 className="text-black text-2xl">x ≤ 4</h1>
                     </div>
                     <br />
@@ -264,6 +275,7 @@ export const Actividad = () => {
                       type="text"
                       value={valorTeclado}
                       onChange={(e) => setValorTeclado(e.target.value)}
+                      onFocus={(e) => e.target.select(setInputFocus(false))}
                       placeholder="(-x.x)"
                       maxLength="4"
                       style={{
@@ -280,6 +292,7 @@ export const Actividad = () => {
                     <input
                       type="text"
                       value={valorTeclado2}
+                      onFocus={(e) => e.target.select(setInputFocus(true))}
                       onChange={(e) => setValorTeclado2(e.target.value)}
                       placeholder="(-x.x)"
                       maxLength="4"
@@ -442,8 +455,6 @@ export const Actividad = () => {
           </div>
         )}
       </div>
-      <Teclado />
-
       <button onClick={<Navigate to="/actividad/2" />}>
         <Link
           to="/actividad/2"
@@ -452,6 +463,49 @@ export const Actividad = () => {
           Siguiente Actividad
         </Link>
       </button>
+      <div className="my-4 flex bg-blue-gray-100 rounded-xl flex-row w-full">
+        <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
+          {[
+            "x",
+            "y",
+            "z",
+            "π",
+            "^2",
+            "^n",
+            "√",
+            "e",
+            "<",
+            ">",
+            "a/b",
+            "(",
+            ")",
+            "|.|",
+            ",",
+            "=",
+          ].map((item) => (
+            <button
+              key={item}
+              onClick={inputFocus ? () => write2(item) : () => write(item)}
+              className="flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center bg-white hover:scale-105 duration-100 ease-in"
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+        <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
+          {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", "/", 0, ".", "="].map(
+            (item) => (
+              <button
+                key={item}
+                onClick={inputFocus ? () => write2(item) : () => write(item)}
+                className="flex shadow-lg justify-center m-1 p-1 rounded text-xl items-center bg-white hover:scale-105 duration-100 ease-in"
+              >
+                {item}
+              </button>
+            )
+          )}
+        </div>
+      </div>
     </div>
   );
 };

@@ -2,8 +2,12 @@ import React, { useState, useEffect } from "react";
 import { InputResponse, Surrender, ActivitieModel } from "../hooks/allHooks";
 import img2 from "../public/img/funcion2.png";
 import { Navigate, Link } from "react-router-dom";
+import Teclado from "../hooks/allHooks";
+
 export const Actividad1p = () => {
   const [openHelp, setOpenHelp] = useState(false);
+  // const [tecladoOk, setTecladoOk] = useState(false);
+  // const [tecladoOk2, setTecladoOk2] = useState(false);
 
   return (
     <div className="justify-start w-full h-full">
@@ -72,6 +76,52 @@ export const Actividad1p = () => {
           >
             <Link to="/actividad/3">Siguiente Actividad</Link>
           </button>
+          <Teclado></Teclado>
+          {/* </div>
+        <div className="my-4 flex bg-blue-gray-100 rounded-xl flex-row w-full">
+          <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
+            {[
+              "x",
+              "y",
+              "z",
+              "π",
+              "^2",
+              "^n",
+              "√",
+              "e",
+              "<",
+              ">",
+              "a/b",
+              "(",
+              ")",
+              "|.|",
+              ",",
+              "=",
+            ].map((item) => (
+              <button
+                key={item}
+                onClick={inputFocus ? () => write2(item) : () => write(item)}
+                className="flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center bg-white hover:scale-105 duration-100 ease-in"
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+          <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
+            {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", "/", 0, ".", "="].map(
+              (item) => (
+                <button
+                  key={item}
+                  onClick={inputFocus ? () => write2(item) : () => write(item)}
+                  className="flex shadow-lg justify-center m-1 p-1 rounded text-xl items-center bg-white hover:scale-105 duration-100 ease-in"
+                >
+                  {item}
+                </button>
+              )
+            )}
+          </div>
+        </div>
+      </div> */}
         </div>
       </div>
     </div>

@@ -3,10 +3,12 @@ import { Button } from "@material-tailwind/react";
 import { MenuCustomList } from "./button-unidades";
 import { ProfileMenu } from "./menuUser";
 import { MenuCustomList2 } from "./button_literature";
+import { useNavigate } from "react-router-dom";
 
 import logo from "../public/img/LogoNQ.png";
 
 const Navbar = () => {
+  const Navegate = useNavigate();
   const [usuario, setUsuario] = useState({ loggedIn: false });
   useEffect(() => {
     fetch("http://localhost:4000/session", {
@@ -28,6 +30,12 @@ const Navbar = () => {
               </a>
               <div className="gap-4 flex">
                 <MenuCustomList></MenuCustomList>
+                <Button
+                  className="bg-transparent"
+                  onClick={() => Navegate("/bibliografia")}
+                >
+                  Bibliografia
+                </Button>
                 {/* <MenuCustomList2></MenuCustomList2> */}
               </div>
             </nav>

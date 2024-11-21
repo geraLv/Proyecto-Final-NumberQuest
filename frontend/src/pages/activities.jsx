@@ -4,7 +4,7 @@ import { Actividad } from "../activities/act";
 import { Actividad1p } from "../activities/act1p";
 // import { Actividad3 } from "../activities/act3";
 import Layaut from "../components/layaut";
-import Teclado from "../components/teclado";
+import Teclado from "../hooks/teclado";
 import Footer from "../components/footer";
 import { ActivitiesDB } from "../models/ActivitisDB";
 import { Actividad3 } from "../activities/act3";

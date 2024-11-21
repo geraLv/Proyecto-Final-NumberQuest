@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "@heroicons/react": "^2.1.5"
+    "@heroicons/react": "^2.1.5",
+    "better-react-mathjax": "^2.0.4-beta1",
+    "mathjax": "^3.2.2"
   }
 }
