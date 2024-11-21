@@ -11,7 +11,7 @@ const Bloques = () => {
                 <div className="container w-auto bg-caja flex flex-row justify-around gap-4  bg-opacity-90 p-6 rounded-lg">
                   <img
                     className="h-full rounded w-1/3 object-cover object-center mb-6"
-                    src="https://dummyimage.com/720x400"
+                    src="./src/public/img/tdcLogo.png"
                     alt="content"
                   />
                   <div className="bg-text space-y-4 w-full rounded-xl p-4">
@@ -38,7 +38,7 @@ const Bloques = () => {
                 <div className="container bg-caja flex flex-row justify-around gap-4  bg-opacity-90 p-6 rounded-lg">
                   <img
                     className="h-full rounded w-1/3 object-cover object-center mb-6"
-                    src="https://dummyimage.com/720x400"
+                    src="./src/public/img/limite.png"
                     alt="content"
                   />
                   <div className="bg-text w-full rounded-xl space-y-4 p-4">
@@ -63,7 +63,7 @@ const Bloques = () => {
                 <div className="container bg-caja  flex flex-row justify-around gap-4  bg-opacity-90 p-6 rounded-lg">
                   <img
                     className="h-full rounded w-1/3 object-cover object-center mb-6"
-                    src="https://dummyimage.com/720x400"
+                    src="./src/public/img/derivadas.png"
                     alt="content"
                   />
                   <div className="bg-text w-full rounded-xl space-y-4 p-4">

@@ -4,6 +4,8 @@ import { MenuCustomList } from "./button-unidades";
 import { ProfileMenu } from "./menuUser";
 import { MenuCustomList2 } from "./button_literature";
 
+import logo from "../public/img/LogoNQ.png";
+
 const Navbar = () => {
   const [usuario, setUsuario] = useState({ loggedIn: false });
   useEffect(() => {
@@ -26,14 +28,15 @@ const Navbar = () => {
               </a>
               <div className="gap-4 flex">
                 <MenuCustomList></MenuCustomList>
-                <MenuCustomList2></MenuCustomList2>
+                {/* <MenuCustomList2></MenuCustomList2> */}
               </div>
             </nav>
             <a
               href="/"
-              class="flex lg:order-none title-font lg:w-full font-medium items-center text-white justify-center mb-1 md:mb-0"
+              class="flex lg:order-none title-font lg:w-full font-medium items-center text-white justify-center md:mb-0"
             >
-              <svg
+              <img className=" mt-1 h-auto w-20 hover:w-24" src={logo} alt="" />
+              {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 stroke="currentColor"
@@ -44,7 +47,7 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
               >
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-              </svg>
+              </svg> */}
               <span class="ml-2 text-xl">NumberQuest</span>
             </a>
 

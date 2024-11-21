@@ -27,10 +27,10 @@ export function Activities() {
   const idEncontrada = parseInt(idFromPath);
 
   return (
-    <>
+    <div className="">
       <NavBar />
 
-      <div className="py-5 flex flex-col justify-center items-center w-full h-full bg">
+      <div className=" py-5 flex flex-col justify-center items-center w-full h-full bg">
         {idEncontrada === 1 ? (
           <Actividad></Actividad>
         ) : idEncontrada === 2 ? (
@@ -51,6 +51,6 @@ export function Activities() {
       </div>
 
       <Footer></Footer>
-    </>
+    </div>
   );
 }

@@ -14,7 +14,6 @@ const NotFoundPages = () => {
         <Link to={"/"} className="text-blue-gray-400 text-2xl">
           Volver a la pagina principal
         </Link>
-        <Link to={"1"}>lala</Link>
       </div>
     </>
   );

@@ -3,9 +3,12 @@ import React, { useState } from "react";
 // import Swal from "sweetalert2";
 import ActivitiesStatus from "../hooks/ActivitiesStatus";
 import imgcoso from "../public/img/funcion1.png";
+import guia1 from "../public/img/guia1.png";
 import { Surrender } from "../hooks/allHooks";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import Teclado from "../components/teclado";
 export const Actividad = () => {
   const [parte1, setParte1] = useState("");
   const [validar, setValidar] = useState(false);
@@ -20,15 +23,21 @@ export const Actividad = () => {
   const [mostrarResultadoB, setMostrarResultadoB] = useState(false);
   const [mostrarB, setMostrarB] = useState(false);
   const [mostrarA, setMostrarA] = useState(true);
+  const [openHelp, setOpenHelp] = useState(false);
 
   // let actStatus = false;
 
-  const [valorTeclado, setValorTeclado] = useState("");
+  const [valorTeclado, setValorTeclado] = React.useState("");
+  const [valorTeclado2, setValorTeclado2] = React.useState("");
 
-  const write = (value) => {
+  const handleWrite = (value) => {
     setValorTeclado((prev) => prev + value);
   };
   console.log(valorTeclado);
+  const handleWrite2 = (value) => {
+    setValorTeclado2((prev) => prev + value);
+  };
+  console.log(valorTeclado2);
 
   const answers = ["-4 ; 4", "(-inf,0) U (1/4,+inf)"];
   const imgRes = [
@@ -41,6 +50,7 @@ export const Actividad = () => {
       src="https://media.licdn.com/dms/image/C5112AQEYARonHijMaQ/article-cover_image-shrink_600_2000/0/1549770046623?e=2147483647&v=beta&t=9B-KDNvL_mfs2VrOXKrsHf8T5NMG2MXAKCi5i89cXeE"
       alt=""
     />,
+    <img src={guia1} className="w-2/4 h-1/5"></img>,
   ];
 
   const handleParte1Change = (input) => {
@@ -82,10 +92,7 @@ export const Actividad = () => {
     }
     if (/^-?\d*[,\.]?\d*$/.test(parte2)) {
     }
-    if (
-      (parte1 === "" || parte2 === "",
-      isNaN(parte1) || isNaN(parte2.replace(",", ".")))
-    )
+    if ((parte1 === "" || parte2 === "", isNaN(parte1) || isNaN(parte2)))
       alert("Error: Debe ingresar un número válido");
     else {
       const respuesta = `${parte1} ; ${parte2}`;
@@ -146,10 +153,58 @@ export const Actividad = () => {
       <h1 className="text-3xl">
         <b>Dominio de funciones</b>
       </h1>
+      <div className="bg-gray-200 rounded m-2 p-2 border-blue-gray-300 border-2 w-screen container text-black text-xl">
+        <h1 className="text-black text-2xl">
+          Como ejemplo usaremos la siguiente función:
+        </h1>
+        <br />
+        √(5+y) ​ + √(7−y) ​ +3⋅ √(3) ​
+        <br />
+        <br />
+        <h1 className="text-black text-2xl">
+          Paso 1: Encontrar las restricciones para cada raíz cuadrada
+        </h1>{" "}
+        <br />
+        1_Para la raíz √(5+𝑦) ​ , la expresión dentro de la raíz es 5+𝑦 debe ser
+        mayor o igual a 0:
+        <br />
+        <br />
+        <div className="flex">
+          <h1 className="text-black text-2xl">5 + 𝑦 ≥ 0 </h1>
+          <h1 className="text-light-blue-900 text-2xl">=></h1>{" "}
+          <h1 className="text-black text-2xl">𝑦 ≥ − 5</h1>
+        </div>
+        <br /> Para la raíz √(7 − 𝑦) ​ , la expresión dentro de la raíz es √(7 −
+        𝑦) debe ser mayor o igual a 0:
+        <br />
+        <br />
+        <div className="flex">
+          <h1 className="text-black text-2xl">7 − 𝑦 ≥ 0</h1>
+          <h1 className="text-light-blue-900 text-2xl">=></h1>{" "}
+          <h1 className="text-black text-2xl">𝑦 ≤ 7</h1>
+        </div>
+        <br />
+        La expresión 3 ⋅ √3​ es constante y no afecta el dominio.
+        <br />
+        <br />
+        <h1 className="text-black text-2xl">Paso 2: Determinar el dominio</h1>
+        <br />
+        Ahora, juntamos ambas restricciones:
+        <br />
+        <br />
+        <h1 className="text-black text-2xl">*𝑦 ≥ − 5</h1>
+        <br />
+        <h1 className="text-black text-2xl">*𝑦 ≤ 7</h1>
+        <br />
+        El dominio de la función será la intersección de ambos conjuntos, es
+        decir: 𝑦 ∈ [ − 5 , 7 ]
+        <br />
+        Respuesta final: <br />
+        <br />
+        El dominio de la función es: 𝑦 ∈ [ − 5 , 7 ] y ∈ [−5,7] <br />
+        Es decir, los valores de 𝑦 y deben estar entre − 5 y 7.
+      </div>
 
-      <p style={{ color: "#AABFC6", marginTop: "10px" }}>
-        *Aclaración: Los números decimales se marcan con punto: Ejemplo:"1.2"*
-      </p>
       <div className="Act1" style={{ margin: "10px 10px 30px 10px" }}>
         <p style={{ fontSize: 20, marginBottom: "10px" }}>Actividad 1:</p>
         {mostrarA && (
@@ -162,12 +217,53 @@ export const Actividad = () => {
               {" "}
               Indica el dominio de la función =
               <div className="" style={{ marginTop: "10px" }}>
+                {openHelp ? (
+                  <div className="container border-2 border-blue-gray-400 rounded p-3 my-3 bg-gray-200">
+                    <h1 className="text-2xl text-blue-800">Resolucion:</h1>
+                    <br />
+                    <h1 className="text-xl">
+                      El dominio de la función f ( x ) = √(4 + x) + √(4 − x) + 2
+                      √(2) f(x)= √(4+x) ​ + √(4−x) ​ +2√(2) ​ está determinado
+                      por las restricciones de los radicandos.
+                    </h1>
+                    <br />
+                    <br />
+                    <h1>
+                      Necesitamos que ambos sean mayores o iguales a cero:
+                    </h1>
+                    <br />
+                    <div className="flex">
+                      <h1 className="text-black text-2xl">4 + x ≥ 0 </h1>
+                      <h1 className="text-light-blue-900 text-2xl">=></h1>{" "}
+                      <h1 className="text-black text-2xl">x ≥ -4</h1>
+                    </div>
+                    <br />
+                    <div className="flex">
+                      <h1 className="text-black text-2xl">4 - x ≥ 0</h1>
+                      <h1 className="text-light-blue-900 text-2xl">=></h1>{" "}
+                      <h1 className="text-black text-2xl">x ≤ 4</h1>
+                    </div>
+                    <br />
+                    <h1 className="flex">
+                      Combinando ambas restricciones, el dominio de la función
+                      es <h1 className="text-black">-4 ≤ x ≤ 4 </h1>, o en
+                      notación de intervalos, [-4, 4].
+                    </h1>
+                  </div>
+                ) : (
+                  ""
+                )}
+                <p style={{ color: "#AABFC6", marginTop: "10px" }}>
+                  *Aclaración: Los números decimales se marcan con punto:
+                  Ejemplo:"1.2"*
+                </p>
                 {mostrarInputsA && (
                   <>
                     <input
-                      value={valorTeclado} // Utiliza el estado local para el valor del teclado
+                      // Utiliza el estado local para el valor del teclado
                       type="text"
-                      onChange={(e) => handleParte1Change(e.target.value)}
+                      value={valorTeclado}
+                      onChange={(e) => setValorTeclado(e.target.value)}
                       placeholder="(-x.x)"
                       maxLength="4"
                       style={{
@@ -183,7 +279,8 @@ export const Actividad = () => {
                     </span>
                     <input
                       type="text"
-                      onChange={(e) => handleParte2Change(e.target.value)}
+                      value={valorTeclado2}
+                      onChange={(e) => setValorTeclado2(e.target.value)}
                       placeholder="(-x.x)"
                       maxLength="4"
                       style={{
@@ -208,6 +305,20 @@ export const Actividad = () => {
                     >
                       Responder
                     </button>
+                    <button
+                      // type="submit"
+                      onClick={() => setOpenHelp(!openHelp)}
+                      style={{
+                        backgroundColor: "#AABFC6",
+                        color: "#000",
+                        marginLeft: "10px",
+                        padding: "5px",
+                        border: "solid, black, 2px",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      Ayuda
+                    </button>
                   </>
                 )}
               </div>
@@ -220,12 +331,12 @@ export const Actividad = () => {
             <p
               style={{
                 color: validar === true ? "green" : "red",
-                fontSize: 18,
+                fontSize: 24,
               }}
             >
               Dominio: ( {envio} ) es {validar === true ? "verdadero" : "falso"}
             </p>
-            <p>{validar === true ? imgRes[1] : imgRes[0]}</p>
+            {/* <p>{validar === true ? imgRes[1] : imgRes[0]}</p> */}
           </div>
         )}
 
@@ -331,6 +442,8 @@ export const Actividad = () => {
           </div>
         )}
       </div>
+      <Teclado />
+
       <button onClick={<Navigate to="/actividad/2" />}>
         <Link
           to="/actividad/2"
