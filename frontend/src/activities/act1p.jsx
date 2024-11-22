@@ -10,14 +10,56 @@ export const Actividad1p = () => {
   // const [tecladoOk2, setTecladoOk2] = useState(false);
 
   return (
+    
     <div className="justify-start w-full h-full">
       <div className="container flex flex-col w-full h-full">
+        
         <ActivitieModel
           title={"Dominio de funciones "}
           activitieNumber="Actividad 2)"
           guide="Reacuerda que debes poner los parentesis '()' o corechetes '[]' según corresponda"
           description="Siguiendo el ejemplo de la anterior actividad, observa atentamente y halla el dominio de la funcón:"
         />
+        <div className="bg-gray-200 rounded m-2 p-2 border-blue-gray-300 border-2 w-screen container text-black text-xl">
+        <h1 className="text-black text-2xl">
+          Como ejemplo usaremos la siguiente función:
+        </h1>
+        <br />
+        √(4 - x^2)
+        <br />
+        <br />
+        <h1 className="text-black text-2xl">
+          Paso 1: Encontrar las restricciones para cada raíz cuadrada
+        </h1>{" "}
+        <br />
+        1_Para la raíz √(4 - x^2) ​ , la expresión dentro de la raíz es 4 - x^2 debe ser
+        mayor o igual a 0:
+        <br />
+        <br />
+        <div className="flex">
+          <h1 className="text-black text-2xl">4 - x^2 ≥ 0 </h1>
+          <h1 className="text-light-blue-900 text-2xl">{"=>"}</h1>{" "}
+          <h1 className="text-black text-2xl">4 ≥ x^2</h1>
+        </div>
+        <br /> Resolvemos el 4 ≥ x^2
+        <br />
+        <br />
+        <div className="flex">
+          <h1 className="text-black text-2xl">|x| ≤ 2</h1>
+          <h1 className="text-light-blue-900 text-2xl">{}</h1>{" "}
+          <h1 className="text-black text-2xl"></h1>
+        </div>
+        <br />
+        Esto implica que:
+        <br />
+        <br />
+        -2 ≤ x ≤ 2
+        <br />
+        <h1 className="text-black text-2xl">Conclusión</h1>
+        <br />
+        El dominio de esta funcion seria: x ∈ [-2,2]
+        <br />
+      </div>
         <div className="py-5">
           <img src={img2} className="" alt="" />
         </div>
