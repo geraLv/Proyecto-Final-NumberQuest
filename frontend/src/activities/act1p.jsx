@@ -1,13 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { InputResponse, ActivitieModel } from "../hooks/allHooks";
 import img2 from "../public/img/funcion1p.png";
 import { Navigate, Link } from "react-router-dom";
-// import Teclado from "../hooks/allHooks";
 
 export const Actividad1p = () => {
   const [openHelp, setOpenHelp] = useState(false);
-  // const [tecladoOk, setTecladoOk] = useState(false);
-  // const [tecladoOk2, setTecladoOk2] = useState(false);
+
+ 
+  const [responseMessage, setResponseMessage] = useState("");
+  const [messageColor, setMessageColor] = useState("text-gray-500");
+
+  const handleValidation = () => {
+    let response1Value = document.getElementById("response1").value;
+    let response2Value = document.getElementById("response2").value;
+
+ 
+    if (response1Value === "(-inf,0]" && response2Value === "[1/4,inf)") {
+      setResponseMessage("¡Respuesta correcta!");
+      setMessageColor("text-green-500");
+    } else {
+      setResponseMessage("Respuesta incorrecta");
+      setMessageColor("text-red-500");
+    }
+  };
 
   return (
     <div className="justify-start w-full h-full">
@@ -37,11 +52,9 @@ export const Actividad1p = () => {
               <h1 className="text-black text-xl">Factorizando, obtenemos:</h1>
               <br />
               <div className="flex">
-                {/* <h1 className="text-light-blue-900 text-2xl">=></h1>{" "} */}
                 <h1 className="text-blue-800 text-2xl"> x ( 4 x − 1 ) ≥ 0 </h1>
               </div>
               <br />
-              {/* <br /> */}
               <h1 className="flex">
                 Por lo tanto, el dominio de la función es:
               </h1>
@@ -60,12 +73,15 @@ export const Actividad1p = () => {
           <InputResponse
             typeAnswer={true}
             separar="U"
-            className={"py-2 itmes-start"}
-            answer1={"(-inf,0]"}
-            answer2={"[1/4,inf)"}
+            className={"py-2 items-start"}
+            answer1="(-inf,0]"
+            answer2="[1/4,inf)"
+            handleValidation={handleValidation} // Acá pasa la función de validación
+            responseMessage={responseMessage}   // Este da el mensaje de respuesta
+            messageColor={messageColor}         // Gera este pasa el color del mensaje
           />
           <button
-            className=" h-10 w-40 mb-2 bg-yellow-600 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
+            className="h-10 w-40 mb-2 bg-yellow-600 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
             onClick={() => setOpenHelp(!openHelp)}
           >
             Ayuda
@@ -73,101 +89,11 @@ export const Actividad1p = () => {
         </div>
         <div className="flex gap-4 items-end">
           <button
-            className="h-10 w-40 mb-2   bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
+            className="h-10 w-40 mb-2 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
             onClick={<Navigate to="/actividad/3" />}
           >
             <Link to="/actividad/3">Siguiente Actividad</Link>
           </button>
-
-          {/* </div>
-        <div className="my-4 flex bg-blue-gray-100 rounded-xl flex-row w-full">
-          <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
-            {[
-              "x",
-              "y",
-              "z",
-              "π",
-              "^2",
-              "^n",
-              "√",
-              "e",
-              "<",
-              ">",
-              "a/b",
-              "(",
-              ")",
-              "|.|",
-              ",",
-              "=",
-            ].map((item) => (
-              <button
-                key={item}
-                onClick={inputFocus ? () => write2(item) : () => write(item)}
-                className="flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center bg-white hover:scale-105 duration-100 ease-in"
-              >
-                {item}
-              </button>
-            ))}
-          </div>
-          <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
-            {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", "/", 0, ".", "="].map(
-              (item) => (
-                <button
-                  key={item}
-                  onClick={inputFocus ? () => write2(item) : () => write(item)}
-                  className="flex shadow-lg justify-center m-1 p-1 rounded text-xl items-center bg-white hover:scale-105 duration-100 ease-in"
-                >
-                  {item}
-                </button>
-              )
-            )}
-          </div>
-        </div>
-      </div> */}
-        </div>
-
-        <div className="my-4 flex bg-blue-gray-100 rounded-xl flex-row w-full">
-          <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
-            {[
-              "x",
-              "y",
-              "z",
-              "π",
-              "^2",
-              "^n",
-              "√",
-              "e",
-              "<",
-              ">",
-              "a/b",
-              "(",
-              ")",
-              "|.|",
-              ",",
-              "=",
-            ].map((item) => (
-              <button
-                key={item}
-                // onClick={inputFocus ? () => write2(item) : () => write(item)}
-                className="flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center bg-white hover:scale-105 duration-100 ease-in"
-              >
-                {item}
-              </button>
-            ))}
-          </div>
-          <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
-            {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", "/", 0, ".", "="].map(
-              (item) => (
-                <button
-                  key={item}
-                  // onClick={inputFocus ? () => write2(item) : () => write(item)}
-                  className="flex shadow-lg justify-center m-1 p-1 rounded text-xl items-center bg-white hover:scale-105 duration-100 ease-in"
-                >
-                  {item}
-                </button>
-              )
-            )}
-          </div>
         </div>
       </div>
     </div>

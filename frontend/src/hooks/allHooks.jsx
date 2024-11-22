@@ -91,60 +91,109 @@ export function ActivitieModel({
   );
 }
 
+// export function InputResponse({
+//   answer1,
+//   answer2,
+//   className,
+//   separar,
+//   typeAnswer,
+// }) {
+//   const [valueActivitie, setValueActivitie] = useState(false);
+//   const [responseMessage, setResponseMessage] = useState("");
+//   const [messageColor, setMessageColor] = useState("text-gray-500");
+//   // const answers = [answer1, answer2];
+//   // const [validar, setValidar] = useState(false);
+//   // let response1Value = document.getElementById("response1").value;
+//   // let response2Value = document.getElementById("response2").value;
+//   function validationResponse() {
+//     let response1Value = document.getElementById("response1").value;
+//     let response2Value = document.getElementById("response2").value;
+
+//     if (typeAnswer === true) {
+//       // Verifica si las respuestas son correctas
+//       if (response1Value === answer1 && response2Value === answer2) {
+//         setValueActivitie(true);
+//         setResponseMessage("¡Respuesta correcta!");
+//         setMessageColor("text-green-500");
+//         // setValidar(true);}
+//       } else {
+//         setResponseMessage("Respuesta incorrecta");
+//         setMessageColor("text-red-500");
+//       }
+//     } else {
+//       // Si el tipo de respuesta es numérico
+//       response1Value = parseInt(response1Value);
+//       response2Value = parseInt(response2Value);
+
+//       if (response1Value === answer1 && response2Value === answer2) {
+//         setValueActivitie(true);
+//         // setValidar(true);
+//         setResponseMessage("¡Respuesta correcta!");
+//         setMessageColor("text-green-500");
+//       } else {
+//         setResponseMessage("Respuesta incorrecta");
+//         setMessageColor("text-red-500");
+//         // setValidar(false);
+//       }
+//     }
+//     // return validar;
+//   }
+//   // validar === true ? ActivitiesStatus(validar) : ActivitiesStatus(false);
+//   return (
+//     <div className={`flex flex-col  ${className} `}>
+//       <div className={` ${messageColor} my-2 text-lg font-semibold`}>
+//         {responseMessage}
+//       </div>
+//       <div className="flex space-x-2  items-center">
+//         <input
+//           type="text"
+//           id="response1"
+//           placeholder="-xx ; xx"
+//           maxLength={10}
+//           className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+//         />
+//         <span className="text-xl">{separar}</span>
+//         <input
+//           type="text"
+//           id="response2"
+//           placeholder="-xx ; xx"
+//           maxLength={10}
+//           className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+//         />
+//       </div>
+
+//       <div className="flex justify-start mt-4">
+//         <button
+//           onClick={validationResponse} //como lo marco correcto
+//           className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
+//         >
+//           Responder
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+
+
 export function InputResponse({
   answer1,
   answer2,
   className,
   separar,
   typeAnswer,
+  handleValidation, // Recibis la validacion de un padre
+  responseMessage,   // Recibis el mensaje de respuesta
+  messageColor,      // Recibe el color
 }) {
-  const [valueActivitie, setValueActivitie] = useState(false);
-  const [responseMessage, setResponseMessage] = useState("");
-  const [messageColor, setMessageColor] = useState("text-gray-500");
-  // const answers = [answer1, answer2];
-  // const [validar, setValidar] = useState(false);
-  // let response1Value = document.getElementById("response1").value;
-  // let response2Value = document.getElementById("response2").value;
-  function validationResponse() {
-    let response1Value = document.getElementById("response1").value;
-    let response2Value = document.getElementById("response2").value;
-
-    if (typeAnswer === true) {
-      // Verifica si las respuestas son correctas
-      if (response1Value === answer1 && response2Value === answer2) {
-        setValueActivitie(true);
-        setResponseMessage("¡Respuesta correcta!");
-        setMessageColor("text-green-500");
-        // setValidar(true);}
-      } else {
-        setResponseMessage("Respuesta incorrecta");
-        setMessageColor("text-red-500");
-      }
-    } else {
-      // Si el tipo de respuesta es numérico
-      response1Value = parseInt(response1Value);
-      response2Value = parseInt(response2Value);
-
-      if (response1Value === answer1 && response2Value === answer2) {
-        setValueActivitie(true);
-        // setValidar(true);
-        setResponseMessage("¡Respuesta correcta!");
-        setMessageColor("text-green-500");
-      } else {
-        setResponseMessage("Respuesta incorrecta");
-        setMessageColor("text-red-500");
-        // setValidar(false);
-      }
-    }
-    // return validar;
-  }
-  // validar === true ? ActivitiesStatus(validar) : ActivitiesStatus(false);
   return (
-    <div className={`flex flex-col  ${className} `}>
+    <div className={`flex flex-col ${className}`}>
       <div className={` ${messageColor} my-2 text-lg font-semibold`}>
         {responseMessage}
       </div>
-      <div className="flex space-x-2  items-center">
+      <div className="flex space-x-2 items-center">
         <input
           type="text"
           id="response1"
@@ -164,7 +213,7 @@ export function InputResponse({
 
       <div className="flex justify-start mt-4">
         <button
-          onClick={validationResponse} //como lo marco correcto
+          onClick={handleValidation} // Llamamos la función de validación recibida desde el padre
           className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
         >
           Responder
@@ -173,6 +222,7 @@ export function InputResponse({
     </div>
   );
 }
+
 
 export function Surrender(nextOption) {
   return (
