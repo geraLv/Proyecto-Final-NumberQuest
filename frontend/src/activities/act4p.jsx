@@ -34,15 +34,37 @@ export function Actividad4p() {
         <div className="py-5">
           <img src={img5} className=" " alt="" />
         </div>
-        <InputResponse
-          Separar="U"
-          answer1={"(-inf,-4)"}
-          answer2={"(4,inf)"}
-          tyeAnswer={true} 
-          handleValidation={handleValidation} 
-          responseMessage={responseMessage} 
-          messageColor={messageColor} 
+        <div className={`flex flex-col `}>
+      <div className={` ${messageColor} my-2 text-lg font-semibold`}>
+        {responseMessage}
+      </div>
+      <div className="flex space-x-2 items-center">
+        <input
+          type="text"
+          id="response1"
+          placeholder="-xx ; xx"
+          maxLength={10}
+          className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
+        <span className="text-xl">U</span>
+        <input
+          type="text"
+          id="response2"
+          placeholder="-xx ; xx"
+          maxLength={10}
+          className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+      </div>
+
+      <div className="flex justify-start mt-4">
+        <button
+          onClick={handleValidation} // Llamamos la función de validación recibida desde el padre
+          className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
+        >
+          Responder
+        </button>
+      </div>
+    </div>
         <button
           className="h-10 w-40 mb-2 bg-yellow-600 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
           onClick={() => null} 
