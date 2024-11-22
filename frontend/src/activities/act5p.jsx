@@ -73,28 +73,26 @@ export const Actividad5p = () => {
               <h1 className="text-2xl text-blue-800">Resolucion:</h1>
               <br />
               <h1 className="text-black text-xl">
-                El dominio de la función f ( x ) = 2 x − √(4x^2 − x) está
-                determinado por la condición de que el radicando debe ser mayor
-                o igual a cero: 4 x^2 − x ≥ 0
+                Condiciones para la raiz cuadrada
               </h1>
               <br />
-              <h1 className="text-blue-800 text-2xl">4 x^2 − x ≥ 0 </h1>
+              <h1 className="text-blue-800 text-2xl">x^2 + 4x - 5 ≥ 0 </h1>
               <br />
-              <h1 className="text-black text-xl">Factorizando, obtenemos:</h1>
+              <h1 className="text-black text-xl">Resolvemos la desigualdad</h1>
               <br />
               <div className="flex">
                 {/* <h1 className="text-light-blue-900 text-2xl">=></h1>{" "} */}
-                <h1 className="text-blue-800 text-2xl"> x ( 4 x − 1 ) ≥ 0 </h1>
+                <h1 className="text-blue-800 text-2xl"> Al resolver la reslvente quedara x = 1 y x = -5</h1>
               </div>
               <br />
               {/* <br /> */}
               <h1 className="flex">
-                Por lo tanto, el dominio de la función es:
+                Estos resultados haran que el denominador sea 0, por ende el dominio seria :
               </h1>
               <div className="flex gap-2 my-2">
-                <h1 className="text-blue-800 text-2xl"> ( − ∞ , 0 ]</h1>
+                <h1 className="text-blue-800 text-2xl"> ( − ∞ , -5 )</h1>
                 <h1 className="text-black text-2xl">U</h1>{" "}
-                <h1 className="text-blue-800 text-2xl">[ 1/4 , ∞ )</h1>
+                <h1 className="text-blue-800 text-2xl">( 1 , +∞ )</h1>
               </div>
             </div>
           </div>
@@ -103,8 +101,8 @@ export const Actividad5p = () => {
         )}
       <InputResponse
         separar="U"
-        answer1={"-inf;5"}
-        answer2={"1;inf"}
+        answer1={"(-inf;5)"}
+        answer2={"(1;inf)"}
         typeAnswer={true}
       />
       

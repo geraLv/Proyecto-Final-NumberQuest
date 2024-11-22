@@ -20,55 +20,43 @@ export const Actividad6p = () => {
                     description='Resuelve la siguiente multiplicación de decimales: 2.5 × 1.4'
                 />
                 <div className="bg-gray-200 rounded m-2 p-2 border-blue-gray-300 border-2 w-screen container text-black text-xl">
-        <h1 className="text-black text-2xl">
+                <h1 className="text-black text-2xl">
           Como ejemplo usaremos la siguiente función:
         </h1>
         <br />
-        √(5+y) ​ + √(7−y) ​ +3⋅ √(3) ​
+        √(4 - x^2)
         <br />
         <br />
         <h1 className="text-black text-2xl">
           Paso 1: Encontrar las restricciones para cada raíz cuadrada
         </h1>{" "}
         <br />
-        1_Para la raíz √(5+𝑦) ​ , la expresión dentro de la raíz es 5+𝑦 debe ser
+        1_Para la raíz √(4 - x^2) ​ , la expresión dentro de la raíz es 4 - x^2 debe ser
         mayor o igual a 0:
         <br />
         <br />
         <div className="flex">
-          <h1 className="text-black text-2xl">5 + 𝑦 ≥ 0 </h1>
+          <h1 className="text-black text-2xl">4 - x^2 ≥ 0 </h1>
           <h1 className="text-light-blue-900 text-2xl">{"=>"}</h1>{" "}
-          <h1 className="text-black text-2xl">𝑦 ≥ − 5</h1>
+          <h1 className="text-black text-2xl">4 ≥ x^2</h1>
         </div>
-        <br /> Para la raíz √(7 − 𝑦) ​ , la expresión dentro de la raíz es √(7 −
-        𝑦) debe ser mayor o igual a 0:
+        <br /> Resolvemos el 4 ≥ x^2
         <br />
         <br />
         <div className="flex">
-          <h1 className="text-black text-2xl">7 − 𝑦 ≥ 0</h1>
-          <h1 className="text-light-blue-900 text-2xl">{"=>"}</h1>{" "}
-          <h1 className="text-black text-2xl">𝑦 ≤ 7</h1>
+          <h1 className="text-black text-2xl">|x| ≤ 2</h1>
+          <h1 className="text-light-blue-900 text-2xl">{}</h1>{" "}
+          <h1 className="text-black text-2xl"></h1>
         </div>
         <br />
-        La expresión 3 ⋅ √3​ es constante y no afecta el dominio.
+        Esto implica que:
         <br />
         <br />
-        <h1 className="text-black text-2xl">Paso 2: Determinar el dominio</h1>
+        -2 ≤ x ≤ 2
         <br />
-        Ahora, juntamos ambas restricciones:
+        <h1 className="text-black text-2xl">Conclusión</h1>
         <br />
-        <br />
-        <h1 className="text-black text-2xl">*𝑦 ≥ − 5</h1>
-        <br />
-        <h1 className="text-black text-2xl">*𝑦 ≤ 7</h1>
-        <br />
-        El dominio de la función será la intersección de ambos conjuntos, es
-        decir: 𝑦 ∈ [ − 5 , 7 ]
-        <br />
-        Respuesta final: <br />
-        <br />
-        El dominio de la función es: 𝑦 ∈ [ − 5 , 7 ] y ∈ [−5,7] <br />
-        Es decir, los valores de 𝑦 y deben estar entre − 5 y 7.
+        El dominio de esta funcion seria: x ∈ [-2,2]
       </div>
                 <div className="py-5">
           <img src={img7} className=" " alt="" />
@@ -79,18 +67,16 @@ export const Actividad6p = () => {
               <h1 className="text-2xl text-blue-800">Resolucion:</h1>
               <br />
               <h1 className="text-black text-xl">
-                El dominio de la función f ( x ) = 2 x − √(4x^2 − x) está
-                determinado por la condición de que el radicando debe ser mayor
-                o igual a cero: 4 x^2 − x ≥ 0
+                Establecer la condicion para la raiz cuadrada
               </h1>
               <br />
-              <h1 className="text-blue-800 text-2xl">4 x^2 − x ≥ 0 </h1>
+              <h1 className="text-blue-800 text-2xl">2x^2 + 5x -7 ≥ 0</h1>
               <br />
-              <h1 className="text-black text-xl">Factorizando, obtenemos:</h1>
+              <h1 className="text-black text-xl">Resolvemos la desigualdad</h1>
               <br />
               <div className="flex">
                 {/* <h1 className="text-light-blue-900 text-2xl">=></h1>{" "} */}
-                <h1 className="text-blue-800 text-2xl"> x ( 4 x − 1 ) ≥ 0 </h1>
+                <h1 className="text-blue-800 text-2xl"> Quedando como resultados x = 1 y x = -7/2</h1>
               </div>
               <br />
               {/* <br /> */}
@@ -98,9 +84,9 @@ export const Actividad6p = () => {
                 Por lo tanto, el dominio de la función es:
               </h1>
               <div className="flex gap-2 my-2">
-                <h1 className="text-blue-800 text-2xl"> ( − ∞ , 0 ]</h1>
+                <h1 className="text-blue-800 text-2xl"> ( − ∞ , -7/2 ]</h1>
                 <h1 className="text-black text-2xl">U</h1>{" "}
-                <h1 className="text-blue-800 text-2xl">[ 1/4 , ∞ )</h1>
+                <h1 className="text-blue-800 text-2xl">[ 1 , ∞ )</h1>
               </div>
             </div>
           </div>
@@ -113,7 +99,7 @@ export const Actividad6p = () => {
                     value="Correcto" 
                     selectedValue={selectedValue} 
                     onChange={handleCheckboxChange}
-                    responseExpose={"(-infinito ; +infinito)"}
+                    responseExpose={"(-infinito ; -7/2] U [1, +infinito)"}
                     />
                     </li>
                     <li>
