@@ -76,9 +76,9 @@ export const Actividad1p = () => {
             className={"py-2 items-start"}
             answer1="(-inf,0]"
             answer2="[1/4,inf)"
-            handleValidation={handleValidation} // Acá pasa la función de validación
-            responseMessage={responseMessage}   // Este da el mensaje de respuesta
-            messageColor={messageColor}         // Gera este pasa el color del mensaje
+            handleValidation={handleValidation} 
+            responseMessage={responseMessage}   
+            messageColor={messageColor}         
           />
           <button
             className="h-10 w-40 mb-2 bg-yellow-600 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
