@@ -157,7 +157,7 @@ export const Actividad = () => {
 
   return (
     <div className="main">
-      <h1 className="text-3xl">
+      <h1 className="text-3xl mb-4">
         <b>Dominio de funciones</b>
       </h1>
       <div className="bg-gray-200 rounded m-2 p-2 border-blue-gray-300 border-2 w-screen container text-black text-xl">
@@ -304,34 +304,22 @@ export const Actividad = () => {
                         border: "solid, black, 2px",
                       }}
                     />
-                    <button
-                      type="submit"
-                      onClick={handleSubmit}
-                      style={{
-                        backgroundColor: "#AABFC6",
-                        color: "#000",
-                        marginLeft: "10px",
-                        padding: "5px",
-                        border: "solid, black, 2px",
-                        borderRadius: "5px",
-                      }}
-                    >
-                      Responder
-                    </button>
-                    <button
-                      // type="submit"
-                      onClick={() => setOpenHelp(!openHelp)}
-                      style={{
-                        backgroundColor: "#AABFC6",
-                        color: "#000",
-                        marginLeft: "10px",
-                        padding: "5px",
-                        border: "solid, black, 2px",
-                        borderRadius: "5px",
-                      }}
-                    >
-                      Ayuda
-                    </button>
+                    <div>
+                      <button
+                        type="submit"
+                        onClick={handleSubmit}
+                        className="bg-blue-500 text-white w-auto h-10 border-2 border-black rounded-lg p-1"
+                      >
+                        Responder
+                      </button>
+                      <button
+                        // type="submit"
+                        onClick={() => setOpenHelp(!openHelp)}
+                        className="bg-yellow-600 m-2 w-16 text-white  h-10 border-2 border-black rounded-lg"
+                      >
+                        Ayuda
+                      </button>
+                    </div>
                   </>
                 )}
               </div>
@@ -468,7 +456,7 @@ export const Actividad = () => {
           {[
             "x",
             "y",
-            "z",
+            "∞",
             "π",
             "^2",
             "^n",
@@ -476,34 +464,54 @@ export const Actividad = () => {
             "e",
             "<",
             ">",
-            "a/b",
             "(",
             ")",
-            "|.|",
+            "[",
+            "]",
             ",",
             "=",
           ].map((item) => (
             <button
               key={item}
               onClick={inputFocus ? () => write2(item) : () => write(item)}
-              className="flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center bg-white hover:scale-105 duration-100 ease-in"
+              className={`flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center  hover:scale-105 duration-100 ease-in ${
+                { item } == "Delete" ? "bg-red-500" : "bg-white"
+              }`}
+              // `bg-${item === "Delete " ? ("bg-red-500 ") : null} flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center bg-white hover:scale-105 duration-100 ease-in`
             >
               {item}
             </button>
           ))}
         </div>
         <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
-          {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", "/", 0, ".", "="].map(
-            (item) => (
-              <button
-                key={item}
-                onClick={inputFocus ? () => write2(item) : () => write(item)}
-                className="flex shadow-lg justify-center m-1 p-1 rounded text-xl items-center bg-white hover:scale-105 duration-100 ease-in"
-              >
-                {item}
-              </button>
-            )
-          )}
+          {[
+            1,
+            2,
+            3,
+            "+",
+            4,
+            5,
+            6,
+            "-",
+            7,
+            8,
+            9,
+            "*",
+            "/",
+            0,
+            ".",
+            "Delete",
+          ].map((item) => (
+            <button
+              key={item}
+              onClick={inputFocus ? () => write2(item) : () => write(item)}
+              className={`flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center  hover:scale-105 duration-100 ease-in ${
+                item == "Delete" ? "bg-red-500" : "bg-white"
+              }`}
+            >
+              {item}
+            </button>
+          ))}
         </div>
       </div>
     </div>

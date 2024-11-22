@@ -49,14 +49,14 @@ export function CheckResponse({ selectedValue }) {
   validar === true ? ActivitiesStatus(validar) : ActivitiesStatus(false);
 
   return (
-    <div className="flex justify-center mt-4">
+    <div className="flex mt-4">
       <div className={`mt-2 ${messageColor} text-lg font-semibold`}>
         {responseMessage}
       </div>
 
       <button
         onClick={(sendResponse, correccion)}
-        className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
+        className="px-6 py-2 mb-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
       >
         Responder
       </button>
@@ -174,19 +174,16 @@ export function ActivitieModel({
 //   );
 // }
 
-
-
-
-
 export function InputResponse({
   answer1,
   answer2,
   className,
+  valorTeclado,
   separar,
   typeAnswer,
   handleValidation, // Recibis la validacion de un padre
-  responseMessage,   // Recibis el mensaje de respuesta
-  messageColor,      // Recibe el color
+  responseMessage, // Recibis el mensaje de respuesta
+  messageColor, // Recibe el color
 }) {
   return (
     <div className={`flex flex-col ${className}`}>
@@ -222,7 +219,6 @@ export function InputResponse({
     </div>
   );
 }
-
 
 export function Surrender(nextOption) {
   return (

@@ -1,13 +1,25 @@
 import React, { useState } from "react";
 import { ActivitieModel, InputResponse } from "../hooks/allHooks";
 import img3 from "../public/img/funcion3.png";
+import imgguia3 from "../public/img/imgguia3.png";
 import { Navigate, Link } from "react-router-dom";
-
+import ActivitiesStatus from "../hooks/ActivitiesStatus";
 export function Actividad2p() {
   const [responseMessage, setResponseMessage] = useState("");
   const [messageColor, setMessageColor] = useState("text-gray-500");
+  const [validar, setValidar] = useState(false);
+  const [openHelp, setOpenHelp] = useState(false);
+  const [valorTeclado, setValorTeclado] = useState("");
+  const [valorTeclado2, setValorTeclado2] = useState("");
+  const [inputFocus, setInputFocus] = useState(false);
+  const write = (value) => {
+    setValorTeclado((prev) => prev + value);
+  };
 
-  // Acá la Función que valida las respuestas
+  const write2 = (value) => {
+    setValorTeclado2((prev) => prev + value);
+  };
+  // Acá laFunción que valida las respuestas
   const handleValidation = () => {
     let response1Value = document.getElementById("response1").value;
     let response2Value = document.getElementById("response2").value;
@@ -16,11 +28,14 @@ export function Actividad2p() {
     if (response1Value === "13" && response2Value === "1") {
       setResponseMessage("¡Respuesta correcta!");
       setMessageColor("text-green-500");
+      setValidar(true);
     } else {
       setResponseMessage("Respuesta incorrecta");
       setMessageColor("text-red-500");
+      setValidar(false);
     }
   };
+  validar === true ? ActivitiesStatus(validar) : ActivitiesStatus(false);
 
   return (
     <div className="justify-start w-full h-full">
@@ -31,22 +46,127 @@ export function Actividad2p() {
           guide='"INFINITO" debe escribirse como "inf", en caso de ser negativo agreger un "-" al inicio'
           description="Observa atentamente y halla el dominio de la funcón"
         />
+        <div className="bg-gray-200 rounded m-2 p-2 border-blue-gray-300 border-2 w-screen container text-black text-xl">
+          <h1 className="text-black text-2xl">
+            Como ejemplo usaremos la siguiente función:
+          </h1>
+          <br />
+          <div className="rounded border-blue-gray-300 border-2 w-48">
+            <img src={imgguia3} className=" " alt="" />
+          </div>
+          <br />
+          <br />
+          <h1 className="text-black text-2xl">
+            Paso 1: Encontrar las restricciones para cada raíz cuadrada
+          </h1>{" "}
+          <br />
+          1_Para la raíz √(x^2 - 1) ​ , la expresión dentro de la raíz es 5+𝑦
+          debe ser mayor o igual a 0:
+          <br />
+          <br />
+          <div className="flex">
+            <h1 className="text-black text-2xl">x^2 - 1 ≥ 0 </h1>
+            <h1 className="text-light-blue-900 text-2xl">{"=>"}</h1>{" "}
+            <h1 className="text-black text-2xl">x^2 ≥ 1</h1>
+          </div>
+          <br /> Las 2 soluciones posibles son estas:
+          <br />
+          <br />
+          x ≥ 1 o x ≤ -1
+          <br />
+          <h1 className="text-black text-2xl">
+            Paso 2: Considerar el denominador
+          </h1>
+          <br />
+          Queremos evitar que el denominador sea 0. Por ende debemos excluir los
+          valores de x que hagan que x^2 - 1 = 0, es decir, x = 1 y x = -1
+          <br />
+          <br />
+          <h1 className="text-black text-2xl">Conclusión</h1>
+          <h1 className="text-black text-2xl">x∈(−∞,−1)∪(1,∞)</h1>
+        </div>
+
         <div className="py-5">
           <img src={img3} className=" " alt="" />
         </div>
+
+        {openHelp ? (
+          <div>
+            <div className="container border-2 border-blue-gray-400 rounded p-3 my-3 bg-gray-200">
+              <h1 className="text-2xl text-blue-800">Resolucion:</h1>
+              <br />
+              <h1 className="text-black text-xl">
+                El unico requisito es que el denomiador no puede ser 0, por ende
+                la funcion dentro de la raiz del denominador no tiene que ser 0
+              </h1>
+              <br />
+              <h1 className="text-black text-xl">
+                Paso 1: Encontrar la solucion de x^2 + 4x - 5 = 0:
+              </h1>
+              <br />
+              <div className="flex">
+                {/* <h1 className="text-light-blue-900 text-2xl">=></h1>{" "} /}
+                <h1 className="text-blue-800 text-2xl"> Quedando dos resultados x = 1 y x = -5 </h1>
+              </div>
+              <br />
+              {/ <br /> */}
+                <h1 className="flex">
+                  Por lo tanto, el dominio de la función es:
+                </h1>
+                <div className="flex gap-2 my-2">
+                  <h1 className="text-blue-800 text-2xl">
+                    {" "}
+                    Todos los Reales excepto el 1 y el -5{" "}
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+
         <div className="flex flex-col">
-          <InputResponse
-            answer1={13}
-            answer2={1}
-            separar={"---"}
-            typeAnswer={false} 
-            handleValidation={handleValidation}
-            responseMessage={responseMessage} 
-            messageColor={messageColor} 
-          />
+          <div className={`flex flex-col `}>
+            <div className={` ${messageColor} my-2 text-lg font-semibold`}>
+              {responseMessage}
+            </div>
+            <div className="flex space-x-2 items-center">
+              <input
+                type="text"
+                id="response1"
+                value={valorTeclado}
+                onChange={(e) => setValorTeclado(e.target.value)}
+                onFocus={(e) => e.target.select(setInputFocus(false))}
+                placeholder="-xx ; xx"
+                maxLength={10}
+                className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+              <span className="text-xl">U</span>
+              <input
+                type="text"
+                id="response2"
+                value={valorTeclado2}
+                onChange={(e) => setValorTeclado2(e.target.value)}
+                onFocus={(e) => e.target.select(setInputFocus(true))}
+                placeholder="-xx ; xx"
+                maxLength={10}
+                className="px-4 py-2 border-2 border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+
+            <div className="flex justify-start mt-4">
+              <button
+                onClick={handleValidation} // Llamamos la función de validación recibida desde el padre
+                className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
+              >
+                Responder
+              </button>
+            </div>
+          </div>
           <button
             className="h-10 w-40 mb-2 bg-yellow-600 text-white font-semibold rounded-md hover:bg-green-600 transition duration-200"
-            onClick={() => null} 
+            onClick={() => setOpenHelp(!openHelp)}
           >
             Ayuda
           </button>
@@ -60,11 +180,11 @@ export function Actividad2p() {
           </button>
         </div>
         <div className="my-4 flex bg-blue-gray-100 rounded-xl flex-row w-full">
-          <div className="grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
+          <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
             {[
               "x",
               "y",
-              "z",
+              "∞",
               "π",
               "^2",
               "^n",
@@ -72,32 +192,54 @@ export function Actividad2p() {
               "e",
               "<",
               ">",
-              "a/b",
               "(",
               ")",
-              "|.|",
+              "[",
+              "]",
               ",",
               "=",
             ].map((item) => (
               <button
                 key={item}
-                className="flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center bg-white hover:scale-105 duration-100 ease-in"
+                onClick={inputFocus ? () => write2(item) : () => write(item)}
+                className={`flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center  hover:scale-105 duration-100 ease-in ${
+                  { item } == "Delete" ? "bg-red-500" : "bg-white"
+                }`}
+                // `bg-${item === "Delete " ? ("bg-red-500 ") : null} flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center bg-white hover:scale-105 duration-100 ease-in`
               >
                 {item}
               </button>
             ))}
           </div>
-          <div className="grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
-            {[1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", "/", 0, ".", "="].map(
-              (item) => (
-                <button
-                  key={item}
-                  className="flex shadow-lg justify-center m-1 p-1 rounded text-xl items-center bg-white hover:scale-105 duration-100 ease-in"
-                >
-                  {item}
-                </button>
-              )
-            )}
+          <div className=" grid grid-cols-4 grid-rows-4 w-full h-full m-4 ">
+            {[
+              1,
+              2,
+              3,
+              "+",
+              4,
+              5,
+              6,
+              "-",
+              7,
+              8,
+              9,
+              "*",
+              "/",
+              0,
+              ".",
+              "Delete",
+            ].map((item) => (
+              <button
+                key={item}
+                onClick={inputFocus ? () => write2(item) : () => write(item)}
+                className={`flex m-1 p-1 shadow-lg justify-center text-xl rounded items-center  hover:scale-105 duration-100 ease-in ${
+                  item == "Delete" ? "bg-red-500" : "bg-white"
+                }`}
+              >
+                {item}
+              </button>
+            ))}
           </div>
         </div>
       </div>
